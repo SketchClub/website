@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#__next {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+#particles-js {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  position: fixed;
+  margin: 0%;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.img-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+}
+
+a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+//scrollbar
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(50, 50, 50);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(120, 120, 120);
+}
+
+@mixin flex($center: true, $column: false) {
+  display: flex;
+  @if ($center) {
+    justify-content: center;
+    align-items: center;
+  }
+  @if ($column) {
+    flex-direction: column;
+  }
+} // @include flex($center: true, $column: true);
