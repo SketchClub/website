@@ -98,12 +98,9 @@ export default function Home({ queryProps }: { queryProps: QueryProps }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  async function getCommonData() {
-    return await gqlclient.request(getCommonWebContent);
-  }
   await reactQueryClient.prefetchQuery({
     queryKey: ["common-data"],
-    queryFn: getCommonData
+    queryFn: gqlclient.request(getCommonWebContent) as any
   });
   return {
     props: {
