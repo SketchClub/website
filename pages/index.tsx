@@ -49,6 +49,8 @@ export default function Home({ queryProps }: { queryProps: QueryProps }) {
   const [redirectUrl, setRedirectUrl] = useState<string>("");
   const router = useRouter();
   useEffect(() => {
+    const commonData = getDataFromQueryKey(["common-data"], queryProps.queries);
+    console.log(">>>", commonData);
     setGlobalState((prevGlobalState: any) => {
       return { ...prevGlobalState, commonData: getDataFromQueryKey(["common-data"], queryProps.queries) };
     });
@@ -98,9 +100,12 @@ export default function Home({ queryProps }: { queryProps: QueryProps }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  async function getCommonData() {
+    return await gqlclient.request(getCommonWebContent);
+  }
   await reactQueryClient.prefetchQuery({
     queryKey: ["common-data"],
-    queryFn: gqlclient.request(getCommonWebContent) as any
+    queryFn: getCommonData
   });
   return {
     props: {

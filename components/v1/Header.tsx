@@ -52,7 +52,7 @@ export default function Header() {
         <Image src="/assets/images/logo.png" alt="Sketch logo" fill sizes="100%" style={{ objectFit: "cover" }} />
       </Link>
       <div className="btns">
-        <Link href="/events" aria-label="Events">
+        <Link href="/v1/events" aria-label="Events">
           <Button variant="outline-light" id="btn_eve_head">
             Our Events
           </Button>
