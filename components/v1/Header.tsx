@@ -133,13 +133,23 @@ export default function Header() {
               }}
               className="icons"
             >
-              <a href="https://instagram.com/srmsketch" target="_blank" rel="noreferrer" aria-label="Sketch Instagram">
+              <a
+                href="https://instagram.com/srmsketch"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Sketch Instagram"
+              >
                 <AiFillInstagram color="black" />
               </a>
-              <a href="https://discord.gg/SCCkz4yX9j" target="_blank" rel="noreferrer" aria-label="Sketch Discord">
+              <a
+                href="https://discord.gg/SCCkz4yX9j"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Sketch Discord"
+              >
                 <FaDiscord color="black" />
               </a>
-              <a href="mailto:sketch.srm@gmail.com" target="_blank" rel="noreferrer" aria-label="Sketch Email">
+              <a href="mailto:sketch.srm@gmail.com" target="_blank" rel="noreferrer noopener" aria-label="Sketch Email">
                 <MdEmail color="black" />
               </a>
             </li>
