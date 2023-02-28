@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./_app";
 
-import { main_desc } from "../components/info";
 import { GetServerSideProps } from "next";
 
 import reactQueryClient from "../clients/react-query-client";
@@ -64,7 +63,7 @@ export default function Home({ queryProps }: { queryProps: QueryProps }) {
     <>
       <Head>
         <title>~ SKETCH ~</title>
-        <meta name="description" content={main_desc} />
+        <meta name="description" content={"Sketch Club"} />
       </Head>
       <main id="v">
         <h1>Welcome to sketch</h1>
