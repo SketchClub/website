@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { mainRoutes } from "../utils/common-consts";
 import { isStringInArray } from "../utils/common-functions";
-import Error from "next/error";
+import Error from "../components/Error";
 
 export default function NotFound() {
   const router = useRouter();
@@ -19,5 +19,5 @@ export default function NotFound() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return isLoading ? <>...</> : <Error statusCode={400} />;
+  return isLoading ? <>...</> : <Error statusCode={404} />;
 }

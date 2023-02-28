@@ -1,5 +1,4 @@
 import "../styles/style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import { QueryClientProvider, Hydrate } from "@tanstack/react-query";
 
@@ -47,6 +46,9 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (versionConst.indexOf(router.pathname.split("/")[1]) > -1)
       setGlobalState((prevGlobalState) => ({ ...prevGlobalState, version: router.pathname.split("/")[1] as any }));
+    if (router.asPath == "/") {
+      setGlobalState((prevGlobalState) => ({ ...prevGlobalState, version: null }));
+    }
   }, [router]);
   useEffect(() => {
     console.log(logoText);
