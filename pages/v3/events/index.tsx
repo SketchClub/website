@@ -9,6 +9,7 @@ import { getDataFromQueryKey } from "../../../utils/common-functions";
 import { EventType } from "../types";
 import Image from "next/image";
 import React from "react";
+import { formatDateAndTime } from "@contentful/f36-datetime";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
@@ -40,12 +41,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 function EventsComponent({
   title,
-  // date,
+  date,
   smallDescription,
   picUrl,
 }: {
   title: string;
-  // date?: string;
+  date: string;
   smallDescription: string;
   picUrl: string;
 }) {
@@ -58,7 +59,7 @@ function EventsComponent({
         <Image src={picUrl} alt="event" fill />
       </div>
       <h3>{title}</h3>
-      {/* <span>{formatDateAndTime(date, "day")}</span> */}
+      <span>{formatDateAndTime(date, "day")}</span>
       <p>{smallDescription}</p>
     </Link>
   );
@@ -87,7 +88,7 @@ export default function Events({ qup }: { qup: QueryProps }) {
                 <EventsComponent
                   title={type.title}
                   picUrl={type.picture.url}
-                  // date={type.date}
+                  date={type.date}
                   smallDescription={type.smallDescription}
                   key={index}
                 />
@@ -107,7 +108,7 @@ export default function Events({ qup }: { qup: QueryProps }) {
                 <EventsComponent
                   title={type.title}
                   picUrl={type.picture.url}
-                  // date={type.date}
+                  date={type.date}
                   smallDescription={type.smallDescription}
                   key={index}
                 />

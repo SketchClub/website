@@ -54,8 +54,10 @@
   @import "./pages/v3/home";
   @import "./pages/v3/events";
   @import "./pages/v3/about";
+  @import "./pages/v3/members";
 
   @import "./components/v3/header";
+  @import "./components/v3/footer";
 
   background: var(--v3-accent-color);
   color: white;
