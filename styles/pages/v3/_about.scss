@@ -1,0 +1,178 @@
+#about {
+  margin-top: 10vh;
+  width: 100%;
+  height: auto;
+  h1 {
+    text-align: end;
+    font-size: 5rem;
+    letter-spacing: 5px;
+    margin: 0 2vw 20px 60%;
+    border-bottom: 1px solid var(--v3-secondary-color);
+  }
+  h2 {
+    font-size: 1.8rem;
+    font-family: var(--v3-font-sans-serif-2);
+    text-transform: uppercase;
+  }
+  p {
+    text-shadow: (0 0 1px rgb(225, 225, 225)), (0 0 5px rgb(225, 225, 225));
+  }
+  .about-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    padding: 40px 40px 80px 40px;
+    .img-container {
+      height: 500px;
+      width: 800px;
+      position: relative;
+      padding: 5%;
+      overflow: visible !important;
+      &::before {
+        content: "";
+        position: absolute;
+        border: 3px solid var(--v3-secondary-color);
+        width: 104%;
+        align-self: center;
+        height: 104%;
+        z-index: 1;
+      }
+      img {
+        object-fit: cover;
+      }
+    }
+    .text-container {
+      width: 40%;
+      gap: 50px;
+      padding-left: 5%;
+      h2 {
+        color: var(--v3-primary-color);
+        font-weight: 600;
+        text-shadow: 0 0 5px var(--v3-primary-color), 0 0 5px black,
+          0 0 5px black;
+      }
+      .stats {
+        display: flex;
+        span {
+          margin: 0 30px;
+          text-transform: uppercase;
+          font-family: var(--v3-font-sans-serif-2);
+          word-spacing: 5px;
+          letter-spacing: 2px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .moto-container {
+    padding: 0 10vw;
+    .anim-card {
+      display: flex;
+      width: 100%;
+      &:nth-child(even) {
+        text-align: right;
+        flex-direction: row-reverse;
+        .anim-text {
+          align-items: flex-end;
+        }
+      }
+      .lottie-anim {
+        width: 30%;
+        aspect-ratio: 1;
+      }
+      .anim-text {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2 {
+          color: var(--v3-secondary-color);
+          margin-bottom: 20px;
+          font-weight: 600;
+          text-shadow: 0 0 5px var(--v3-secondary-color), 0 0 2px black,
+            0 0 2px black;
+        }
+        p {
+          width: 80%;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+      text-align: center;
+    }
+    .about-container {
+      display: block;
+      padding: 30px;
+      .img-container {
+        height: 220px;
+        width: 100%;
+        // overflow: visible !important;
+        &::before {
+          position: absolute;
+          width: 105%;
+          height: 108%;
+        }
+      }
+      .text-container {
+        width: 100%;
+        gap: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--v3-primary-color);
+        padding-left: 0;
+        h2 {
+          margin-top: 40px;
+        }
+      }
+    }
+    .moto-container {
+      padding: 0 5%;
+      .anim-card {
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-bottom: 15px;
+        &::before {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 20%;
+          background-color: var(--v3-secondary-color);
+          width: 60%;
+          height: 1px;
+        }
+        &:last-child::before {
+          height: 0;
+        }
+        &:nth-child(even) {
+          text-align: none;
+          flex-direction: row;
+          .anim-text {
+            align-items: center;
+          }
+        }
+        .lottie-anim {
+          width: 50%;
+          margin-left: 25%;
+          align-items: flex-end;
+          aspect-ratio: 1;
+        }
+        .anim-text {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          p {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}

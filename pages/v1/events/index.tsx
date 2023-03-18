@@ -9,28 +9,38 @@ import { getDataFromQueryKey } from "../../../utils/common-functions";
 
 export default function events({ qup }: { qup: QueryProps }) {
   const pastEvents = getDataFromQueryKey(["events", "past"], qup.queries);
-  const upcomingEvents = getDataFromQueryKey(["events", "upcoming"], qup.queries);
+  const upcomingEvents = getDataFromQueryKey(
+    ["events", "upcoming"],
+    qup.queries
+  );
+  console.log("this is we want", upcomingEvents);
   return <Link href="/v1/events/let's-dev">Event</Link>;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
-    return await gqlclient.request(getEvents, { eventType: "past", wantDesc: true });
+    return await gqlclient.request(getEvents, {
+      eventType: "past",
+      wantDesc: true,
+    });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "past"],
-    queryFn: getPastEvents
+    queryFn: getPastEvents,
   });
   async function getUpcomingEvents() {
-    return await gqlclient.request(getEvents, { eventType: "upcoming", wantDesc: true });
+    return await gqlclient.request(getEvents, {
+      eventType: "upcoming",
+      wantDesc: true,
+    });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "upcoming"],
-    queryFn: getUpcomingEvents
+    queryFn: getUpcomingEvents,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };

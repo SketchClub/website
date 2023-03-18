@@ -11,12 +11,17 @@ export function isArraysEqual(a: any[] | QueryKey, b: any[] | QueryKey) {
   return true;
 }
 
-export function getDataFromQueryKey(key: QueryKey, allQueries: CustomQueryType[]) {
+export function getDataFromQueryKey(
+  key: QueryKey,
+  allQueries: CustomQueryType[]
+) {
   for (let i = 0; i < allQueries.length; i++) {
     let query = allQueries[i];
     if (isArraysEqual(query.queryKey, key)) {
       try {
-        return (query.state.data as any)[Object.keys(query.state.data as any)[0]];
+        return (query.state.data as any)[
+          Object.keys(query.state.data as any)[0]
+        ];
       } catch {
         return {};
       }

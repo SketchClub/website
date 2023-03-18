@@ -34,8 +34,8 @@
     font-weight: 500;
   }
   .black-text-outline {
-    text-shadow: #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px,
-      #000 0px 0px 3px;
+    text-shadow: #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px,
+      #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px;
   }
 
   @import "./pages/v1/home";
@@ -51,6 +51,71 @@
 // @import "./components/"
 
 //v3
-@import "./pages/v3/home";
+.v3 {
+  @import "./pages/v3/home";
+  @import "./pages/v3/events";
+  @import "./pages/v3/about";
+
+  @import "./components/v3/header";
+
+  background: var(--v3-accent-color);
+  color: white;
+  font-family: var(--v3-font-sans-serif-1);
+  & > #__next > section {
+    min-height: calc(100vh - var(--v3-footer-height));
+  }
+
+  .button {
+    cursor: pointer;
+    padding: 10px 25px;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    background: linear-gradient(
+      90deg,
+      var(--v3-primary-color),
+      var(--v3-secondary-color)
+    );
+    height: fit-content;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: var(--v3-font-sans-serif-2);
+    color: white;
+    position: relative;
+  }
+
+  h1::before,
+  h1::after {
+    position: absolute;
+    content: attr(data-text);
+    color: white;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  h1::before {
+    text-shadow: -5px 0 var(--v3-primary-color);
+  }
+
+  h1::after {
+    text-shadow: 5px 0 var(--v3-secondary-color);
+  }
+
+  p {
+    text-align: justify;
+  }
+}
 
 // @import "./components/"

@@ -1,0 +1,115 @@
+#home {
+  width: 100%;
+  background-color: var(--v3-accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .effect-container {
+    height: 500px;
+    width: 500px;
+    position: relative;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .img-container {
+      height: 250px;
+      width: 250px;
+      z-index: 1;
+      filter: drop-shadow(0 0 5px white);
+      img {
+        object-fit: contain;
+      }
+    }
+    .outline {
+      position: absolute;
+      z-index: 0;
+      &._1 {
+        height: 210px;
+        width: 210px;
+        filter: drop-shadow(0 0 5px var(--v3-primary-color))
+          drop-shadow(0 0 5px var(--v3-primary-color));
+        path {
+          stroke: var(--v3-primary-color);
+        }
+      }
+      &._2 {
+        height: 290px;
+        width: 290px;
+        filter: drop-shadow(0 0 5px var(--v3-secondary-color))
+          drop-shadow(0 0 5px var(--v3-secondary-color));
+        path {
+          stroke: var(--v3-secondary-color);
+        }
+      }
+      &._3 {
+        height: 370px;
+        width: 370px;
+        filter: drop-shadow(0 0 5px var(--v3-primary-color))
+          drop-shadow(0 0 5px var(--v3-primary-color));
+        path {
+          stroke: var(--v3-primary-color);
+        }
+      }
+      &._4 {
+        height: 450px;
+        width: 450px;
+        filter: drop-shadow(0 0 5px var(--v3-secondary-color))
+          drop-shadow(0 0 5px var(--v3-secondary-color));
+        path {
+          stroke: var(--v3-secondary-color);
+        }
+      }
+    }
+  }
+  main {
+    width: 40%;
+    padding: 10px;
+    .button {
+      cursor: pointer;
+      padding: 10px 25px;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      color: white;
+      border: none;
+      background: linear-gradient(
+        90deg,
+        var(--v3-primary-color),
+        var(--v3-secondary-color)
+      );
+      height: fit-content;
+    }
+    a {
+      text-decoration: none;
+      font-weight: inherit;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    p {
+      padding: 40px 20px 20px 20px;
+      text-shadow: 0 0 5px white;
+    }
+    h1 {
+      font-size: 5rem;
+    }
+
+    h1::before {
+      animation: glitch-1 5s infinite reverse;
+    }
+
+    h1::after {
+      animation: glitch-2 5s linear infinite reverse;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    margin-top: 10vh;
+    flex-direction: column;
+    main {
+      width: 100%;
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+}
