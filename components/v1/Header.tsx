@@ -87,15 +87,6 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/blogs" aria-label="Blogs">
-                Blogs
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                navi();
-              }}
-            >
               <Link href="/contact" aria-label="Contact">
                 Contact us
               </Link>
@@ -114,9 +105,14 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/join" aria-label="Join Sketch">
+              <a
+                href="https://instagram.com/srmsketch"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Join Sketch"
+              >
                 Join us
-              </Link>
+              </a>
             </li>
             <li
               onClick={() => {

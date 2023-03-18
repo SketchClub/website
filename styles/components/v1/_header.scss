@@ -21,14 +21,26 @@
     justify-content: space-evenly;
     width: auto;
     height: 100%;
-  }
-  .btns * {
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-  .btns > a {
-    height: auto !important;
-    width: auto;
+    * {
+      margin: 0 8px;
+    }
+    & > a {
+      height: auto !important;
+      width: auto;
+      button {
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        &:hover {
+          background: white;
+          color: black;
+        }
+      }
+    }
   }
   a {
     /* padding-left: 03%; */

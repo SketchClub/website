@@ -1,0 +1,36 @@
+#Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw;
+  .intro {
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+    }
+    p {
+      width: 75%;
+      text-align: center;
+      margin: 2rem auto;
+      font-size: 1.5rem;
+    }
+  }
+  .anims {
+    width: 100%;
+    span {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .anims-container {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-evenly;
+      & > div.anim {
+        width: calc(100% / 4);
+      }
+    }
+  }
+}
