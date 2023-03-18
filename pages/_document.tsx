@@ -4,9 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <script async src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" />
+        <script
+          async
+          src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
+        />
       </Head>
       <body>
         <div id="particles-js" className="no-mobile"></div>

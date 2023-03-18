@@ -69,7 +69,7 @@ function Cardpast({ name, picurl }: { name: string; picurl: string }) {
   );
 }
 
-export default function events({ qup }: { qup: QueryProps }) {
+export default function Events({ qup }: { qup: QueryProps }) {
   const pastEvents: EventType[] = getDataFromQueryKey(
     ["events", "past"],
     qup.queries
@@ -78,7 +78,7 @@ export default function events({ qup }: { qup: QueryProps }) {
     ["events", "upcoming"],
     qup.queries
   ).items;
-
+  console.log("hi", upcomingEvents);
   useEffect(() => {
     const h2 = (document.querySelector("#events h2") as HTMLElement) || null;
     var tagWidth = h2.offsetWidth;
@@ -101,7 +101,7 @@ export default function events({ qup }: { qup: QueryProps }) {
       </Head>
       <h2>Ninja Wars !</h2>
       <div className="events-container">
-        {upcomingEvents && (
+        {upcomingEvents.length !== 0 && (
           <>
             <div className="upcomings">
               <h3>Upcoming</h3>
@@ -122,7 +122,7 @@ export default function events({ qup }: { qup: QueryProps }) {
             </div>
           </>
         )}
-        {pastEvents && (
+        {pastEvents.length !== 0 && (
           <>
             <div className="pasts">
               <h3>Past</h3>

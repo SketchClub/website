@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-function Events({
+function EventsComponent({
   title,
   // date,
   smallDescription,
@@ -64,7 +64,7 @@ function Events({
   );
 }
 
-export default function events({ qup }: { qup: QueryProps }) {
+export default function Events({ qup }: { qup: QueryProps }) {
   console.log("this is qup-queries", qup.queries);
   const pastEvents: EventType[] = getDataFromQueryKey(
     ["events", "past"],
@@ -78,13 +78,13 @@ export default function events({ qup }: { qup: QueryProps }) {
   return (
     <section id="events">
       <h1 data-text="Events">Events</h1>
-      {upcomingEvents && (
+      {upcomingEvents.length !== 0 && (
         <React.Fragment>
           <h2>Upcoming Events</h2>
           <div className="all-event-container upcoming">
-            {(upcomingEvents ?? []).map((type: any, index: number) => {
+            {upcomingEvents.map((type: any, index: number) => {
               return (
-                <Events
+                <EventsComponent
                   title={type.title}
                   // picUrl={type.picture.url}
                   // date={type.date}
@@ -96,23 +96,26 @@ export default function events({ qup }: { qup: QueryProps }) {
           </div>
         </React.Fragment>
       )}
+      {pastEvents.length !== 0 && (
+        <>
+          <h2>Past Events</h2>
+          <div className="all-event-container past">
+            {pastEvents.map((type: any, index: number) => {
+              console.log(type.title);
 
-      <h2>Past Events</h2>
-      <div className="all-event-container past">
-        {(pastEvents ?? []).map((type: any, index: number) => {
-          console.log(type.title);
-
-          return (
-            <Events
-              title={type.title}
-              // picUrl={type.picture.url}
-              // date={type.date}
-              smallDescription={type.smallDescription}
-              key={index}
-            />
-          );
-        })}
-      </div>
+              return (
+                <EventsComponent
+                  title={type.title}
+                  // picUrl={type.picture.url}
+                  // date={type.date}
+                  smallDescription={type.smallDescription}
+                  key={index}
+                />
+              );
+            })}
+          </div>
+        </>
+      )}
     </section>
   );
 }

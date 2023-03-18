@@ -36,7 +36,7 @@ export const getMembers = gql`
 `;
 
 export const getEvents = gql`
-  query ($eventTaboutIntroype: String!, $wantDesc: Boolean!) {
+  query ($eventType: String!, $wantDesc: Boolean!) {
     eventCollection(where: { eventType: { type_contains: $eventType } }) {
       items {
         title
