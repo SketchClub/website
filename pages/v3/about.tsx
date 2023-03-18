@@ -1,25 +1,28 @@
-import { dehydrate } from "@tanstack/react-query";
-import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Lottie from "lottie-react";
-import React, { useEffect } from "react";
-import gqlclient from "../../clients/gql-client";
-import reactQueryClient from "../../clients/react-query-client";
-import { QueryProps } from "../../types";
-import { getDataFromQueryKey } from "../../utils/common-functions";
 import designJson from "../../public/assets/lottie/design_old.json";
 import deliverJson from "../../public/assets/lottie/deliver_old.json";
 import developJson from "../../public/assets/lottie/develop_old.json";
+import { useCommonData } from "../../hooks";
 
-export default function Home() {
+export default function About() {
+  const {
+    design,
+    deliver,
+    develop,
+    mission,
+    instagram,
+    numOfAlumni,
+    numOfMembers,
+  } = useCommonData();
   return (
     <section id="about">
       <h1 data-text="About">About</h1>
       <div className="about-container">
         <div className="img-container">
           <Image
-            src="/assets/images/reyna.jpg"
+            src="/assets/images/sketch_fam.jpg"
             className="nature-img"
             alt="nature"
             fill
@@ -27,12 +30,12 @@ export default function Home() {
         </div>
         <div className="text-container">
           <h2>Vision</h2>
-          <p>{""}</p>
+          <p>{mission}</p>
           <div className="stats">
-            <span>40 members</span>
-            <span>1 mentor</span>
+            <span>{numOfMembers} Members</span>
+            <span>{numOfAlumni} Alumni</span>
           </div>
-          <Link href="https://www.google.co.in/">
+          <Link href={`https://www.instagram.com/` + instagram}>
             <button type="button" className="button">
               Join Us
             </button>
@@ -43,21 +46,21 @@ export default function Home() {
         <div className="anim-card">
           <div className="anim-text">
             <h2>Design</h2>
-            <p>{""}</p>
+            <p>{design}</p>
           </div>
           <Lottie className="lottie-anim design" animationData={designJson} />
         </div>
         <div className="anim-card">
           <div className="anim-text">
             <h2>Develop</h2>
-            <p>{""}</p>
+            <p>{develop}</p>
           </div>
           <Lottie className="lottie-anim develop" animationData={developJson} />
         </div>
         <div className="anim-card">
           <div className="anim-text">
             <h2>Deliver</h2>
-            <p>{""}</p>
+            <p>{deliver}</p>
           </div>
           <Lottie className="lottie-anim deliver" animationData={deliverJson} />
         </div>

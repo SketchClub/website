@@ -46,8 +46,11 @@
 // @import "./components/"
 
 //v2
-@import "./pages/v2/home";
-@import "./pages/v2/events";
+.v2 {
+  @import "./pages/v2/home";
+  @import "./pages/v2/events";
+}
+
 // @import "./components/"
 //v3
 .v3 {
@@ -55,6 +58,7 @@
   @import "./pages/v3/events";
   @import "./pages/v3/about";
   @import "./pages/v3/members";
+  @import "./pages/v3/event";
 
   @import "./components/v3/header";
   @import "./components/v3/footer";
@@ -65,7 +69,6 @@
   & > #__next > section {
     min-height: calc(100vh - var(--v3-footer-height));
   }
-
   .button {
     cursor: pointer;
     padding: 10px 25px;

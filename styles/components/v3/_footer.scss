@@ -15,6 +15,9 @@ footer {
     font-size: 2rem;
     font-weight: 500;
     z-index: 1;
+    &:hover {
+      color: inherit;
+    }
   }
   .motto {
     span {
@@ -37,6 +40,9 @@ footer {
       a {
         text-align: center;
         margin: 15px;
+        &:hover {
+          color: inherit;
+        }
       }
     }
   }
@@ -60,6 +66,9 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
+        &:hover {
+          color: inherit;
+        }
         &::before {
           position: absolute;
           content: "";

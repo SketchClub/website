@@ -53,7 +53,7 @@ function EventsComponent({
   return (
     <Link
       className="event-card-container"
-      href={`/events/${title.replaceAll(" ", "-")}`}
+      href={`/v3/events/${title.replaceAll(" ", "-")}`}
     >
       <div className="img-container">
         <Image src={picUrl} alt="event" fill />

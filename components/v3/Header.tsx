@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FiInstagram, FiMail, FiLinkedin } from "react-icons/fi";
+import { useCommonData } from "../../hooks";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,13 +10,14 @@ export default function Header() {
     setMenuOpen(false);
   }
 
+  const { linkedIn, instagram, email } = useCommonData();
   return (
     <header>
       <Link className="logo" href={"/v3"}>
         <div className="img-container">
           <Image
             priority
-            src="/assets/images/logo.png"
+            src="/assets/images/logo-grad-2.png"
             className="logo-img"
             alt="logo"
             fill
@@ -40,13 +42,13 @@ export default function Header() {
           Members
         </Link>
         <div className="socials-link" onClick={close}>
-          <Link href="/">
+          <Link href={`https://www.instagram.com/` + instagram}>
             <FiInstagram />
           </Link>
-          <Link href="/">
+          <Link href={"mailto:" + email}>
             <FiMail />
           </Link>
-          <Link href="/">
+          <Link href={`https://www.linkedin.com/company/` + linkedIn}>
             <FiLinkedin />
           </Link>
         </div>

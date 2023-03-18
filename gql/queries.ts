@@ -10,7 +10,12 @@ export const getCommonWebContent = gql`
         design
         develop
         deliver
+        instagram
+        linkedIn
         footerText
+        email
+        numOfAlumni
+        numOfMembers
       }
     }
   }
