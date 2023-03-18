@@ -7,7 +7,7 @@ import { getEvents } from "../../../gql/queries";
 import { QueryProps } from "../../../types";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
 import { EventType } from "../types";
-// import Image from "next/image";
+import Image from "next/image";
 import React from "react";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -42,12 +42,12 @@ function EventsComponent({
   title,
   // date,
   smallDescription,
-}: // picUrl,
-{
+  picUrl,
+}: {
   title: string;
   // date?: string;
   smallDescription: string;
-  // picUrl: string;
+  picUrl: string;
 }) {
   return (
     <Link
@@ -55,7 +55,7 @@ function EventsComponent({
       href={`/events/${title.replaceAll(" ", "-")}`}
     >
       <div className="img-container">
-        {/* <Image src={picUrl} alt="event" fill /> */}
+        <Image src={picUrl} alt="event" fill />
       </div>
       <h3>{title}</h3>
       {/* <span>{formatDateAndTime(date, "day")}</span> */}
@@ -86,7 +86,7 @@ export default function Events({ qup }: { qup: QueryProps }) {
               return (
                 <EventsComponent
                   title={type.title}
-                  // picUrl={type.picture.url}
+                  picUrl={type.picture.url}
                   // date={type.date}
                   smallDescription={type.smallDescription}
                   key={index}
@@ -106,7 +106,7 @@ export default function Events({ qup }: { qup: QueryProps }) {
               return (
                 <EventsComponent
                   title={type.title}
-                  // picUrl={type.picture.url}
+                  picUrl={type.picture.url}
                   // date={type.date}
                   smallDescription={type.smallDescription}
                   key={index}
