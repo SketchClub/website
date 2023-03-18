@@ -27,7 +27,7 @@
       top: -3px;
       left: calc(20% / 2 - 3px);
       width: 80%;
-      height: 100%;
+      height: 112%;
       position: absolute;
       border-top: 3px solid var(--v3-accent-color);
       border-bottom: 3px solid var(--v3-accent-color);
@@ -89,31 +89,34 @@
         z-index: 1;
         font-family: var(--v3-font-sans-serif-2);
         font-weight: 800;
-        padding: 0 1em 5px 1em;
+        padding: 5px 1em 5px 1em;
       }
       span {
         min-width: 60%;
         text-align: center;
         font-size: 1.4rem;
+        padding-top: 5px;
         position: absolute;
         bottom: 0;
         clip-path: polygon(10% 0%, 90% 0, 100% 102%, 0% 102%);
-        background-color: aqua;
         z-index: 1;
       }
       p {
         position: absolute;
         height: 100%;
-        width: 100%;
+        width: 90%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: rgb(255, 255, 255);
-        text-shadow: (0 0 1px rgb(225, 225, 225)), (0 0 5px rgb(225, 225, 225));
+        text-shadow: (0 0 1px rgb(0, 0, 0)), (0 0 5px rgb(0, 0, 0)),
+          (0 0 1px rgb(0, 0, 0)), (0 0 5px rgb(0, 0, 0)), (0 0 1px rgb(0, 0, 0)),
+          (0 0 5px rgb(0, 0, 0));
         letter-spacing: 1.5px;
         word-wrap: break-word;
+        text-align: center;
       }
-      .img-container {  
+      .img-container {
         height: 100%;
         width: 100%;
         transition: 0.3s all ease-in-out;
@@ -130,6 +133,7 @@
         }
       }
       &:hover {
+        color: white;
         p {
           transition: 0.3s all ease-in-out;
           opacity: 0;

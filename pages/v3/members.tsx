@@ -124,7 +124,7 @@ function Card({
       <span className="tag">{tag}</span>
       <div className="socials-container">
         <a
-          href={insta}
+          href={`https://www.instagram.com/` + insta}
           className="socials insta circle"
           target="_blank"
           rel="noopener noreferrer"

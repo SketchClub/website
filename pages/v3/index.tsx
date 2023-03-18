@@ -188,7 +188,7 @@ export default function Home() {
       <div className="effect-container">
         <div className="img-container">
           <Image
-            src="/assets/images/logo.png"
+            src="/assets/images/logo-grad-2.png"
             className="logo-img"
             alt="logo"
             fill

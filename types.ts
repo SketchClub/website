@@ -11,6 +11,11 @@ export interface CommonDataType {
   footerText: string;
   deliver: string;
   domains: string[];
+  instagram: string;
+  linkedIn: string;
+  numOfAlumni: number;
+  numOfMembers: number;
+  email: string;
 }
 
 export interface AppContextState {

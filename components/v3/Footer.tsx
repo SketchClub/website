@@ -2,11 +2,13 @@ import Link from "next/link";
 import React from "react";
 // which icons to use?
 import { FiInstagram, FiMail, FiLinkedin } from "react-icons/fi";
+import { useCommonData } from "../../hooks";
 
 export default function Footer() {
+  const { linkedIn, instagram, email } = useCommonData();
   return (
     <footer>
-      <Link href="/" className="title">
+      <Link href="/v3" className="title">
         Sketch
       </Link>
       <div className="motto">
@@ -26,13 +28,13 @@ export default function Footer() {
       <div className="socials">
         <span>Follow us</span>
         <div className="socials-link">
-          <Link href="/">
+          <Link href={`https://www.instagram.com/` + instagram}>
             <FiInstagram />
           </Link>
-          <Link href="/">
+          <Link href={"mailto:" + email}>
             <FiMail />
           </Link>
-          <Link href="/">
+          <Link href={`https://www.linkedin.com/company/` + linkedIn}>
             <FiLinkedin />
           </Link>
         </div>

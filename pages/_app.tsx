@@ -105,8 +105,12 @@ export default function App({ Component, pageProps, mainQuery }: MyProps) {
 App.getInitialProps = async (ctx: NextAppContext) => {
   async function getHomeDetails() {
     try {
-      const comData = await gqlclient.request(getCommonWebContent);
-      const domainsCollection = await gqlclient.request(getDomainNames);
+      const comData: Record<string, any> = await gqlclient.request(
+        getCommonWebContent
+      );
+      const domainsCollection: Record<string, any> = await gqlclient.request(
+        getDomainNames
+      );
       const domains: string[] = [];
       (domainsCollection?.domainCollection?.items ?? []).forEach(
         (domainObj: Record<string, string>) => {
