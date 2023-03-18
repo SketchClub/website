@@ -16,6 +16,16 @@ export const getCommonWebContent = gql`
   }
 `;
 
+export const getDomainNames = gql`
+  query {
+    domainCollection {
+      items {
+        title
+      }
+    }
+  }
+`;
+
 export const getMembers = gql`
   query ($memType: String!) {
     memberCollection(where: { memberType: { title_contains: $memType } }) {

@@ -10,16 +10,17 @@ import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { useEffect } from "react";
 import Head from "next/head";
-export interface Picture {
-  url: string;
-}
-export interface EventType {
-  title: string;
-  description: string;
-  smallDescription: string;
-  date: Date;
-  picture: Picture;
-}
+import { EventType } from "../../v3/types";
+// export interface Picture {
+//   url: string;
+// }
+// export interface EventType {
+//   title: string;
+//   description: string;
+//   smallDescription: string;
+//   date: Date;
+//   picture: Picture;
+// }
 
 function Card({
   name,
@@ -35,7 +36,7 @@ function Card({
   return (
     <Link href={`/events/${name.replaceAll(" ", "-")}`} className="cardu">
       <div className="img-container">
-        {/* <Image src={picurl} alt="event-photo" fill sizes="100%" /> */}
+        <Image src={picurl} alt="event-photo" fill sizes="100%" />
       </div>
       <div className="stuff-container">
         <h3>{name}</h3>
@@ -60,7 +61,7 @@ function Cardpast({ name, picurl }: { name: string; picurl: string }) {
   return (
     <Link href={`/events/${name.replaceAll(" ", "-")}`} className="cardp">
       <div className="img-container">
-        {/* <Image src={picurl} alt="event-photo" fill sizes="100%" /> */}
+        <Image src={picurl} alt="event-photo" fill sizes="100%" />
       </div>
       <div className="stuff-container">
         <h3>{name}</h3>
@@ -99,7 +100,10 @@ export default function Events({ qup }: { qup: QueryProps }) {
       <Head>
         <title>Events of Sketch</title>
       </Head>
-      <h2>Ninja Wars !</h2>
+      <div className="heading">
+        <h2>Ninja Wars !</h2>
+        <Image fill src="/assets/v2/sbg.jpg" alt="" className="bg-img" />
+      </div>
       <div className="events-container">
         {upcomingEvents.length !== 0 && (
           <>

@@ -1,10 +1,8 @@
 import "../styles/style.css";
 
-import { QueryClientProvider, Hydrate } from "@tanstack/react-query";
+import { QueryClientProvider, Hydrate, dehydrate } from "@tanstack/react-query";
 
 import type { AppProps } from "next/app";
-
-import localFont from "@next/font/local";
 
 import {
   useState,
@@ -19,6 +17,9 @@ import reactQueryClient from "../clients/react-query-client";
 import logoText from "../utils/logo-text";
 import { AppContextState } from "../types";
 import { versions as versionConst } from "../utils/common-consts";
+import { GetServerSideProps } from "next";
+import gqlclient from "../clients/gql-client";
+import { getCommonWebContent, getDomainNames } from "../gql/queries";
 
 const init: AppContextState = { version: null, commonData: null };
 
@@ -34,22 +35,8 @@ const V2_Footer = dynamic(() => import("../components/v2/Footer"));
 const V3_Header = dynamic(() => import("../components/v3/Header"));
 const V3_Footer = dynamic(() => import("../components/v3/Footer"));
 
-const kato = localFont({
-  src: "../styles/fonts/kato.ttf",
-  fallback: ["sans-serif"],
-  weight: "400",
-  variable: "--font-kato",
-  preload: true,
-});
-const hirosh = localFont({
-  src: "../styles/fonts/hirosh.ttf",
-  fallback: ["sans-serif"],
-  weight: "400",
-  variable: "--font-hirosh",
-  preload: true,
-});
-
 export default function App({ Component, pageProps }: AppProps) {
+  console.log("this", pageProps);
   const [globalState, setGlobalState] = useState<AppContextState>(init);
   const router = useRouter();
   useEffect(() => {
@@ -86,19 +73,6 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router]);
   useEffect(() => {
     console.log(logoText);
-    if (document.head.querySelector("style#dynamic-fonts") === null) {
-      const newStyleElem = document.createElement("style");
-      newStyleElem.setAttribute("id", "dynamic-fonts");
-      document.head.appendChild(newStyleElem);
-    }
-    (
-      document.head.querySelector("style#dynamic-fonts") as HTMLElement
-    ).innerHTML = `
-      :root{
-        --font-kato: ${kato.style.fontFamily};
-        --font-hirosh: ${hirosh.style.fontFamily};
-      }
-      `;
     return () => {
       console.clear();
     };
@@ -121,3 +95,24 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  async function getHomeDetails() {
+    try {
+      const comData = await gqlclient.request(getCommonWebContent);
+      const domains = await gqlclient.request(getDomainNames);
+      return { ...comData, domains: { ...domains } };
+    } catch {
+      return {};
+    }
+  }
+  await reactQueryClient.prefetchQuery({
+    queryKey: ["common-data"],
+    queryFn: getHomeDetails,
+  });
+  return {
+    props: {
+      mainQuery: dehydrate(reactQueryClient),
+    },
+  };
+};

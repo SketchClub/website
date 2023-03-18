@@ -8,15 +8,31 @@
   height: auto;
   padding: 2% 5%;
   font-family: var(--v2-font-hirosh);
-  h2 {
-    font-size: 6rem;
-    text-transform: uppercase;
-    background-image: url("/assets/images/sbg.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: 80% 47%;
-    font-family: var(--v2-font-hirosh);
+  min-height: 80vh;
+  .heading {
+    position: relative;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      width: 100%;
+      z-index: -1;
+      mix-blend-mode: lighten;
+      scale: 1.8;
+      margin-left: -30px;
+    }
+    h2 {
+      font-size: 5rem;
+    }
   }
+  // h2 {
+  //   font-size: 6rem;
+  //   text-transform: uppercase;
+  //   background-image: url("/assets/v2/sbg.jpg");
+  //   background-size: 100%;
+  //   background-repeat: no-repeat;
+  //   background-position: 80% 47%;
+  //   font-family: var(--v2-font-hirosh);
+  // }
   a {
     text-decoration: none;
   }
@@ -26,11 +42,10 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url("/assets/images/bg.png");
+    background-image: url("/assets/v2/bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     filter: grayscale(100%);
-    opacity: 0.3;
     z-index: -2;
     transform: rotate(180deg);
     top: 0;
@@ -197,7 +212,7 @@
         margin-top: 20px;
 
         .cardp {
-          height: 35vh;
+          height: 32.5vh;
           width: 70%;
           padding: 20px;
           background: linear-gradient(black, black) padding-box,
@@ -222,7 +237,7 @@
             align-items: center;
             justify-content: center;
             > h3 {
-              font-size: 1.3rem;
+              font-size: 1rem;
               background: -webkit-linear-gradient(
                 var(--v2-color2),
                 var(--v2-color4)
@@ -234,10 +249,10 @@
           }
         }
         .cardp:hover {
-          box-shadow: 0px 0px 30px 10px var(--v2-color2),
-            0px 0px 60px 10px var(--v2-color4),
-            inset 0px 0px 10px 10px var(--v2-color2),
-            inset 0px 0px 20px 10px var(--v2-color4);
+          box-shadow: 0px 0px 20px 5px var(--v2-color2),
+            0px 0px 30px 5px var(--v2-color4),
+            inset 0px 0px 5px 5px var(--v2-color2),
+            inset 0px 0px 10px 5px var(--v2-color4);
         }
       }
     }
@@ -296,7 +311,7 @@
               height: 100%;
               margin-top: 3%;
               & > h3 {
-                font-size: 1.3rem;
+                font-size: 1rem;
               }
               & > span {
                 font-size: 0.6rem;
