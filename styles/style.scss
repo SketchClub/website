@@ -34,8 +34,8 @@
     font-weight: 500;
   }
   .black-text-outline {
-    text-shadow: #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px,
-      #000 0px 0px 3px;
+    text-shadow: #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px,
+      #000 0px 0px 3px, #000 0px 0px 3px, #000 0px 0px 3px;
   }
 
   @import "./pages/v1/home";
@@ -47,9 +47,8 @@
 
 //v2
 @import "./pages/v2/home";
-
+@import "./pages/v2/events";
 // @import "./components/"
-
 //v3
 @import "./pages/v3/home";
 

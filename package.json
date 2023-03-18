@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/f36-datetime": "^4.30.3",
     "@next/font": "13.1.0",
     "@tanstack/react-query": "^4.24.10",
     "@types/node": "18.11.17",

@@ -1,0 +1,354 @@
+#events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--v2-font-color-main);
+  width: 100%;
+  height: auto;
+  padding: 2% 5%;
+  font-family: var(--v2-font-hirosh);
+  h2 {
+    font-size: 6rem;
+    text-transform: uppercase;
+    background-image: url("/assets/images/sbg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 80% 47%;
+    font-family: var(--v2-font-hirosh);
+  }
+  a {
+    text-decoration: none;
+  }
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("/assets/images/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    opacity: 0.3;
+    z-index: -2;
+    transform: rotate(180deg);
+    top: 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 20%;
+    width: 100%;
+    background: linear-gradient(var(--v2-main-bg), rgba(0, 0, 0, 0));
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .events-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+    .upcomings {
+      margin: 50px 10px;
+      width: 90%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      & > h3 {
+        font-size: 3rem;
+        align-self: flex-start;
+        background: -webkit-linear-gradient(var(--v2-color1), var(--v2-color3));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        position: relative;
+        width: 100%;
+        &::after {
+          content: "-";
+          inset: 3px;
+          display: inline-block;
+          position: absolute;
+          top: 60px;
+          right: 9px;
+          z-index: 2;
+          width: 100%;
+          background: linear-gradient(black, black) padding-box,
+            linear-gradient(to right, var(--v2-color1), var(--v2-color3))
+              border-box;
+          border: 3px solid transparent;
+        }
+      }
+
+      & > .cards-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .cardu {
+          width: 90%;
+          height: 250px;
+          margin: 30px 10px;
+          background: linear-gradient(black, black) padding-box,
+            linear-gradient(to right, var(--v2-color1), var(--v2-color3))
+              border-box;
+          border-radius: 30px;
+          border: 3px solid transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0px 0px 5px 5px var(--v2-color1),
+            0px 0px 10px 5px var(--v2-color3);
+          .img-container {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, var(--v2-color1), var(--v2-color3))
+                border-box;
+            border-radius: 30px;
+            border: 3px solid transparent;
+            box-shadow: 0px 0px 2px 2px var(--v2-color1),
+              0px 0px 1px 1px var(--v2-color3);
+          }
+          .stuff-container {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & > h3 {
+              font-size: 2rem;
+              padding: 10px 10px;
+              background: -webkit-linear-gradient(
+                var(--v2-color1),
+                var(--v2-color3)
+              );
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+            & > span {
+              background: -webkit-linear-gradient(
+                var(--v2-color1),
+                var(--v2-color3)
+              );
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              text-decoration: none;
+            }
+          }
+        }
+        .cardu:hover {
+          box-shadow: 0px 0px 30px 10px var(--v2-color1),
+            0px 0px 60px 10px var(--v2-color3),
+            inset 0px 0px 10px 10px var(--v2-color1),
+            inset 0px 0px 20px 10px var(--v2-color3);
+        }
+      }
+    }
+    .pasts {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2% 5%;
+      width: 100%;
+      height: auto;
+      margin-top: 50px;
+      > h3 {
+        font-size: 3rem;
+        margin: 10px 10px;
+        align-self: flex-start;
+        background: -webkit-linear-gradient(var(--v2-color2), var(--v2-color4));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+        width: 100%;
+        &::after {
+          content: "-";
+          inset: 3px;
+          display: inline-block;
+          position: absolute;
+          top: 60px;
+          right: 7px;
+          z-index: 2;
+          width: 100%;
+          background: linear-gradient(black, black) padding-box,
+            linear-gradient(to right, var(--v2-color2), var(--v2-color4))
+              border-box;
+          border: 3px solid transparent;
+        }
+      }
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        height: auto;
+        gap: 20px;
+        justify-items: center;
+        margin-top: 20px;
+
+        .cardp {
+          height: 35vh;
+          width: 70%;
+          padding: 20px;
+          background: linear-gradient(black, black) padding-box,
+            linear-gradient(to right, var(--v2-color2), var(--v2-color4))
+              border-box;
+          border-radius: 30px;
+          border: 3px solid transparent;
+          .img-container {
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, var(--v2-color2), var(--v2-color4))
+                border-box;
+            border-radius: 30px;
+            border: 3px solid transparent;
+          }
+          .stuff-container {
+            width: 100%;
+            height: 20%;
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            > h3 {
+              font-size: 1.3rem;
+              background: -webkit-linear-gradient(
+                var(--v2-color2),
+                var(--v2-color4)
+              );
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              text-transform: uppercase;
+            }
+          }
+        }
+        .cardp:hover {
+          box-shadow: 0px 0px 30px 10px var(--v2-color2),
+            0px 0px 60px 10px var(--v2-color4),
+            inset 0px 0px 10px 10px var(--v2-color2),
+            inset 0px 0px 20px 10px var(--v2-color4);
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  #events {
+    padding: 2% 5%;
+    overflow: hidden;
+    width: 100%;
+    h2 {
+      font-size: 2rem;
+      align-self: center;
+      background-position: 87% 45%;
+    }
+    .events-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+
+      .upcomings {
+        margin: 8% 4%;
+        width: 90%;
+        & > h3 {
+          font-size: 1.5rem;
+          position: relative;
+          &::after {
+            content: "-";
+            inset: 3px;
+            display: inline-block;
+            position: absolute;
+            top: 27px;
+            right: 0px;
+            z-index: 2;
+            width: 95%;
+            background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, var(--v2-color1), var(--v2-color3))
+                border-box;
+            border: 3px solid transparent;
+          }
+        }
+        & > .cards-container {
+          .cardu {
+            width: 90%;
+            height: 60%;
+            margin: 8% 2%;
+            .img-container {
+              width: 40%;
+              // height: 100%;
+            }
+            .stuff-container {
+              width: 60%;
+              height: 100%;
+              margin-top: 3%;
+              & > h3 {
+                font-size: 1.3rem;
+              }
+              & > span {
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
+      }
+      .pasts {
+        padding: 2% 5%;
+        width: 100%;
+        margin-top: 0.5%;
+        & > h3 {
+          font-size: 1.5rem;
+          position: relative;
+          &::after {
+            content: "-";
+            inset: 3px;
+            display: inline-block;
+            position: absolute;
+            top: 27px;
+            right: 0px;
+            z-index: 2;
+            width: 95%;
+            background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, var(--v2-color2), var(--v2-color4))
+                border-box;
+            border: 3px solid transparent;
+          }
+        }
+        .cards-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+          height: auto;
+          gap: 8px;
+          justify-items: center;
+          margin-top: 2%;
+          .cardp {
+            height: 22vh;
+            width: 95%;
+            padding: 5%;
+            .stuff-container {
+              margin-top: 15%;
+              & > h3 {
+                font-size: 1rem;
+                align-self: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

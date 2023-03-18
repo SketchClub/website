@@ -4,7 +4,13 @@ import { QueryClientProvider, Hydrate } from "@tanstack/react-query";
 
 import type { AppProps } from "next/app";
 
-import { useState, createContext, useEffect, Dispatch, SetStateAction } from "react";
+import {
+  useState,
+  createContext,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import reactQueryClient from "../clients/react-query-client";
@@ -14,10 +20,9 @@ import { versions as versionConst } from "../utils/common-consts";
 
 const init: AppContextState = { version: null, commonData: null };
 
-export const AppContext = createContext<[AppContextState, Dispatch<SetStateAction<AppContextState>>]>([
-  init,
-  () => init
-]);
+export const AppContext = createContext<
+  [AppContextState, Dispatch<SetStateAction<AppContextState>>]
+>([init, () => init]);
 const V1_Header = dynamic(() => import("../components/v1/Header"));
 const V2_Header = dynamic(() => import("../components/v2/Header"));
 
@@ -45,9 +50,15 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [globalState]);
   useEffect(() => {
     if (versionConst.indexOf(router.pathname.split("/")[1]) > -1)
-      setGlobalState((prevGlobalState) => ({ ...prevGlobalState, version: router.pathname.split("/")[1] as any }));
+      setGlobalState((prevGlobalState) => ({
+        ...prevGlobalState,
+        version: router.pathname.split("/")[1] as any,
+      }));
     if (router.asPath == "/") {
-      setGlobalState((prevGlobalState) => ({ ...prevGlobalState, version: null }));
+      setGlobalState((prevGlobalState) => ({
+        ...prevGlobalState,
+        version: null,
+      }));
     }
   }, [router]);
   useEffect(() => {
