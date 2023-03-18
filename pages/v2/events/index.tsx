@@ -59,7 +59,7 @@ function Card({
 
 function Cardpast({ name, picurl }: { name: string; picurl: string }) {
   return (
-    <Link href={`/events/${name.replaceAll(" ", "-")}`} className="cardp">
+    <Link href={`v2/events/${name.replaceAll(" ", "-")}`} className="cardp">
       <div className="img-container">
         <Image src={picurl} alt="event-photo" fill sizes="100%" />
       </div>

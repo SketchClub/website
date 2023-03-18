@@ -6,10 +6,11 @@ import Head from "next/head";
 import Image from "next/image";
 import { useCommonData } from "../../hooks";
 
-export default function index({ qup }: { qup: QueryProps }) {
+export default function index() {
   // const cmd = getDataFromQueryKey([""], qup.queries).items[0];
   // console.log(cmd);
-  const { clubName, mission, aboutIntro } = useCommonData();
+  const { clubName, mission, aboutIntro, design, develop, deliver, domains } =
+    useCommonData();
 
   useEffect(() => {
     const elem =
@@ -69,20 +70,20 @@ export default function index({ qup }: { qup: QueryProps }) {
           <p>{aboutIntro}</p>
         </div>
         <div className="vision">
-          {/* <h3>{information.vision.head}</h3> */}
-          {/* <ul>
-            {information.vision.list.map((item, index) => {
-              return <li key={index}>{item}</li>;
-            })}
-          </ul> */}
+          <h3>Vision</h3>
+          <ul>
+            <li key={1}>Design</li>
+            <li key={2}>Develop</li>
+            <li key={3}>Deliver</li>
+          </ul>
         </div>
         <div className="domains">
-          {/* <h3>{information.domains.head}</h3>
+          <h3>Domains</h3>
           <ul>
-            {information.domains.list.map((item, index) => {
+            {domains.map((item, index) => {
               return <li key={index}>{item}</li>;
-            })} */}
-          {/* </ul> */}
+            })}
+          </ul>
         </div>
       </main>
     </section>
