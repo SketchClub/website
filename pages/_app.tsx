@@ -2,7 +2,7 @@ import "../styles/style.css";
 
 import { QueryClientProvider, Hydrate, dehydrate } from "@tanstack/react-query";
 
-import type { AppProps } from "next/app";
+import type { AppContext as NextAppContext, AppProps } from "next/app";
 
 import {
   useState,
@@ -17,11 +17,11 @@ import reactQueryClient from "../clients/react-query-client";
 import logoText from "../utils/logo-text";
 import { AppContextState } from "../types";
 import { versions as versionConst } from "../utils/common-consts";
-import { GetServerSideProps } from "next";
 import gqlclient from "../clients/gql-client";
 import { getCommonWebContent, getDomainNames } from "../gql/queries";
+import { getDataFromQueryKey } from "../utils/common-functions";
 
-const init: AppContextState = { version: null, commonData: null };
+export const init: AppContextState = { version: null, commonData: null };
 
 export const AppContext = createContext<
   [AppContextState, Dispatch<SetStateAction<AppContextState>>]
@@ -35,9 +35,15 @@ const V2_Footer = dynamic(() => import("../components/v2/Footer"));
 const V3_Header = dynamic(() => import("../components/v3/Header"));
 const V3_Footer = dynamic(() => import("../components/v3/Footer"));
 
-export default function App({ Component, pageProps }: AppProps) {
-  console.log("this", pageProps);
-  const [globalState, setGlobalState] = useState<AppContextState>(init);
+interface MyProps extends AppProps {
+  mainQuery: any;
+}
+export default function App({ Component, pageProps, mainQuery }: MyProps) {
+  const cmd = getDataFromQueryKey(["common-data"], mainQuery?.queries ?? []);
+  const [globalState, setGlobalState] = useState<AppContextState>({
+    version: null,
+    commonData: cmd,
+  });
   const router = useRouter();
   useEffect(() => {
     switch (globalState.version) {
@@ -80,7 +86,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={reactQueryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
+        <Hydrate state={pageProps?.dehydratedState}>
           <AppContext.Provider value={[globalState, setGlobalState]}>
             {globalState.version == "v1" && <V1_Header />}
             {globalState.version == "v2" && <V2_Header />}
@@ -96,13 +102,26 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+App.getInitialProps = async (ctx: NextAppContext) => {
   async function getHomeDetails() {
     try {
       const comData = await gqlclient.request(getCommonWebContent);
-      const domains = await gqlclient.request(getDomainNames);
-      return { ...comData, domains: { ...domains } };
+      const domainsCollection = await gqlclient.request(getDomainNames);
+      const domains: string[] = [];
+      (domainsCollection?.domainCollection?.items ?? []).forEach(
+        (domainObj: Record<string, string>) => {
+          domains.push(Object.values(domainObj)[0]);
+        }
+      );
+      const forReturn = {
+        items: {
+          ...(comData?.webContentCollection?.items[0] ?? {}),
+          domains: domains,
+        },
+      };
+      return forReturn;
     } catch {
+      console.log("got an errror");
       return {};
     }
   }
@@ -111,8 +130,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     queryFn: getHomeDetails,
   });
   return {
-    props: {
-      mainQuery: dehydrate(reactQueryClient),
-    },
+    Component: ctx.Component,
+    pageProps: {},
+    mainQuery: dehydrate(reactQueryClient),
   };
 };

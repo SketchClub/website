@@ -1,19 +1,16 @@
-import { dehydrate } from "@tanstack/react-query";
-import { GetServerSideProps } from "next";
 import Link from "next/link";
 import React from "react";
-import gqlclient from "../../clients/gql-client";
-import reactQueryClient from "../../clients/react-query-client";
-import { getCommonWebContent } from "../../gql/queries";
 import { QueryProps } from "../../types";
-import { getDataFromQueryKey } from "../../utils/common-functions";
 import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useCommonData } from "../../hooks";
 
 export default function index({ qup }: { qup: QueryProps }) {
-  const cmd = getDataFromQueryKey(["homeDeets"], qup.queries).items[0];
-  console.log(cmd);
+  // const cmd = getDataFromQueryKey([""], qup.queries).items[0];
+  // console.log(cmd);
+  const { clubName, mission, aboutIntro } = useCommonData();
+
   useEffect(() => {
     const elem =
       (document.querySelector(".main-banner") as HTMLElement) || null;
@@ -56,7 +53,7 @@ export default function index({ qup }: { qup: QueryProps }) {
         <title>Sketch | Home & About</title>
       </Head>
       <div className="main-banner">
-        <h1>{cmd.clubName}</h1>
+        <h1>{clubName}</h1>
         <div className="img-container">
           <Image src="/assets/v2/logo.png" alt="logo" fill sizes="100%" />
         </div>
@@ -65,11 +62,11 @@ export default function index({ qup }: { qup: QueryProps }) {
       <main className="introduction" id="about">
         <div className="mission">
           <h3>Mission</h3>
-          <p>{cmd.Mission}</p>
+          <p>{mission}</p>
         </div>
         <div className="about">
-          {/* <h3>{information.about.head}</h3>
-          <p>{information.about.para}</p> */}
+          <h3>About</h3>
+          <p>{aboutIntro}</p>
         </div>
         <div className="vision">
           {/* <h3>{information.vision.head}</h3> */}
@@ -91,18 +88,3 @@ export default function index({ qup }: { qup: QueryProps }) {
     </section>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  async function getHomeDetails() {
-    return await gqlclient.request(getCommonWebContent);
-  }
-  await reactQueryClient.prefetchQuery({
-    queryKey: ["homeDeets"],
-    queryFn: getHomeDetails,
-  });
-  return {
-    props: {
-      qup: dehydrate(reactQueryClient),
-    },
-  };
-};

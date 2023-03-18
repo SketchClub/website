@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import gqlclient from "../../clients/gql-client";
 import reactQueryClient from "../../clients/react-query-client";
-import { getCommonWebContent } from "../../gql/queries";
+import { useCommonData } from "../../hooks";
 import { QueryProps } from "../../types";
 import { getDataFromQueryKey } from "../../utils/common-functions";
 
@@ -26,8 +26,8 @@ function Outline({ className }: { className: string }) {
   );
 }
 
-export default function Home({ qup }: { qup: QueryProps }) {
-  const homeDetails = getDataFromQueryKey(["homeDeets"], qup.queries);
+export default function Home() {
+  const { clubName, mission } = useCommonData();
   useEffect(() => {
     var containerHeight = 500;
     var containerWidth = 500;
@@ -200,10 +200,8 @@ export default function Home({ qup }: { qup: QueryProps }) {
         <Outline className="outline _4" />
       </div>
       <main className="text-container">
-        <h1 className="main-text" data-text={homeDetails.items[0].clubName}>
-          {homeDetails.items[0].clubName}
-        </h1>
-        <p>{homeDetails.items[0].aboutIntro}</p>
+        <h1 className="main-text">{clubName}</h1>
+        <p>{mission}</p>
         <Link href="/v3/about">
           <button type="button" className="button">
             Know more
@@ -213,18 +211,3 @@ export default function Home({ qup }: { qup: QueryProps }) {
     </section>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  async function getHomeDetails() {
-    return await gqlclient.request(getCommonWebContent);
-  }
-  await reactQueryClient.prefetchQuery({
-    queryKey: ["homeDeets"],
-    queryFn: getHomeDetails,
-  });
-  return {
-    props: {
-      qup: dehydrate(reactQueryClient),
-    },
-  };
-};

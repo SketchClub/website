@@ -9,7 +9,6 @@ import { GetServerSideProps } from "next";
 
 import reactQueryClient from "../clients/react-query-client";
 import gqlclient from "../clients/gql-client";
-import { getCommonWebContent } from "../gql/queries";
 import { dehydrate } from "@tanstack/react-query";
 import { QueryProps, versions } from "../types";
 import { getDataFromQueryKey } from "../utils/common-functions";
@@ -20,7 +19,7 @@ function Card({
   imgURL,
   imgAlt,
   text,
-  version
+  version,
 }: {
   link: string;
   imgURL: string;
@@ -44,17 +43,9 @@ function Card({
   );
 }
 
-export default function Home({ queryProps }: { queryProps: QueryProps }) {
-  const [_, setGlobalState] = useContext(AppContext);
+export default function Home() {
   const [redirectUrl, setRedirectUrl] = useState<string>("");
   const router = useRouter();
-  useEffect(() => {
-    const commonData = getDataFromQueryKey(["common-data"], queryProps.queries);
-    console.log(">>>", commonData);
-    setGlobalState((prevGlobalState: any) => {
-      return { ...prevGlobalState, commonData: getDataFromQueryKey(["common-data"], queryProps.queries) };
-    });
-  }, [setGlobalState, queryProps]);
   useEffect(() => {
     const toQuery = (router.query.to as string) ?? "";
     if (toQuery !== "") {
@@ -98,18 +89,3 @@ export default function Home({ queryProps }: { queryProps: QueryProps }) {
     </>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  async function getCommonData() {
-    return await gqlclient.request(getCommonWebContent);
-  }
-  await reactQueryClient.prefetchQuery({
-    queryKey: ["common-data"],
-    queryFn: getCommonData
-  });
-  return {
-    props: {
-      queryProps: dehydrate(reactQueryClient)
-    }
-  };
-};

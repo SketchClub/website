@@ -6,16 +6,13 @@ import Lottie from "lottie-react";
 import React, { useEffect } from "react";
 import gqlclient from "../../clients/gql-client";
 import reactQueryClient from "../../clients/react-query-client";
-import { getCommonWebContent } from "../../gql/queries";
 import { QueryProps } from "../../types";
 import { getDataFromQueryKey } from "../../utils/common-functions";
 import designJson from "../../public/assets/lottie/design_old.json";
 import deliverJson from "../../public/assets/lottie/deliver_old.json";
 import developJson from "../../public/assets/lottie/develop_old.json";
 
-export default function Home({ qup }: { qup: QueryProps }) {
-  const homeDetails = getDataFromQueryKey(["homeDeets"], qup.queries);
-  console.log(homeDetails.items[0].clubName);
+export default function Home() {
   return (
     <section id="about">
       <h1 data-text="About">About</h1>
@@ -30,7 +27,7 @@ export default function Home({ qup }: { qup: QueryProps }) {
         </div>
         <div className="text-container">
           <h2>Vision</h2>
-          <p>{homeDetails.items[0].mission}</p>
+          <p>{""}</p>
           <div className="stats">
             <span>40 members</span>
             <span>1 mentor</span>
@@ -46,21 +43,21 @@ export default function Home({ qup }: { qup: QueryProps }) {
         <div className="anim-card">
           <div className="anim-text">
             <h2>Design</h2>
-            <p>{homeDetails.items[0].design}</p>
+            <p>{""}</p>
           </div>
           <Lottie className="lottie-anim design" animationData={designJson} />
         </div>
         <div className="anim-card">
           <div className="anim-text">
             <h2>Develop</h2>
-            <p>{homeDetails.items[0].develop}</p>
+            <p>{""}</p>
           </div>
           <Lottie className="lottie-anim develop" animationData={developJson} />
         </div>
         <div className="anim-card">
           <div className="anim-text">
             <h2>Deliver</h2>
-            <p>{homeDetails.items[0].deliver}</p>
+            <p>{""}</p>
           </div>
           <Lottie className="lottie-anim deliver" animationData={deliverJson} />
         </div>
@@ -68,18 +65,3 @@ export default function Home({ qup }: { qup: QueryProps }) {
     </section>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  async function getHomeDetails() {
-    return await gqlclient.request(getCommonWebContent);
-  }
-  await reactQueryClient.prefetchQuery({
-    queryKey: ["homeDeets"],
-    queryFn: getHomeDetails,
-  });
-  return {
-    props: {
-      qup: dehydrate(reactQueryClient),
-    },
-  };
-};

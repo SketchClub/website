@@ -2,9 +2,20 @@ import { QueryKey, QueryState } from "@tanstack/react-query";
 
 export type versions = "v1" | "v2" | "v3";
 
+export interface CommonDataType {
+  clubName: string;
+  mission: string;
+  aboutIntro: string;
+  design: string;
+  develop: string;
+  footerText: string;
+  deliver: string;
+  domains: string[];
+}
+
 export interface AppContextState {
   version: versions | null;
-  commonData: any;
+  commonData: CommonDataType | null;
 }
 
 export interface CustomQueryType {
