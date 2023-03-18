@@ -1,0 +1,485 @@
+#members {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  z-index: 10;
+  h1 {
+    margin: 2vh 0 0 2vw;
+    font-size: 4rem;
+    width: 40%;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--v3-secondary-color);
+    align-self: flex-start;
+  }
+  .all-memb-container {
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 50px 0;
+    padding-bottom: 20px;
+
+    h2 {
+      text-transform: uppercase;
+      text-align: left;
+      font-size: 2.5rem;
+      // padding: 30px 0 30px 5%;
+      text-shadow: (0 0 4px white), (0 0 4px white);
+      letter-spacing: 3px;
+    }
+    .cards-container {
+      display: grid;
+      width: fit-content;
+      gap: 50px;
+      padding: 5px;
+      .card {
+        background-color: transparent;
+        position: relative;
+        // width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        isolation: isolate;
+        &:nth-child(even) {
+          .svg-card {
+            filter: drop-shadow(0 0 5px var(--v3-primary-color))
+              drop-shadow(0 0 5px var(--v3-primary-color));
+            path {
+              stroke: var(--v3-primary-color);
+              &:nth-child(2) {
+                fill: var(--v3-primary-color);
+              }
+              &:nth-child(3) {
+                fill: var(--v3-primary-color);
+              }
+            }
+          }
+          h3 {
+            background-color: var(--v3-primary-color);
+          }
+          .circle {
+            &::before {
+              border: 3px solid var(--v3-primary-color);
+            }
+            &.socials {
+              background-color: var(--v3-primary-color);
+            }
+            &.domain {
+              &:nth-child(odd) {
+                background-color: var(--v3-secondary-color);
+              }
+              box-shadow: 0 0 15px var(--v3-primary-color),
+                0 0 15px var(--v3-primary-color),
+                0 0 15px var(--v3-primary-color);
+            }
+          }
+          .img-container {
+            &::before {
+              border: 1px solid var(--v3-primary-color);
+            }
+            &::after {
+              box-shadow: 0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color),
+                0 0 50px var(--v3-primary-color);
+              background-color: var(--v3-primary-color);
+            }
+          }
+        }
+        &:nth-child(odd) {
+          .svg-card {
+            filter: drop-shadow(0 0 5px var(--v3-secondary-color))
+              drop-shadow(0 0 5px var(--v3-secondary-color));
+            path {
+              stroke: var(--v3-secondary-color);
+              &:nth-child(2) {
+                fill: var(--v3-secondary-color);
+              }
+              &:nth-child(3) {
+                fill: var(--v3-secondary-color);
+              }
+            }
+          }
+          h3 {
+            background-color: var(--v3-secondary-color);
+          }
+          .circle {
+            &::before {
+              border: 3px solid var(--v3-secondary-color);
+            }
+            &.socials {
+              background-color: var(--v3-secondary-color);
+            }
+            &.domain {
+              &:nth-child(odd) {
+                background-color: var(--v3-secondary-color);
+              }
+              box-shadow: 0 0 15px var(--v3-secondary-color),
+                0 0 15px var(--v3-secondary-color),
+                0 0 15px var(--v3-secondary-color);
+            }
+          }
+          .img-container {
+            &::before {
+              border: 1px solid var(--v3-secondary-color);
+            }
+            &::after {
+              box-shadow: 0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color),
+                0 0 50px var(--v3-secondary-color);
+              background-color: var(--v3-secondary-color);
+            }
+          }
+        }
+        .svg-card {
+          height: 90%;
+          width: 90%;
+          z-index: -2;
+          position: absolute;
+          path {
+            fill: var(--v3-accent-color);
+          }
+        }
+        .img-container {
+          flex-direction: column;
+          img {
+            object-fit: cover;
+            margin-top: auto;
+            padding: 1px;
+            padding-top: 0;
+          }
+          &::before {
+            width: 99%;
+            height: 75%;
+            content: "";
+            position: absolute;
+            bottom: 0;
+          }
+          &::after {
+            width: 30px;
+            height: 30px;
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: 32.5%;
+          }
+        }
+        h3 {
+          // margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 35px;
+          width: 30%;
+          font-family: var(--v3-font-sans-serif-2);
+          border-radius: 10px;
+          margin: 5px 0 20% 0;
+          z-index: 0;
+        }
+
+        .tag {
+          position: absolute;
+          width: 55%;
+          display: flex;
+          background-color: rgba(95, 95, 95, 0.3);
+          bottom: 17.5%;
+          font-size: 0.8rem;
+          justify-content: center;
+          align-items: center;
+        }
+        .circle {
+          position: absolute;
+          border-radius: 50%;
+          aspect-ratio: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.3rem;
+          color: rgb(255, 255, 255);
+          &::before {
+            height: 150%;
+            width: 150%;
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+          }
+          &.socials {
+            // height: 30px;
+            // width: 30px;
+            // bottom: 8%;
+            &.insta {
+              left: 32%;
+            }
+            &.mail {
+              right: 28%;
+            }
+          }
+          &.domain {
+            background-color: var(--v3-accent-color);
+            height: 50px;
+            width: 50px;
+            &::before {
+              content: none;
+            }
+            top: 7.5%;
+            left: 20%;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 570px) {
+    h1 {
+      width: 60%;
+    }
+    .all-memb-container {
+      .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        .card {
+          height: 300px;
+          width: 150px;
+          .svg-card {
+            width: 130%;
+          }
+          .img-container {
+            width: 60%;
+            height: 35%;
+          }
+          h3 {
+            font-size: 0.8rem;
+            height: 20px;
+            width: 70%;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            margin-top: 5px;
+          }
+          .tag {
+            font-size: 0.6rem;
+            bottom: 26%;
+            height: fit-content;
+            border-radius: 4px;
+            margin-top: 5px;
+          }
+          .circle {
+            font-size: 1rem;
+            &::before {
+              height: 115%;
+              width: 115%;
+            }
+            &.domain {
+              height: 25px;
+              width: 25px;
+              font-size: 0.8rem;
+              top: 22%;
+              left: 5%;
+            }
+            &.socials {
+              height: 20px;
+              width: 20px;
+              bottom: 20%;
+              &.insta {
+                left: 20%;
+              }
+              &.mail {
+                right: 15%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 570px) and (max-width: 900px) {
+    .all-memb-container {
+      .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        .card {
+          height: 300px;
+          width: 220px;
+          .svg-card {
+            width: 120%;
+          }
+          .img-container {
+            width: 70%;
+            height: 50%;
+          }
+          h3 {
+            font-size: 0.8rem;
+            height: 20px;
+            width: 70%;
+            border-radius: 5px;
+            letter-spacing: 1px;
+          }
+          .tag {
+            font-size: 0.6rem;
+            bottom: 22%;
+            height: fit-content;
+            border-radius: 4px;
+          }
+          .circle {
+            font-size: 1.2rem;
+            &::before {
+              height: 120%;
+              width: 120%;
+            }
+            &.domain {
+              height: 30px;
+              width: 30px;
+              font-size: 0.8rem;
+              top: 12%;
+              left: 5%;
+            }
+            &.socials {
+              height: 30px;
+              width: 30px;
+              bottom: 7%;
+              &.insta {
+                left: 18%;
+              }
+              &.mail {
+                right: 13%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 900px) and (max-width: 1200px) {
+    .all-memb-container {
+      .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        .card {
+          height: 300px;
+          width: 220px;
+          .svg-card {
+            width: 120%;
+          }
+          .img-container {
+            width: 70%;
+            height: 50%;
+          }
+          h3 {
+            font-size: 1rem;
+            height: 20px;
+            width: 70%;
+            border-radius: 5px;
+            letter-spacing: 1px;
+          }
+          .tag {
+            font-size: 0.6rem;
+            bottom: 22%;
+            height: fit-content;
+            border-radius: 4px;
+          }
+          .circle {
+            font-size: 1.2rem;
+            &::before {
+              height: 120%;
+              width: 120%;
+            }
+            &.domain {
+              height: 35px;
+              width: 35px;
+              font-size: 1rem;
+              top: 11%;
+              left: 3%;
+            }
+            &.socials {
+              height: 30px;
+              width: 30px;
+              bottom: 7%;
+              &.insta {
+                left: 18%;
+              }
+              &.mail {
+                right: 13%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .all-memb-container {
+      .cards-container {
+        grid-template-columns: repeat(4, 1fr);
+        .card {
+          height: 400px;
+          width: 250px;
+          .svg-card {
+            width: 120%;
+          }
+          .img-container {
+            width: 70%;
+            height: 50%;
+          }
+          h3 {
+            font-size: 1.2rem;
+            height: 25px;
+            width: 70%;
+            border-radius: 5px;
+            letter-spacing: 1px;
+          }
+          .tag {
+            font-size: 0.6rem;
+            bottom: 23%;
+            height: fit-content;
+            border-radius: 4px;
+          }
+          .circle {
+            font-size: 1.2rem;
+            &::before {
+              height: 120%;
+              width: 120%;
+            }
+            &.domain {
+              height: 40px;
+              width: 40px;
+              font-size: 1.2rem;
+              top: 17%;
+              left: 2%;
+            }
+            &.socials {
+              height: 30px;
+              width: 30px;
+              bottom: 12%;
+              &.insta {
+                left: 18%;
+              }
+              &.mail {
+                right: 13%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
