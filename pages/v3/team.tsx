@@ -8,74 +8,55 @@ import { QueryProps } from "../../types";
 import { getDataFromQueryKey } from "../../utils/common-functions";
 import Image from "next/image";
 import React from "react";
-import {
-  FaCameraRetro,
-  FaDev,
-  FaHandsHelping,
-  FaPaintBrush,
-  FaPencilAlt,
-} from "react-icons/fa";
+import { FaCameraRetro, FaDev, FaHandsHelping, FaPaintBrush, FaPencilAlt } from "react-icons/fa";
 import { FiInstagram, FiMail } from "react-icons/fi";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head",
+      memType: "head"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads,
+    queryFn: getHeads
   });
   async function getAlumini() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini",
+      memType: "alumini"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumini,
+    queryFn: getAlumini
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member",
+      memType: "member"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails,
+    queryFn: getMemberDetails
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient),
-    },
+      qup: dehydrate(reactQueryClient)
+    }
   };
 };
 
 function Outline({ className }: { className: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 850 850"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className={className} viewBox="0 0 850 850" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M607.5 25H193L98 178.5V725.5L193 826H295.5L349 778H495.5L547 826H752V178.5L710 122H677V96.5L645 72V52.5L607.5 25Z"
         stroke="white"
         stroke-width="10"
       />
-      <path
-        d="M102.5 664V465.5L151.5 512V617.5L102.5 664Z"
-        stroke="white"
-        stroke-width="10"
-      />
+      <path d="M102.5 664V465.5L151.5 512V617.5L102.5 664Z" stroke="white" stroke-width="10" />
 
-      <path
-        d="M749.5 404.5V210.5L702.5 255.946V359.054L749.5 404.5Z"
-        stroke="white"
-        stroke-width="10"
-      />
+      <path d="M749.5 404.5V210.5L702.5 255.946V359.054L749.5 404.5Z" stroke="white" stroke-width="10" />
     </svg>
   );
 }
@@ -86,7 +67,7 @@ function Card({
   insta,
   tag,
   url,
-  domain,
+  domain
 }: {
   name: string;
   mail: string;
@@ -131,12 +112,7 @@ function Card({
         >
           <FiInstagram />
         </a>
-        <a
-          href={"mailto:" + mail}
-          className="socials mail circle"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={"mailto:" + mail} className="socials mail circle" target="_blank" rel="noopener noreferrer">
           <FiMail />
         </a>
       </div>
@@ -149,7 +125,6 @@ export default function Members({ qup }: { qup: QueryProps }) {
   const heads = getDataFromQueryKey(["head"], qup.queries).items;
   const alumni = getDataFromQueryKey(["alumini"], qup.queries).items;
   const members = getDataFromQueryKey(["member"], qup.queries).items;
-  // console.log("this is alumni", alumni);
   return (
     <section id="members">
       <h1 data-text="Meet the fam">Meet the fam</h1>
@@ -157,7 +132,6 @@ export default function Members({ qup }: { qup: QueryProps }) {
         <h2>heads</h2>
         <div className="cards-container">
           {heads.map((type: any, index: number) => {
-            console.log(heads[0].name);
             return (
               <Card
                 name={type.name}
@@ -195,7 +169,6 @@ export default function Members({ qup }: { qup: QueryProps }) {
           <h2>Alumini</h2>
           <div className="cards-container">
             {alumni.map((type: any, index: number) => {
-              // console.log(alumni[0].name);
               return (
                 <Card
                   name={type.name}

@@ -7,5 +7,9 @@
     "not ie 11",
     "not and_ff <= 109",
     "not firefox <= 110"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": "off",
+    "detect-css-reflows/layout": "off"
+  }
 }

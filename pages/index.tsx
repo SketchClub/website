@@ -5,21 +5,15 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./_app";
 
-import { GetServerSideProps } from "next";
-
-import reactQueryClient from "../clients/react-query-client";
-import gqlclient from "../clients/gql-client";
-import { dehydrate } from "@tanstack/react-query";
-import { QueryProps, versions } from "../types";
-import { getDataFromQueryKey } from "../utils/common-functions";
 import { useRouter } from "next/router";
+import type { versions } from "../types";
 
 function Card({
   link,
   imgURL,
   imgAlt,
   text,
-  version,
+  version
 }: {
   link: string;
   imgURL: string;

@@ -1,12 +1,14 @@
-import { default as NextError } from "next/error";
 export default function Error({ statusCode }: { statusCode: string | number }) {
   switch (statusCode) {
     case "event-not-found":
-      return <>Event not found</>;
+      console.log("<>Event not found</>");
+      break;
+    case "route-error":
+      console.log("<>Route error</>");
+      break;
     default:
-      if (typeof statusCode == "number") {
-        return <NextError statusCode={statusCode} />;
-      }
-      return <>pata ni konsa error</>;
+      console.log("<>Pata nahi konsa error</>");
+      break;
   }
+  return <section id="main-error-component"></section>;
 }

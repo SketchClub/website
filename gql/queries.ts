@@ -16,6 +16,8 @@ export const getCommonWebContent = gql`
         email
         numOfAlumni
         numOfMembers
+        youtube
+        discord
       }
     }
   }

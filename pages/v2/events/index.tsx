@@ -26,7 +26,7 @@ function Card({
   name,
   picurl,
   description,
-  date,
+  date
 }: {
   name: string;
   picurl: string;
@@ -46,7 +46,7 @@ function Card({
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",
-            maxWidth: "15ch",
+            maxWidth: "15ch"
           }}
         >
           {description}
@@ -71,15 +71,8 @@ function Cardpast({ name, picurl }: { name: string; picurl: string }) {
 }
 
 export default function Events({ qup }: { qup: QueryProps }) {
-  const pastEvents: EventType[] = getDataFromQueryKey(
-    ["events", "past"],
-    qup.queries
-  ).items;
-  const upcomingEvents: EventType[] = getDataFromQueryKey(
-    ["events", "upcoming"],
-    qup.queries
-  ).items;
-  console.log("hi", upcomingEvents);
+  const pastEvents: EventType[] = getDataFromQueryKey(["events", "past"], qup.queries).items;
+  const upcomingEvents: EventType[] = getDataFromQueryKey(["events", "upcoming"], qup.queries).items;
   useEffect(() => {
     const h2 = (document.querySelector("#events h2") as HTMLElement) || null;
     var tagWidth = h2.offsetWidth;
@@ -111,7 +104,6 @@ export default function Events({ qup }: { qup: QueryProps }) {
               <h3>Upcoming</h3>
               <div className="cards-container">
                 {upcomingEvents.map((event: any, index: number) => {
-                  console.log(event);
                   return (
                     <Card
                       name={event.title}
@@ -132,14 +124,7 @@ export default function Events({ qup }: { qup: QueryProps }) {
               <h3>Past</h3>
               <div className="cards-container">
                 {pastEvents.map((event: any, index: number) => {
-                  console.log(event);
-                  return (
-                    <Cardpast
-                      name={event.title}
-                      picurl={event.picture.url}
-                      key={index}
-                    />
-                  );
+                  return <Cardpast name={event.title} picurl={event.picture.url} key={index} />;
                 })}
               </div>
             </div>
@@ -154,26 +139,26 @@ export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "past",
-      wantDesc: true,
+      wantDesc: true
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "past"],
-    queryFn: getPastEvents,
+    queryFn: getPastEvents
   });
   async function getUpcomingEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "upcoming",
-      wantDesc: true,
+      wantDesc: true
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "upcoming"],
-    queryFn: getUpcomingEvents,
+    queryFn: getUpcomingEvents
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient),
-    },
+      qup: dehydrate(reactQueryClient)
+    }
   };
 };

@@ -13,10 +13,8 @@ export default function Header() {
   const { linkedIn, instagram, email } = useCommonData();
   return (
     <header>
-      <Link className="logo" href={"/v3"}>
-        <div className="img-container">
-          <Image priority src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill></Image>
-        </div>
+      <Link className="logo img-container" href="/">
+        <Image priority src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill></Image>
       </Link>
       <nav className={`${menuOpen ? "active" : ""}`}>
         <Link href="/v3/" onClick={close}>

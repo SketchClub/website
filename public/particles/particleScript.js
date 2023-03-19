@@ -1,7 +1,6 @@
 const maxParticles = 100;
 window.addEventListener("load", () => {
   particlesJS.load("particles-js", "/particles/particles.json", function () {
-    console.log("Stars loaded!");
     const pJSIndex = 0;
     const pJS = pJSDom[pJSIndex].pJS;
     pJS.particles.array.splice(0, pJS.particles.array.length - maxParticles);
@@ -19,7 +18,6 @@ function callback(mutationList, observer) {
       // handle class change
       try {
         if (document.body.classList.contains("v1")) {
-          console.log("yay");
           elem.setAttribute("style", "opacity: 1; visibility: visible;");
         } else {
           elem.setAttribute("style", "opacity: 0; visibility: hidden;");

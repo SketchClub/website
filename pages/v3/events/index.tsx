@@ -15,27 +15,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "past",
-      wantDesc: true,
+      wantDesc: true
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "past"],
-    queryFn: getPastEvents,
+    queryFn: getPastEvents
   });
   async function getUpcomingEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "upcoming",
-      wantDesc: true,
+      wantDesc: true
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "upcoming"],
-    queryFn: getUpcomingEvents,
+    queryFn: getUpcomingEvents
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient),
-    },
+      qup: dehydrate(reactQueryClient)
+    }
   };
 };
 
@@ -43,7 +43,7 @@ function EventsComponent({
   title,
   date,
   smallDescription,
-  picUrl,
+  picUrl
 }: {
   title: string;
   date: string;
@@ -51,10 +51,7 @@ function EventsComponent({
   picUrl: string;
 }) {
   return (
-    <Link
-      className="event-card-container"
-      href={`/v3/events/${title.replaceAll(" ", "-")}`}
-    >
+    <Link className="event-card-container" href={`/v3/events/${title.replaceAll(" ", "-")}`}>
       <div className="img-container">
         <Image src={picUrl} alt="event" fill />
       </div>
@@ -66,16 +63,8 @@ function EventsComponent({
 }
 
 export default function Events({ qup }: { qup: QueryProps }) {
-  console.log("this is qup-queries", qup.queries);
-  const pastEvents: EventType[] = getDataFromQueryKey(
-    ["events", "past"],
-    qup.queries
-  ).items;
-  const upcomingEvents: EventType[] = getDataFromQueryKey(
-    ["events", "upcoming"],
-    qup.queries
-  ).items;
-  console.log(pastEvents);
+  const pastEvents: EventType[] = getDataFromQueryKey(["events", "past"], qup.queries).items;
+  const upcomingEvents: EventType[] = getDataFromQueryKey(["events", "upcoming"], qup.queries).items;
   return (
     <section id="events">
       <h1 data-text="Events">Events</h1>
@@ -102,8 +91,6 @@ export default function Events({ qup }: { qup: QueryProps }) {
           <h2>Past Events</h2>
           <div className="all-event-container past">
             {pastEvents.map((type: any, index: number) => {
-              console.log(type.title);
-
               return (
                 <EventsComponent
                   title={type.title}

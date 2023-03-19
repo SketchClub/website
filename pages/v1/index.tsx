@@ -5,6 +5,8 @@ import designJson from "../../public/assets/lottie/design_old.json";
 import deliverJson from "../../public/assets/lottie/deliver_old.json";
 import developJson from "../../public/assets/lottie/develop_old.json";
 import Head from "next/head";
+import { BsArrowBarRight } from "react-icons/bs";
+import Link from "next/link";
 
 function AnimCard({ title, animData }: any) {
   return (
@@ -32,6 +34,12 @@ export default function Home() {
       <div className="intro">
         <h1>{`Welcome to ${clubName}`}</h1>
         <p>{mission}</p>
+        <Link href={"/v1/about"}>
+          <button>
+            <span>Explore us</span>
+            <BsArrowBarRight />
+          </button>
+        </Link>
       </div>
       <div className="anims">
         <span>Our workshops & events empower you to:</span>

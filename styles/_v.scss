@@ -8,17 +8,12 @@
     font-size: 2rem;
   }
   .cards-container {
-    // @include flex($center: false, $column: false);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 50%;
     margin: 50px 0;
     gap: 30px;
-
-    // background-color: inherit;
-    // background-color: red;
     a {
-      // aspect-ratio: 3 / 4;
       height: 37.5vh;
       width: 100%;
       @include flex($center: false, $column: true);
@@ -26,13 +21,12 @@
       align-items: center;
       overflow: hidden;
       border-radius: 10px;
-      //   border: 1px solid white;
       box-shadow: 0 0 5px white;
       background-color: inherit;
       transition: all 0.3s ease;
       .img-container {
         width: 100%;
-        aspect-ratio: 1;
+        height: 80%;
       }
       span {
         font-family: monospace;

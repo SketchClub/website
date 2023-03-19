@@ -5,8 +5,10 @@ import { AiFillInstagram } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { FaDiscord } from "react-icons/fa";
 import { useRef } from "react";
+import { useCommonData } from "../../hooks";
 
 export default function Header() {
+  const { email, instagram, discord } = useCommonData();
   const ulNavLinksRef = useRef<HTMLUListElement>((<></>) as any);
   const burgerRef = useRef<HTMLDivElement>((<></>) as any);
   function navi() {
@@ -20,9 +22,7 @@ export default function Header() {
         if (linkk.style.animation) {
           linkk.style.animation = "";
         } else {
-          linkk.style.animation = `navLinkFade 0.5s ease forwards ${
-            index / 7 + 0.3
-          }s`;
+          linkk.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
         }
       });
       //burger animation
@@ -37,9 +37,7 @@ export default function Header() {
           if (linkk.style.animation) {
             linkk.style.animation = "";
           } else {
-            linkk.style.animation = `navLinkFade 0.5s ease forwards ${
-              index / 7 + 0.3
-            }s`;
+            linkk.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
           }
         });
         //burger animation
@@ -52,14 +50,8 @@ export default function Header() {
   }
   return (
     <div id="header">
-      <Link href="/v1/" className="img-container" aria-label="Home">
-        <Image
-          src="/assets/images/logo.png"
-          alt="Sketch logo"
-          fill
-          sizes="100%"
-          style={{ objectFit: "cover" }}
-        />
+      <Link href="/" className="img-container" aria-label="Home">
+        <Image src="/assets/images/logo.png" alt="Sketch logo" fill sizes="100%" style={{ objectFit: "cover" }} />
       </Link>
       <div className="btns">
         <Link href="/v1/events" aria-label="Events">
@@ -116,7 +108,7 @@ export default function Header() {
               }}
             >
               <a
-                href="https://instagram.com/srmsketch"
+                href={`https://instagram.com/${instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Join Sketch"
@@ -140,7 +132,7 @@ export default function Header() {
               className="icons"
             >
               <a
-                href="https://instagram.com/srmsketch"
+                href={`https://instagram.com/${instagram}`}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Sketch Instagram"
@@ -148,19 +140,14 @@ export default function Header() {
                 <AiFillInstagram color="black" />
               </a>
               <a
-                href="https://discord.gg/SCCkz4yX9j"
+                href={`https://discord.gg/${discord}`}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Sketch Discord"
               >
                 <FaDiscord color="black" />
               </a>
-              <a
-                href="mailto:sketch.srm@gmail.com"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Sketch Email"
-              >
+              <a href={`mailto:${email}`} target="_blank" rel="noreferrer noopener" aria-label="Sketch Email">
                 <MdEmail color="black" />
               </a>
             </li>

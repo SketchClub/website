@@ -76,7 +76,6 @@ export default function Members({ qup }: { qup: QueryProps }) {
           <h2 className="title">Kage</h2>
           <ul className="cards-container">
             {heads.map((head: any, index: number) => {
-              console.log(head);
               return (
                 <Card
                   name={head.name}

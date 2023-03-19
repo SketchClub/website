@@ -1,25 +1,17 @@
-import Link from "next/link";
 import React from "react";
-import { QueryProps } from "../../types";
 import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { useCommonData } from "../../hooks";
 
-export default function index() {
-  // const cmd = getDataFromQueryKey([""], qup.queries).items[0];
-  // console.log(cmd);
-  const { clubName, mission, aboutIntro, design, develop, deliver, domains } =
-    useCommonData();
+export default function Home() {
+  const { clubName, mission, aboutIntro, domains } = useCommonData();
 
   useEffect(() => {
-    const elem =
-      (document.querySelector(".main-banner") as HTMLElement) || null;
+    const elem = (document.querySelector(".main-banner") as HTMLElement) || null;
     var h1 = (document.querySelector(".main-banner h1") as HTMLElement) || null;
     var h2 = (document.querySelector(".main-banner h2") as HTMLElement) || null;
-    var i =
-      (document.querySelector(".main-banner .img-container") as HTMLElement) ||
-      null;
+    var i = (document.querySelector(".main-banner .img-container") as HTMLElement) || null;
 
     // const cssFilter = useCssFilter();
     elem.onmousemove = (e) => {
@@ -35,9 +27,7 @@ export default function index() {
         h2.style.textShadow = `0 0 8px hsl(${percent},100%,50%)`;
       }
       if (i != null) {
-        i.style.filter = `hue-rotate(${parseInt(
-          String(percent)
-        )}deg) grayscale(0%)`;
+        i.style.filter = `hue-rotate(${parseInt(String(percent))}deg) grayscale(0%)`;
       }
     };
     elem.onmouseleave = (e) => {

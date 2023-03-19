@@ -9,7 +9,6 @@ import { QueryProps } from "../../../types";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
 
 export default function Event({ qp }: { qp: QueryProps }) {
-  console.log(qp.queries);
   const router = useRouter();
   const temp = router.asPath.split("/");
   const items = getDataFromQueryKey(["event", temp[temp.length - 1]], qp.queries)?.items;
@@ -21,7 +20,6 @@ export default function Event({ qp }: { qp: QueryProps }) {
     return <>Fuck you</>;
   }
   const data = items[0];
-  console.log(data);
   return <div>Event</div>;
 }
 

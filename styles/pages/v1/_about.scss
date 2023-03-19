@@ -1,0 +1,112 @@
+#about {
+  .intro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 25%;
+    padding-right: 25%;
+    margin-bottom: 15vh;
+    height: 80vh;
+  }
+  P {
+    text-align: justify;
+  }
+  .intro button:hover path {
+    color: black;
+  }
+  .intro button {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .text-and-anis .card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30vw;
+    background: none;
+    position: relative;
+  }
+
+  .text-and-anis .card .text {
+    width: 45%;
+  }
+
+  .text-and-anis .card .lottie {
+    height: 100%;
+    width: auto;
+  }
+  .text-and-anis .card .text2 {
+    right: 5vw;
+    /* height: var(text2height);
+  top: calc(50% - text2height); */
+    position: absolute;
+  }
+  .text-and-anis .card .ani2 {
+    left: 5vw;
+    position: absolute;
+  }
+
+  h1,
+  h2 {
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+
+  .intro p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+  }
+  .text-and-anis p {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    .intro {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    .intro h1 {
+      font-size: 2.7rem;
+    }
+    .intro p {
+      font-size: medium;
+    }
+    .text-and-anis p {
+      font-size: medium;
+    }
+    .text-and-anis .card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: auto;
+      background: none;
+      position: relative;
+    }
+    .text-and-anis .card .text {
+      width: 80%;
+    }
+    .text-and-anis .card .lottie {
+      height: 60vw;
+      width: auto;
+    }
+    .text-and-anis .card .text2 {
+      position: unset;
+    }
+    .text-and-anis .card .ani2 {
+      position: unset;
+    }
+  }
+}

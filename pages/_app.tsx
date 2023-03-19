@@ -1,31 +1,25 @@
 import "../styles/style.css";
-
 import { QueryClientProvider, Hydrate, dehydrate } from "@tanstack/react-query";
-
 import type { AppContext as NextAppContext, AppProps } from "next/app";
-
-import {
-  useState,
-  createContext,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import { useState, createContext, useEffect, Dispatch, SetStateAction } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import reactQueryClient from "../clients/react-query-client";
 import logoText from "../utils/logo-text";
-import { AppContextState } from "../types";
+import type { AppContextState } from "../types";
 import { versions as versionConst } from "../utils/common-consts";
 import gqlclient from "../clients/gql-client";
 import { getCommonWebContent, getDomainNames } from "../gql/queries";
 import { getDataFromQueryKey } from "../utils/common-functions";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 export const init: AppContextState = { version: null, commonData: null };
 
-export const AppContext = createContext<
-  [AppContextState, Dispatch<SetStateAction<AppContextState>>]
->([init, () => init]);
+export const AppContext = createContext<[AppContextState, Dispatch<SetStateAction<AppContextState>>]>([
+  init,
+  () => init
+]);
 const V1_Header = dynamic(() => import("../components/v1/Header"));
 const V1_Footer = dynamic(() => import("../components/v1/Footer"));
 
@@ -42,8 +36,10 @@ export default function App({ Component, pageProps, mainQuery }: MyProps) {
   const cmd = getDataFromQueryKey(["common-data"], mainQuery?.queries ?? []);
   const [globalState, setGlobalState] = useState<AppContextState>({
     version: null,
-    commonData: cmd,
+    commonData: cmd
   });
+  const [isRouteChanging, setIsRouteChanging] = useState<boolean>(false);
+  const [isRouteError, setIsRouteError] = useState<boolean>(false);
   const router = useRouter();
   useEffect(() => {
     switch (globalState.version) {
@@ -65,15 +61,26 @@ export default function App({ Component, pageProps, mainQuery }: MyProps) {
     }
   }, [globalState]);
   useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setIsRouteChanging(true);
+    });
+    router.events.on("routeChangeComplete", () => {
+      setIsRouteChanging(false);
+    });
+    router.events.on("routeChangeError", () => {
+      setIsRouteError(true);
+    });
+  }, [router]);
+  useEffect(() => {
     if (versionConst.indexOf(router.pathname.split("/")[1]) > -1)
       setGlobalState((prevGlobalState) => ({
         ...prevGlobalState,
-        version: router.pathname.split("/")[1] as any,
+        version: router.pathname.split("/")[1] as any
       }));
     if (router.asPath == "/") {
       setGlobalState((prevGlobalState) => ({
         ...prevGlobalState,
-        version: null,
+        version: null
       }));
     }
   }, [router]);
@@ -91,7 +98,13 @@ export default function App({ Component, pageProps, mainQuery }: MyProps) {
             {globalState.version == "v1" && <V1_Header />}
             {globalState.version == "v2" && <V2_Header />}
             {globalState.version == "v3" && <V3_Header />}
-            <Component {...pageProps} />
+            {isRouteError ? (
+              <Error statusCode={"route-error"} />
+            ) : isRouteChanging ? (
+              <Loading />
+            ) : (
+              <Component {...pageProps} />
+            )}
             {globalState.version == "v1" && <V1_Footer />}
             {globalState.version == "v2" && <V2_Footer />}
             {globalState.version == "v3" && <V3_Footer />}
@@ -105,37 +118,32 @@ export default function App({ Component, pageProps, mainQuery }: MyProps) {
 App.getInitialProps = async (ctx: NextAppContext) => {
   async function getHomeDetails() {
     try {
-      const comData: Record<string, any> = await gqlclient.request(
-        getCommonWebContent
-      );
-      const domainsCollection: Record<string, any> = await gqlclient.request(
-        getDomainNames
-      );
+      const comData: Record<string, any> = await gqlclient.request(getCommonWebContent);
+      const domainsCollection: Record<string, any> = await gqlclient.request(getDomainNames);
       const domains: string[] = [];
-      (domainsCollection?.domainCollection?.items ?? []).forEach(
-        (domainObj: Record<string, string>) => {
-          domains.push(Object.values(domainObj)[0]);
-        }
-      );
+      (domainsCollection?.domainCollection?.items ?? []).forEach((domainObj: Record<string, string>) => {
+        domains.push(Object.values(domainObj)[0]);
+      });
       const forReturn = {
         items: {
           ...(comData?.webContentCollection?.items[0] ?? {}),
-          domains: domains,
-        },
+          domains: domains
+        }
       };
       return forReturn;
     } catch {
-      console.log("got an errror");
-      return {};
+      return {
+        items: undefined
+      };
     }
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["common-data"],
-    queryFn: getHomeDetails,
+    queryFn: getHomeDetails
   });
   return {
     Component: ctx.Component,
     pageProps: {},
-    mainQuery: dehydrate(reactQueryClient),
+    mainQuery: dehydrate(reactQueryClient)
   };
 };

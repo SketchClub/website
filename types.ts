@@ -15,6 +15,8 @@ export interface CommonDataType {
   linkedIn: string;
   numOfAlumni: number;
   numOfMembers: number;
+  youtube: string;
+  discord: string;
   email: string;
 }
 
