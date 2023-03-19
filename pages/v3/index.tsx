@@ -200,7 +200,9 @@ export default function Home() {
         <Outline className="outline _4" />
       </div>
       <main className="text-container">
-        <h1 className="main-text">{clubName}</h1>
+        <h1 className="main-text" data-text={clubName}>
+          {clubName}
+        </h1>
         <p>{mission}</p>
         <Link href="/v3/about">
           <button type="button" className="button">

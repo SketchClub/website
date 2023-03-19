@@ -20,7 +20,9 @@ export default function Header() {
         if (linkk.style.animation) {
           linkk.style.animation = "";
         } else {
-          linkk.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+          linkk.style.animation = `navLinkFade 0.5s ease forwards ${
+            index / 7 + 0.3
+          }s`;
         }
       });
       //burger animation
@@ -35,7 +37,9 @@ export default function Header() {
           if (linkk.style.animation) {
             linkk.style.animation = "";
           } else {
-            linkk.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            linkk.style.animation = `navLinkFade 0.5s ease forwards ${
+              index / 7 + 0.3
+            }s`;
           }
         });
         //burger animation
@@ -48,8 +52,14 @@ export default function Header() {
   }
   return (
     <div id="header">
-      <Link href="/" className="img-container" aria-label="Home">
-        <Image src="/assets/images/logo.png" alt="Sketch logo" fill sizes="100%" style={{ objectFit: "cover" }} />
+      <Link href="/v1/" className="img-container" aria-label="Home">
+        <Image
+          src="/assets/images/logo.png"
+          alt="Sketch logo"
+          fill
+          sizes="100%"
+          style={{ objectFit: "cover" }}
+        />
       </Link>
       <div className="btns">
         <Link href="/v1/events" aria-label="Events">
@@ -57,7 +67,7 @@ export default function Header() {
             Our Events
           </Button>
         </Link>
-        <Link href="/team" aria-label="Team">
+        <Link href="/v1/team" aria-label="Team">
           <Button variant="outline-light" id="btn_team_head">
             Our Team
           </Button>
@@ -69,7 +79,7 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/" aria-label="Home">
+              <Link href="/v1/" aria-label="Home">
                 Home
               </Link>
             </li>
@@ -78,7 +88,7 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/about" aria-label="About Sketch">
+              <Link href="/v1/about" aria-label="About Sketch">
                 About us
               </Link>
             </li>
@@ -87,7 +97,7 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/contact" aria-label="Contact">
+              <Link href="/v1/contact" aria-label="Contact">
                 Contact us
               </Link>
             </li>
@@ -96,7 +106,7 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/events" aria-label="Events">
+              <Link href="/v1/events" aria-label="Events">
                 Events
               </Link>
             </li>
@@ -145,7 +155,12 @@ export default function Header() {
               >
                 <FaDiscord color="black" />
               </a>
-              <a href="mailto:sketch.srm@gmail.com" target="_blank" rel="noreferrer noopener" aria-label="Sketch Email">
+              <a
+                href="mailto:sketch.srm@gmail.com"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Sketch Email"
+              >
                 <MdEmail color="black" />
               </a>
             </li>
