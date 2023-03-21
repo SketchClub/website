@@ -11,28 +11,36 @@
   font-family: kato;
   src: url("./fonts/kato.ttf");
 }
-:root {
-  //v3 variables
-  --v3-accent-color: #150734;
-  --v3-primary-color: #de2bfc;
-  --v3-secondary-color: #00dbde;
-  --v3-tertiary-color: #c2a4df;
-  // --v3-secondary-color-rgb: rgb(0, 219, 222);
-  --v3-font-sans-serif-1: "Poppins", sans-serif;
-  --v3-font-sans-serif-2: "Orbitron", sans-serif;
-  --v3-header-height: 10vh;
-  --v3-footer-height: 22vh;
-
+.v1{
+ //v1 needs variables
+ --v1-main-bg:black;
+  --footer-height: 35vh;
+  --header-height:15%;
+}
+.v2{
   //v2 variables
-  --v2-main-bg: rgb(3, 1, 1);
-  --v2-font-poppins: "Poppins", sans-serif;
-  --v2-color1: rgb(254, 196, 70);
-  --v2-color2: rgb(42, 205, 210);
-  --v2-color3: rgb(234, 93, 172);
-  --v2-color4: rgb(114, 113, 240);
-  --v2-font-color-main: white;
-  --v2-font-hirosh: "hirosh";
-  --v2-font-kato: "kato";
-  --v2-header-height: 8.5vh;
-  --v2-footer-height: 20vh;
+  --main-bg: rgb(3, 1, 1);
+  --font-poppins: "Poppins", sans-serif;
+  --color1: rgb(254, 196, 70);
+  --color2: rgb(42, 205, 210);
+  --color3: rgb(234, 93, 172);
+  --color4: rgb(114, 113, 240);
+  --font-color-main: white;
+  --font-hirosh: "hirosh";
+  --font-kato: "kato";
+  --header-height:8.5vh;
+  --footer-height: 20vh;
+}
+.v3{
+  //v3 variables
+  --accent-color: #150734;
+  --primary-color: #de2bfc;
+  --secondary-color: #00dbde;
+  --tertiary-color: #c2a4df;
+  // --secondary-color-rgb: rgb(0, 219, 222);
+  --font-sans-serif-1: "Poppins", sans-serif;
+  --font-sans-serif-2: "Orbitron", sans-serif;
+  --header-height:10vh;
+  --footer-height:22vh;
+ 
 }

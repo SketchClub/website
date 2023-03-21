@@ -58,22 +58,22 @@ export default function Home() {
         <div className="cards-container">
           <Card
             link={`/v1/${redirectUrl}`}
-            imgURL="/assets/images/v1.png"
-            imgAlt=""
+            imgURL="/assets/images/v1glimpse.webp"
+            imgAlt="Glimpse of Sketch website Space version by Gobind Singh"
             text="v1. Space by Gobind S."
             version="v1"
           />
           <Card
             link={`/v2/${redirectUrl}`}
-            imgURL="/assets/images/v2.png"
-            imgAlt=""
+            imgURL="/assets/images/v2glimpse.webp"
+            imgAlt="Glimpse of Sketch website Anime version by Aishwarya Tewari"
             text="v2. Anime by Aishwarya T."
             version="v2"
           />
           <Card
             link={`/v3/${redirectUrl}`}
-            imgURL="/assets/images/reyna.jpg"
-            imgAlt=""
+            imgURL="/assets/images/v3glimpse.webp"
+            imgAlt="Glimpse of Sketch website Neon version by SaiRohit"
             text="v3. Neon by SaiRohit"
             version="v3"
           />

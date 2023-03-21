@@ -32,9 +32,9 @@
         height: 125%;
         width: 100%;
         z-index: 1;
-        border: 3px solid var(--v3-primary-color);
-        filter: drop-shadow(0 0 3px var(--v3-primary-color))
-          drop-shadow(0 0 3px var(--v3-primary-color));
+        border: 3px solid var(--primary-color);
+        filter: drop-shadow(0 0 3px var(--primary-color))
+          drop-shadow(0 0 3px var(--primary-color));
       }
       &::after {
         content: "";
@@ -43,9 +43,9 @@
         height: 100%;
         width: 104%;
         z-index: -1;
-        border: 3px solid var(--v3-primary-color);
-        filter: drop-shadow(0 0 3px var(--v3-primary-color))
-          drop-shadow(0 0 3px var(--v3-primary-color));
+        border: 3px solid var(--primary-color);
+        filter: drop-shadow(0 0 3px var(--primary-color))
+          drop-shadow(0 0 3px var(--primary-color));
         z-index: 1;
       }
       a {
@@ -59,13 +59,13 @@
         font-size: 2rem;
         background: linear-gradient(
           -270deg,
-          var(--v3-primary-color),
-          var(--v3-secondary-color)
+          var(--primary-color),
+          var(--secondary-color)
         );
         -webkit-text-fill-color: transparent;
         background-clip: text;
         font-weight: 700;
-        font-family: var(--v3-font-sans-serif-2);
+        font-family: var(--font-sans-serif-2);
         word-spacing: 5px;
       }
     }
@@ -84,9 +84,9 @@
         height: 125%;
         width: 100%;
         z-index: -1;
-        border: 3px solid var(--v3-primary-color);
-        filter: drop-shadow(0 0 3px var(--v3-primary-color))
-          drop-shadow(0 0 3px var(--v3-primary-color));
+        border: 3px solid var(--primary-color);
+        filter: drop-shadow(0 0 3px var(--primary-color))
+          drop-shadow(0 0 3px var(--primary-color));
       }
       &::after {
         content: "";
@@ -95,9 +95,9 @@
         height: 100%;
         width: 106%;
         z-index: -1;
-        border: 3px solid var(--v3-primary-color);
-        filter: drop-shadow(0 0 3px var(--v3-primary-color))
-          drop-shadow(0 0 3px var(--v3-primary-color));
+        border: 3px solid var(--primary-color);
+        filter: drop-shadow(0 0 3px var(--primary-color))
+          drop-shadow(0 0 3px var(--primary-color));
       }
       .img-container {
         height: 100%;
@@ -125,9 +125,9 @@
       align-self: center;
       height: calc(100% + 50px);
       width: 100%;
-      border: 3px solid var(--v3-secondary-color);
-      filter: drop-shadow(0 0 3px var(--v3-secondary-color))
-        drop-shadow(0 0 3px var(--v3-secondary-color));
+      border: 3px solid var(--secondary-color);
+      filter: drop-shadow(0 0 3px var(--secondary-color))
+        drop-shadow(0 0 3px var(--secondary-color));
       z-index: -1;
     }
     &::after {
@@ -137,46 +137,46 @@
       align-self: center;
       height: 100%;
       width: 102%;
-      border: 3px solid var(--v3-secondary-color);
-      filter: drop-shadow(0 0 3px var(--v3-secondary-color))
-        drop-shadow(0 0 3px var(--v3-secondary-color));
+      border: 3px solid var(--secondary-color);
+      filter: drop-shadow(0 0 3px var(--secondary-color))
+        drop-shadow(0 0 3px var(--secondary-color));
     }
     h2 {
       font-size: 2.5rem;
-      text-shadow: (0 0 5px var(--v3-primary-color)),
-        (0 0 5px var(--v3-primary-color));
+      text-shadow: (0 0 5px var(--primary-color)),
+        (0 0 5px var(--primary-color));
     }
     h3 {
       font-size: 2rem;
-      text-shadow: (0 0 5px var(--v3-primary-color)),
-        (0 0 5px var(--v3-primary-color));
+      text-shadow: (0 0 5px var(--primary-color)),
+        (0 0 5px var(--primary-color));
     }
     h4 {
       font-size: 1.6rem;
-      text-shadow: (0 0 1px var(--v3-primary-color)),
-        (0 0 5px var(--v3-primary-color));
+      text-shadow: (0 0 1px var(--primary-color)),
+        (0 0 5px var(--primary-color));
     }
     h5 {
       font-size: 1.2rem;
-      text-shadow: (0 0 1px var(--v3-primary-color)),
-        (0 0 5px var(--v3-primary-color));
+      text-shadow: (0 0 1px var(--primary-color)),
+        (0 0 5px var(--primary-color));
     }
     ul,
     ol {
       text-shadow: (0 0 1px rgb(225, 225, 225)), (0 0 5px rgb(225, 225, 225));
       margin-left: 2%;
       li::marker {
-        color: var(--v3-primary-color);
+        color: var(--primary-color);
         text-shadow: none;
       }
     }
     u {
       text-decoration: none;
-      border-bottom: 2px solid var(--v3-primary-color);
+      border-bottom: 2px solid var(--primary-color);
       text-shadow: (0 0 1px rgb(225, 225, 225)), (0 0 3px rgb(225, 225, 225));
     }
     a {
-      color: var(--v3-primary-color);
+      color: var(--primary-color);
       filter: none;
       cursor: pointer;
       text-shadow: none;
@@ -190,8 +190,8 @@
     blockquote {
       padding: 20px 0 5px 5px;
       position: relative;
-      border: 1px solid var(--v3-primary-color);
-      border-left: 5px solid var(--v3-primary-color);
+      border: 1px solid var(--primary-color);
+      border-left: 5px solid var(--primary-color);
       &::before {
         content: open-quote;
         position: absolute;
@@ -251,9 +251,9 @@
         &::before {
           height: 105%;
           width: 105%;
-          border: 3px solid var(--v3-secondary-color);
-          filter: drop-shadow(0 0 3px var(--v3-secondary-color))
-            drop-shadow(0 0 3px var(--v3-secondary-color));
+          border: 3px solid var(--secondary-color);
+          filter: drop-shadow(0 0 3px var(--secondary-color))
+            drop-shadow(0 0 3px var(--secondary-color));
         }
         &::after {
           display: none;
@@ -265,9 +265,9 @@
       &::before {
         height: 101%;
         width: 100%;
-        border: 3px solid var(--v3-primary-color);
-        filter: drop-shadow(0 0 3px var(--v3-primary-color))
-          drop-shadow(0 0 3px var(--v3-primary-color));
+        border: 3px solid var(--primary-color);
+        filter: drop-shadow(0 0 3px var(--primary-color))
+          drop-shadow(0 0 3px var(--primary-color));
       }
       &::after {
         display: none;

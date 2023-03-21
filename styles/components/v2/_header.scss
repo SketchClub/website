@@ -4,13 +4,14 @@
   z-index: 3;
   background-color: black;
   border-bottom: 1px solid grey;
-  font-family: var(--v2-font-hirosh);
+  font-family: var(--font-hirosh);
   .head-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 50px;
-    height: var(--v2-header-height);
+    height: var(--header-height
+);
     width: 92%;
     margin: auto;
     #navbar {
@@ -91,7 +92,8 @@
           height: 210px;
           right: 0px;
           transition: all 0.4s ease-in-out;
-          top: var(--v2-header-height);
+          top: var(--header-height
+);
           a {
             font-size: 0.5rem;
           }

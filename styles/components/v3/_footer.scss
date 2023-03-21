@@ -3,15 +3,15 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: var(--v3-footer-height);
-  color: var(--v3-primary-color);
+  height: var(--footer-height);
+  color: var(--primary-color);
   padding: 30px 0;
   div {
     z-index: 1;
   }
   .title {
     text-transform: uppercase;
-    font-family: var(--v3-font-sans-serif-2);
+    font-family: var(--font-sans-serif-2);
     font-size: 2rem;
     font-weight: 500;
     z-index: 1;
@@ -36,7 +36,7 @@ footer {
     .page-links {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      font-family: var(--v3-font-sans-serif-2);
+      font-family: var(--font-sans-serif-2);
       a {
         text-align: center;
         margin: 15px;
@@ -75,7 +75,7 @@ footer {
           width: 60%;
           height: 60%;
           z-index: -1;
-          background-color: var(--v3-secondary-color);
+          background-color: var(--secondary-color);
           border-radius: 50%;
           opacity: 0;
           transition: 0.3s all ease-in-out;
@@ -84,7 +84,7 @@ footer {
           width: 180%;
           height: 180%;
           opacity: 0.6;
-          border: 2px solid var(--v3-primary-color);
+          border: 2px solid var(--primary-color);
         }
       }
     }
@@ -94,13 +94,13 @@ footer {
     position: absolute;
     width: calc(100% - 12px);
     height: calc(22vh - 15px);
-    border: 3px solid var(--v3-secondary-color);
-    filter: drop-shadow(0 0 5px var(--v3-secondary-color))
-      drop-shadow(0 0 5px var(--v3-secondary-color));
+    border: 3px solid var(--secondary-color);
+    filter: drop-shadow(0 0 5px var(--secondary-color))
+      drop-shadow(0 0 5px var(--secondary-color));
   }
   &::after {
     content: "";
-    background-color: var(--v3-secondary-color);
+    background-color: var(--secondary-color);
     opacity: 0.2;
     position: absolute;
     width: calc(100% - 15px);
@@ -121,7 +121,7 @@ footer {
       width: 80%;
       text-align: center;
       padding-bottom: 20px;
-      border-bottom: 2px solid var(--v3-secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
     }
     div {
       z-index: 1;
@@ -130,7 +130,7 @@ footer {
       width: 80%;
       margin: 10px 0;
       padding-bottom: 20px;
-      border-bottom: 2px solid var(--v3-secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
       span {
         margin-left: 0;
       }
@@ -140,7 +140,7 @@ footer {
       justify-content: space-between;
       width: 80%;
       padding-bottom: 20px;
-      border-bottom: 2px solid var(--v3-secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
     }
     .socials {
       width: 80%;

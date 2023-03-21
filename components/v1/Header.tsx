@@ -84,15 +84,7 @@ export default function Header() {
                 About us
               </Link>
             </li>
-            <li
-              onClick={() => {
-                navi();
-              }}
-            >
-              <Link href="/v1/contact" aria-label="Contact">
-                Contact us
-              </Link>
-            </li>
+           
             <li
               onClick={() => {
                 navi();
@@ -102,20 +94,7 @@ export default function Header() {
                 Events
               </Link>
             </li>
-            <li
-              onClick={() => {
-                navi();
-              }}
-            >
-              <a
-                href={`https://instagram.com/${instagram}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Join Sketch"
-              >
-                Join us
-              </a>
-            </li>
+         
             <li
               onClick={() => {
                 navi();

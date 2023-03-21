@@ -12,12 +12,13 @@ import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Head from "next/head";
+import Error from "../../../components/Error";
 
 export default function Event({ qup }: { qup: QueryProps }) {
   const router = useRouter();
   const eventDetailsTemp = getDataFromQueryKey(["event", router.query?.event ?? ""], qup.queries)?.items;
   if (eventDetailsTemp.length === 0 || eventDetailsTemp === undefined) {
-    return <>Erorr</>;
+    return <Error statusCode={"event-not-found"}/>;
   }
   const event = eventDetailsTemp[0];
   const opt: Options = {

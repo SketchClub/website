@@ -15,6 +15,7 @@ import { getDataFromQueryKey } from "../../../utils/common-functions";
 import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { useRouter } from "next/router";
+import Error from "../../../components/Error";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const name = context.query.event ?? "undefined";
@@ -41,7 +42,7 @@ export default function Event({ qup }: { qup: QueryProps }) {
     qup.queries
   ).items;
   if (eventDetails.length === 0 || eventDetails === undefined) {
-    return <>Gandi aadat hai bhai</>;
+    return <Error/>;
   }
   const event = eventDetails[0];
   const opt: Options = {

@@ -12,7 +12,7 @@
     font-size: 4rem;
     width: 40%;
     letter-spacing: 3px;
-    border-bottom: 1px solid var(--v3-secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
     align-self: flex-start;
   }
   .all-memb-container {
@@ -50,107 +50,107 @@
         isolation: isolate;
         &:nth-child(even) {
           .svg-card {
-            filter: drop-shadow(0 0 5px var(--v3-primary-color))
-              drop-shadow(0 0 5px var(--v3-primary-color));
+            filter: drop-shadow(0 0 5px var(--primary-color))
+              drop-shadow(0 0 5px var(--primary-color));
             path {
-              stroke: var(--v3-primary-color);
+              stroke: var(--primary-color);
               &:nth-child(2) {
-                fill: var(--v3-primary-color);
+                fill: var(--primary-color);
               }
               &:nth-child(3) {
-                fill: var(--v3-primary-color);
+                fill: var(--primary-color);
               }
             }
           }
           h3 {
-            background-color: var(--v3-primary-color);
+            background-color: var(--primary-color);
           }
           .circle {
             &::before {
-              border: 3px solid var(--v3-primary-color);
+              border: 3px solid var(--primary-color);
             }
             &.socials {
-              background-color: var(--v3-primary-color);
+              background-color: var(--primary-color);
             }
             &.domain {
               &:nth-child(odd) {
-                background-color: var(--v3-secondary-color);
+                background-color: var(--secondary-color);
               }
-              box-shadow: 0 0 15px var(--v3-primary-color),
-                0 0 15px var(--v3-primary-color),
-                0 0 15px var(--v3-primary-color);
+              box-shadow: 0 0 15px var(--primary-color),
+                0 0 15px var(--primary-color),
+                0 0 15px var(--primary-color);
             }
           }
           .img-container {
             &::before {
-              border: 1px solid var(--v3-primary-color);
+              border: 1px solid var(--primary-color);
             }
             &::after {
-              box-shadow: 0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color),
-                0 0 50px var(--v3-primary-color);
-              background-color: var(--v3-primary-color);
+              box-shadow: 0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color),
+                0 0 50px var(--primary-color);
+              background-color: var(--primary-color);
             }
           }
         }
         &:nth-child(odd) {
           .svg-card {
-            filter: drop-shadow(0 0 5px var(--v3-secondary-color))
-              drop-shadow(0 0 5px var(--v3-secondary-color));
+            filter: drop-shadow(0 0 5px var(--secondary-color))
+              drop-shadow(0 0 5px var(--secondary-color));
             path {
-              stroke: var(--v3-secondary-color);
+              stroke: var(--secondary-color);
               &:nth-child(2) {
-                fill: var(--v3-secondary-color);
+                fill: var(--secondary-color);
               }
               &:nth-child(3) {
-                fill: var(--v3-secondary-color);
+                fill: var(--secondary-color);
               }
             }
           }
           h3 {
-            background-color: var(--v3-secondary-color);
+            background-color: var(--secondary-color);
           }
           .circle {
             &::before {
-              border: 3px solid var(--v3-secondary-color);
+              border: 3px solid var(--secondary-color);
             }
             &.socials {
-              background-color: var(--v3-secondary-color);
+              background-color: var(--secondary-color);
             }
             &.domain {
               &:nth-child(odd) {
-                background-color: var(--v3-secondary-color);
+                background-color: var(--secondary-color);
               }
-              box-shadow: 0 0 15px var(--v3-secondary-color),
-                0 0 15px var(--v3-secondary-color),
-                0 0 15px var(--v3-secondary-color);
+              box-shadow: 0 0 15px var(--secondary-color),
+                0 0 15px var(--secondary-color),
+                0 0 15px var(--secondary-color);
             }
           }
           .img-container {
             &::before {
-              border: 1px solid var(--v3-secondary-color);
+              border: 1px solid var(--secondary-color);
             }
             &::after {
-              box-shadow: 0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color),
-                0 0 50px var(--v3-secondary-color);
-              background-color: var(--v3-secondary-color);
+              box-shadow: 0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color),
+                0 0 50px var(--secondary-color);
+              background-color: var(--secondary-color);
             }
           }
         }
@@ -160,7 +160,7 @@
           z-index: -2;
           position: absolute;
           path {
-            fill: var(--v3-accent-color);
+            fill: var(--accent-color);
           }
         }
         .img-container {
@@ -194,7 +194,7 @@
           align-items: center;
           height: 35px;
           width: 30%;
-          font-family: var(--v3-font-sans-serif-2);
+          font-family: var(--font-sans-serif-2);
           border-radius: 10px;
           margin: 5px 0 20% 0;
           z-index: 0;
@@ -238,7 +238,7 @@
             }
           }
           &.domain {
-            background-color: var(--v3-accent-color);
+            background-color: var(--accent-color);
             height: 50px;
             width: 50px;
             &::before {

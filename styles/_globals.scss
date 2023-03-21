@@ -66,6 +66,19 @@ a {
   background: rgb(120, 120, 120);
 }
 
+#main-loading-component , #main-error-component {
+  min-height:calc(100vh - var(--footer-height,20vh));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #lottie{
+     height: 25vw;
+     width: auto;
+     margin: auto;
+  }
+}
+
 @mixin flex($center: true, $column: false) {
   display: flex;
   @if ($center) {
@@ -76,3 +89,4 @@ a {
     flex-direction: column;
   }
 } // @include flex($center: true, $column: true);
+

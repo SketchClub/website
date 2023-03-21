@@ -7,11 +7,11 @@
     font-size: 5rem;
     letter-spacing: 5px;
     margin: 0 2vw 20px 60%;
-    border-bottom: 1px solid var(--v3-secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
   }
   h2 {
     font-size: 1.8rem;
-    font-family: var(--v3-font-sans-serif-2);
+    font-family: var(--font-sans-serif-2);
     text-transform: uppercase;
   }
   p {
@@ -33,7 +33,7 @@
       &::before {
         content: "";
         position: absolute;
-        border: 3px solid var(--v3-secondary-color);
+        border: 3px solid var(--secondary-color);
         width: 104%;
         align-self: center;
         height: 104%;
@@ -48,9 +48,9 @@
       gap: 50px;
       padding-left: 5%;
       h2 {
-        color: var(--v3-primary-color);
+        color: var(--primary-color);
         font-weight: 600;
-        text-shadow: 0 0 5px var(--v3-primary-color), 0 0 5px black,
+        text-shadow: 0 0 5px var(--primary-color), 0 0 5px black,
           0 0 5px black;
       }
       .stats {
@@ -58,7 +58,7 @@
         span {
           margin: 0 30px;
           text-transform: uppercase;
-          font-family: var(--v3-font-sans-serif-2);
+          font-family: var(--font-sans-serif-2);
           word-spacing: 5px;
           letter-spacing: 2px;
           font-size: 1.2rem;
@@ -88,10 +88,10 @@
         flex-direction: column;
         justify-content: center;
         h2 {
-          color: var(--v3-secondary-color);
+          color: var(--secondary-color);
           margin-bottom: 20px;
           font-weight: 600;
-          text-shadow: 0 0 5px var(--v3-secondary-color), 0 0 2px black,
+          text-shadow: 0 0 5px var(--secondary-color), 0 0 2px black,
             0 0 2px black;
         }
         p {
@@ -123,7 +123,7 @@
         width: 100%;
         gap: 20px;
         padding-bottom: 20px;
-        border-bottom: 2px solid var(--v3-primary-color);
+        border-bottom: 2px solid var(--primary-color);
         padding-left: 0;
         h2 {
           margin-top: 40px;
@@ -142,7 +142,7 @@
           content: "";
           bottom: 0;
           left: 20%;
-          background-color: var(--v3-secondary-color);
+          background-color: var(--secondary-color);
           width: 60%;
           height: 1px;
         }

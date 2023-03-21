@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--v2-main-bg);
+  background-color: var(--main-bg);
   .head-container {
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@
     position: relative;
     height: auto;
     width: 1000px;
-    font-family: var(--v2-font-hirosh);
+    font-family: var(--font-hirosh);
     margin: 80px 0px;
 
     .title-container {
@@ -27,11 +27,11 @@
       padding: 3px;
       position: absolute;
       background: linear-gradient(black, black) padding-box,
-        linear-gradient(to right, var(--v2-color1), var(--v2-color3)) border-box;
+        linear-gradient(to right, var(--color1), var(--color3)) border-box;
       border-radius: 30px;
       border: 3px solid transparent;
-      box-shadow: 0px 0px 2px 2px var(--v2-color1),
-        0px 0px 1px 1px var(--v2-color3);
+      box-shadow: 0px 0px 2px 2px var(--color1),
+        0px 0px 1px 1px var(--color3);
       & > h2 {
         height: 100%;
         width: 100%;
@@ -40,7 +40,7 @@
         align-items: center;
         justify-content: center;
 
-        background: -webkit-linear-gradient(var(--v2-color1), var(--v2-color3));
+        background: -webkit-linear-gradient(var(--color1), var(--color3));
         background-clip: text;
         -webkit-text-fill-color: transparent;
         text-decoration: none;
@@ -52,11 +52,11 @@
       width: 350px;
       z-index: 2;
       background: linear-gradient(black, black) padding-box,
-        linear-gradient(to right, var(--v2-color2), var(--v2-color4)) border-box;
+        linear-gradient(to right, var(--color2), var(--color4)) border-box;
       border-radius: 30px;
       border: 3px solid transparent;
-      box-shadow: 0px 0px 2px 2px var(--v2-color2),
-        0px 0px 1px 1px var(--v2-color4);
+      box-shadow: 0px 0px 2px 2px var(--color2),
+        0px 0px 1px 1px var(--color4);
     }
     .date-container {
       display: flex;
@@ -68,13 +68,13 @@
       left: 90px;
       position: absolute;
       background: linear-gradient(black, black) padding-box,
-        linear-gradient(to right, var(--v2-color1), var(--v2-color3)) border-box;
+        linear-gradient(to right, var(--color1), var(--color3)) border-box;
       border-radius: 30px;
       border: 3px solid transparent;
-      box-shadow: 0px 0px 2px 2px var(--v2-color1),
-        0px 0px 1px 1px var(--v2-color3);
+      box-shadow: 0px 0px 2px 2px var(--color1),
+        0px 0px 1px 1px var(--color3);
       & > span {
-        background: -webkit-linear-gradient(var(--v2-color1), var(--v2-color3));
+        background: -webkit-linear-gradient(var(--color1), var(--color3));
         background-clip: text;
         -webkit-text-fill-color: transparent;
         text-decoration: none;
@@ -92,11 +92,11 @@
     justify-content: flex-start;
     align-items: center;
     background: linear-gradient(black, black) padding-box,
-      linear-gradient(to right, var(--v2-color2), var(--v2-color4)) border-box;
+      linear-gradient(to right, var(--color2), var(--color4)) border-box;
     border-radius: 30px;
     border: 3px solid transparent;
-    box-shadow: 0px 0px 2px 2px var(--v2-color2),
-      0px 0px 1px 1px var(--v2-color4);
+    box-shadow: 0px 0px 2px 2px var(--color2),
+      0px 0px 1px 1px var(--color4);
 
     .description {
       width: 95%;
@@ -127,14 +127,14 @@
       }
       a {
         text-decoration: none;
-        color: var(--v2-color3);
+        color: var(--color3);
       }
       li {
         font-size: 1.2rem;
       }
       blockquote {
-        color: var(--v2-color1);
-        font-family: var(--v2-font-hirosh);
+        color: var(--color1);
+        font-family: var(--font-hirosh);
         font-size: 1.3rem;
         margin: 1% 1%;
       }
@@ -146,18 +146,18 @@
       padding: 1% 1%;
       margin-top: 3%;
       background: linear-gradient(black, black) padding-box,
-        linear-gradient(to right, var(--v2-color1), var(--v2-color3)) border-box;
+        linear-gradient(to right, var(--color1), var(--color3)) border-box;
       border-radius: 30px;
       border: 3px solid transparent;
-      box-shadow: 0px 0px 2px 2px var(--v2-color1),
-        0px 0px 1px 1px var(--v2-color3);
+      box-shadow: 0px 0px 2px 2px var(--color1),
+        0px 0px 1px 1px var(--color3);
       text-decoration: none;
-      color: var(--v2-font-color-main);
+      color: var(--font-color-main);
       font-size: 1.2rem;
     }
     .regis-button:hover {
-      box-shadow: 0px 0px 30px 10px var(--v2-color1),
-        0px 0px 60px 10px var(--v2-color3);
+      box-shadow: 0px 0px 30px 10px var(--color1),
+        0px 0px 60px 10px var(--color3);
     }
   }
 }
@@ -224,14 +224,14 @@
         }
         a {
           text-decoration: none;
-          color: var(--v2-color3);
+          color: var(--color3);
         }
         li {
           font-size: 0.92rem;
         }
         blockquote {
-          color: var(--v2-color1);
-          font-family: var(--v2-font-hirosh);
+          color: var(--color1);
+          font-family: var(--font-hirosh);
           font-size: 0.8rem;
           margin: 2% 2%;
         }

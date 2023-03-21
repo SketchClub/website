@@ -1,6 +1,6 @@
 #home {
   width: 100%;
-  background-color: var(--v3-accent-color);
+  background-color: var(--accent-color);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -27,37 +27,37 @@
       &._1 {
         height: 210px;
         width: 210px;
-        filter: drop-shadow(0 0 5px var(--v3-primary-color))
-          drop-shadow(0 0 5px var(--v3-primary-color));
+        filter: drop-shadow(0 0 5px var(--primary-color))
+          drop-shadow(0 0 5px var(--primary-color));
         path {
-          stroke: var(--v3-primary-color);
+          stroke: var(--primary-color);
         }
       }
       &._2 {
         height: 290px;
         width: 290px;
-        filter: drop-shadow(0 0 5px var(--v3-secondary-color))
-          drop-shadow(0 0 5px var(--v3-secondary-color));
+        filter: drop-shadow(0 0 5px var(--secondary-color))
+          drop-shadow(0 0 5px var(--secondary-color));
         path {
-          stroke: var(--v3-secondary-color);
+          stroke: var(--secondary-color);
         }
       }
       &._3 {
         height: 370px;
         width: 370px;
-        filter: drop-shadow(0 0 5px var(--v3-primary-color))
-          drop-shadow(0 0 5px var(--v3-primary-color));
+        filter: drop-shadow(0 0 5px var(--primary-color))
+          drop-shadow(0 0 5px var(--primary-color));
         path {
-          stroke: var(--v3-primary-color);
+          stroke: var(--primary-color);
         }
       }
       &._4 {
         height: 450px;
         width: 450px;
-        filter: drop-shadow(0 0 5px var(--v3-secondary-color))
-          drop-shadow(0 0 5px var(--v3-secondary-color));
+        filter: drop-shadow(0 0 5px var(--secondary-color))
+          drop-shadow(0 0 5px var(--secondary-color));
         path {
-          stroke: var(--v3-secondary-color);
+          stroke: var(--secondary-color);
         }
       }
     }
@@ -74,8 +74,8 @@
       border: none;
       background: linear-gradient(
         90deg,
-        var(--v3-primary-color),
-        var(--v3-secondary-color)
+        var(--primary-color),
+        var(--secondary-color)
       );
       height: fit-content;
     }

@@ -1,4 +1,6 @@
-export default function Error({ statusCode }: { statusCode: string | number }) {
+import Lottie from "lottie-react";
+import errorjson from "../public/assets/lottie/error.json"
+export default function Error({ statusCode }: { statusCode?: string | number }) {
   switch (statusCode) {
     case "event-not-found":
       console.log("<>Event not found</>");
@@ -10,5 +12,5 @@ export default function Error({ statusCode }: { statusCode: string | number }) {
       console.log("<>Pata nahi konsa error</>");
       break;
   }
-  return <section id="main-error-component"></section>;
+  return <section id="main-error-component"><Lottie animationData={errorjson} id="lottie"></Lottie></section>;
 }

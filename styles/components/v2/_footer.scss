@@ -1,8 +1,8 @@
 #footer {
-  background-color: var(--v2-main-bg);
+  background-color: var(--main-bg);
   bottom: 0;
   width: 100%;
-  height: var(--v2-footer-height);
+  height: var(--footer-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@
       text-decoration: none;
       color: white;
       font-size: 0.8rem;
-      font-family: var(--v2-font-hirosh);
+      font-family: var(--font-hirosh);
     }
   }
   .about {
@@ -69,7 +69,7 @@
       color: white;
       text-align: right;
       padding: 0px 10px;
-      font-family: var(--v2-font-poppins);
+      font-family: var(--font-poppins);
       font-size: 0.8rem;
     }
   }
