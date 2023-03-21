@@ -1,4 +1,4 @@
-import "../styles/style.css";
+import "../styles/style.scss";
 import { QueryClientProvider, Hydrate, dehydrate } from "@tanstack/react-query";
 import type { AppContext as NextAppContext, AppProps } from "next/app";
 import { useState, createContext, useEffect, Dispatch, SetStateAction } from "react";
