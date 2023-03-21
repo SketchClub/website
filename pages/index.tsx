@@ -65,7 +65,7 @@ export default function Home() {
           />
           <Card
             link={`/v2/${redirectUrl}`}
-            imgURL="/assets/images/reyna.jpg"
+            imgURL="/assets/images/v2.png"
             imgAlt=""
             text="v2. Anime by Aishwarya T."
             version="v2"
