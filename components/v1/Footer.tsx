@@ -6,7 +6,8 @@ import Image from "next/image";
 import { useCommonData } from "../../hooks";
 
 export default function Footer() {
-  const { footerText, email, instagram, linkedIn, youtube, discord } = useCommonData();
+  const { footerText, email, instagram, linkedIn, youtube, discord } =
+    useCommonData();
   return (
     <div id="footer">
       <div className="sitemap no-mobile big-width">
@@ -25,10 +26,20 @@ export default function Footer() {
       <div className="footrule no-mobile"></div>
       <div className="icons big-width">
         <div className="up">
-          <a href={`mailto:${email}`} target="_blank" rel="noreferrer" title="Sketch email">
+          <a
+            href={`mailto:${email}`}
+            target="_blank"
+            rel="noreferrer"
+            title="Sketch email"
+          >
             <MdEmail color="black" />
           </a>
-          <a href={`https://discord.gg/${discord}`} target="_blank" rel="noreferrer noopener" title="Sketch Discord">
+          <a
+            href={`https://discord.gg/${discord}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            title="Sketch Discord"
+          >
             <FaDiscord color="black" />
           </a>
           <a
@@ -41,10 +52,16 @@ export default function Footer() {
           </a>
         </div>
         <div className="down">
-          <a title="Sketch LinkedIn" href={`https://www.linkedin.com/company/${linkedIn}`}>
+          <a
+            title="Sketch LinkedIn"
+            href={`https://www.linkedin.com/company/${linkedIn}`}
+          >
             <FaLinkedin color="black" />
           </a>
-          <a title="Sketch YouTube" href={`https://www.youtube.com/${youtube}?sub_confirmation=1`}>
+          <a
+            title="Sketch YouTube"
+            href={`https://www.youtube.com/${youtube}?sub_confirmation=1`}
+          >
             <AiFillYoutube color="black" />
           </a>
         </div>

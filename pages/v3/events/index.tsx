@@ -6,7 +6,7 @@ import reactQueryClient from "../../../clients/react-query-client";
 import { getEvents } from "../../../gql/queries";
 import { QueryProps } from "../../../types";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
-import { EventType } from "../types";
+import { EventType } from "../../v1/types";
 import Image from "next/image";
 import React from "react";
 import { formatDateAndTime } from "@contentful/f36-datetime";
@@ -15,27 +15,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "past",
-      wantDesc: true
+      wantDesc: true,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "past"],
-    queryFn: getPastEvents
+    queryFn: getPastEvents,
   });
   async function getUpcomingEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "upcoming",
-      wantDesc: true
+      wantDesc: true,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "upcoming"],
-    queryFn: getUpcomingEvents
+    queryFn: getUpcomingEvents,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
 
@@ -43,7 +43,7 @@ function EventsComponent({
   title,
   date,
   smallDescription,
-  picUrl
+  picUrl,
 }: {
   title: string;
   date: string;
@@ -51,7 +51,10 @@ function EventsComponent({
   picUrl: string;
 }) {
   return (
-    <Link className="event-card-container" href={`/v3/events/${title.replaceAll(" ", "-")}`}>
+    <Link
+      className="event-card-container"
+      href={`/v3/events/${title.replaceAll(" ", "-")}`}
+    >
       <div className="img-container">
         <Image src={picUrl} alt="event" fill />
       </div>
@@ -63,8 +66,14 @@ function EventsComponent({
 }
 
 export default function Events({ qup }: { qup: QueryProps }) {
-  const pastEvents: EventType[] = getDataFromQueryKey(["events", "past"], qup.queries).items;
-  const upcomingEvents: EventType[] = getDataFromQueryKey(["events", "upcoming"], qup.queries).items;
+  const pastEvents: EventType[] = getDataFromQueryKey(
+    ["events", "past"],
+    qup.queries
+  ).items;
+  const upcomingEvents: EventType[] = getDataFromQueryKey(
+    ["events", "upcoming"],
+    qup.queries
+  ).items;
   return (
     <section id="events">
       <h1 data-text="Events">Events</h1>

@@ -6,37 +6,111 @@ import reactQueryClient from "../../../clients/react-query-client";
 import { getEvents } from "../../../gql/queries";
 import { QueryProps } from "../../../types";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
-
-export default function events({ qup }: { qup: QueryProps }) {
-  const pastEvents = getDataFromQueryKey(["events", "past"], qup.queries);
-  const upcomingEvents = getDataFromQueryKey(["events", "upcoming"], qup.queries);
-  return <Link href="/v1/events/let's-dev">Event</Link>;
-}
+import { EventType } from "../types";
+import Image from "next/image";
+import React from "react";
+import { formatDateAndTime } from "@contentful/f36-datetime";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "past",
-      wantDesc: true
+      wantDesc: true,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "past"],
-    queryFn: getPastEvents
+    queryFn: getPastEvents,
   });
   async function getUpcomingEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "upcoming",
-      wantDesc: true
+      wantDesc: true,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "upcoming"],
-    queryFn: getUpcomingEvents
+    queryFn: getUpcomingEvents,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
+
+function EventsComponent({
+  title,
+  picUrl,
+}: {
+  title: string;
+  date: string;
+  smallDescription: string;
+  picUrl: string;
+}) {
+  return (
+    <Link
+      className="event-card-container"
+      href={`/v1/events/${title.replaceAll(" ", "-")}`}
+    >
+      <div className="img-container">
+        <Image src={picUrl} alt="event" fill />
+      </div>
+      <h3>{title}</h3>
+    </Link>
+  );
+}
+
+export default function Events({ qup }: { qup: QueryProps }) {
+  const pastEvents: EventType[] = getDataFromQueryKey(
+    ["events", "past"],
+    qup.queries
+  ).items;
+  const upcomingEvents: EventType[] = getDataFromQueryKey(
+    ["events", "upcoming"],
+    qup.queries
+  ).items;
+
+  return (
+    <section id="all-events">
+      {upcomingEvents.length !== 0 && (
+        <React.Fragment>
+          <div className="all-event-container upcoming">
+            <h2>Upcoming Events</h2>
+            {upcomingEvents.map((type: any, index: number) => {
+              return (
+                <EventsComponent
+                  title={type.title}
+                  picUrl={type.picture.url}
+                  date={type.date}
+                  smallDescription={type.smallDescription}
+                  key={index}
+                />
+              );
+            })}
+          </div>
+        </React.Fragment>
+      )}
+      {pastEvents.length !== 0 && (
+        <>
+          <div className="all-event-container past">
+            <h2>Past Events</h2>
+            <div className="event-cards">
+              {pastEvents.map((type: any, index: number) => {
+                return (
+                  <EventsComponent
+                    title={type.title}
+                    picUrl={type.picture.url}
+                    date={type.date}
+                    smallDescription={type.smallDescription}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+    </section>
+  );
+}
