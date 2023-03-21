@@ -171,7 +171,7 @@
     }
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
   #Home {
     overflow: hidden;
     .main-banner {
@@ -260,7 +260,7 @@
         &.about {
           align-items: flex-end;
           grid-column: 2 2;
-          padding-right: 15px;
+          padding-right: 20px;
           h3 {
             color: rgb(42, 205, 210);
           }
@@ -286,7 +286,7 @@
         }
         &.domains {
           align-items: flex-end;
-          padding-right: 15px;
+          padding-right: 50px;
           counter-reset: list-counter;
           grid-column: 4 4;
           width: 100%;
