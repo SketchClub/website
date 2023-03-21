@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./_app";
 
 import { useRouter } from "next/router";
-import type { versions } from "../types";
+import type { versions } from "../types/global";
 
 function Card({
   link,

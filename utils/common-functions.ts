@@ -1,5 +1,5 @@
 import { QueryKey } from "@tanstack/react-query";
-import { CustomQueryType } from "../types";
+import { CustomQueryType } from "../types/global";
 
 export function isArraysEqual(a: any[] | QueryKey, b: any[] | QueryKey) {
   if (a === b) return true;

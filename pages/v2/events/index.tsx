@@ -4,13 +4,13 @@ import Link from "next/link";
 import gqlclient from "../../../clients/gql-client";
 import reactQueryClient from "../../../clients/react-query-client";
 import { getEvents } from "../../../gql/queries";
-import { QueryProps } from "../../../types";
+import { QueryProps } from "../../../types/global";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
 import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { useEffect } from "react";
 import Head from "next/head";
-import { EventType } from "../../v1/types";
+import { EventType } from "../../../types/global";
 // export interface Picture {
 //   url: string;
 // }

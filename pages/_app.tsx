@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import reactQueryClient from "../clients/react-query-client";
 import logoText from "../utils/logo-text";
-import type { AppContextState } from "../types";
+import type { AppContextState } from "../types/global";
 import { versions as versionConst } from "../utils/common-consts";
 import gqlclient from "../clients/gql-client";
 import { getCommonWebContent, getDomainNames } from "../gql/queries";

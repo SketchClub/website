@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import gqlclient from "../../clients/gql-client";
 import reactQueryClient from "../../clients/react-query-client";
 import { getMembers } from "../../gql/queries";
-import { QueryProps } from "../../types";
+import { QueryProps } from "../../types/global";
 import { getDataFromQueryKey } from "../../utils/common-functions";
 import Image from "next/image";
 import React from "react";

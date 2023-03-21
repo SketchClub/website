@@ -5,7 +5,7 @@ import React from "react";
 import gqlclient from "../../../clients/gql-client";
 import reactQueryClient from "../../../clients/react-query-client";
 import { getSingleEvent } from "../../../gql/queries";
-import { QueryProps } from "../../../types";
+import { QueryProps } from "../../../types/global";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
 import { documentToReactComponents, NodeRenderer, Options } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";

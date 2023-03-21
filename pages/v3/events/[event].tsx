@@ -6,7 +6,7 @@ import { documentToReactComponents, NodeRenderer, Options } from "@contentful/ri
 import { BLOCKS } from "@contentful/rich-text-types";
 
 import { getSingleEvent } from "../../../gql/queries";
-import { QueryProps } from "../../../types";
+import { QueryProps } from "../../../types/global";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
 import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
