@@ -1,6 +1,5 @@
 import { dehydrate } from "@tanstack/react-query";
 import { GetServerSideProps } from "next";
-import Link from "next/link";
 import gqlclient from "../../clients/gql-client";
 import reactQueryClient from "../../clients/react-query-client";
 import { getMembers } from "../../gql/queries";
@@ -18,7 +17,7 @@ function Card({
   domain,
   mail,
   insta,
-  tag,
+  tag
 }: {
   name: string;
   picurl: string;
@@ -28,7 +27,7 @@ function Card({
   tag: string;
 }) {
   return (
-    <div className="card">
+    <li className="card">
       <h3>{name.split(" ")[0]}</h3>
       <span className="tag">{tag}</span>
       <span className="domain">{domain}</span>
@@ -36,24 +35,14 @@ function Card({
         <Image src={picurl} alt="profile-photo" fill sizes="100%" />
       </div>
       <div className="icon-container">
-        <a
-          href={"https://instagram.com/" + insta}
-          className="insta"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={"https://instagram.com/" + insta} className="insta" target="_blank" rel="noopener noreferrer">
           <AiFillInstagram />
         </a>
-        <a
-          href={"mailto:" + mail}
-          className="mail"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={"mailto:" + mail} className="mail" target="_blank" rel="noopener noreferrer">
           <AiFillMail />
         </a>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -85,7 +74,7 @@ export default function Members({ qup }: { qup: QueryProps }) {
       <div className="member-container">
         <div className="head member-type">
           <h2 className="title">Kage</h2>
-          <div className="cards-container">
+          <ul className="cards-container">
             {heads.map((head: any, index: number) => {
               console.log(head);
               return (
@@ -100,11 +89,11 @@ export default function Members({ qup }: { qup: QueryProps }) {
                 />
               );
             })}
-          </div>
+          </ul>
         </div>
         <div className="members member-type">
           <h2 className="title">Jōnin</h2>
-          <div className="cards-container">
+          <ul className="cards-container">
             {members.map((member: any, index: number) => {
               return (
                 <Card
@@ -118,11 +107,11 @@ export default function Members({ qup }: { qup: QueryProps }) {
                 />
               );
             })}
-          </div>
+          </ul>
         </div>
         <div className="alumini member-type">
           <h2 className="title"> Jinchūriki</h2>
-          <div className="cards-container">
+          <ul className="cards-container">
             {alumini.map((alumini: any, index: number) => {
               return (
                 <Card
@@ -136,7 +125,7 @@ export default function Members({ qup }: { qup: QueryProps }) {
                 />
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
@@ -146,34 +135,34 @@ export default function Members({ qup }: { qup: QueryProps }) {
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head",
+      memType: "head"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads,
+    queryFn: getHeads
   });
   async function getAlumini() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini",
+      memType: "alumini"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumini,
+    queryFn: getAlumini
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member",
+      memType: "member"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails,
+    queryFn: getMemberDetails
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient),
-    },
+      qup: dehydrate(reactQueryClient)
+    }
   };
 };

@@ -97,8 +97,7 @@
           z-index: 2;
           width: 98%;
           background: linear-gradient(black, black) padding-box,
-            linear-gradient(to right, var(--v2-color1), var(--v2-color3))
-              border-box;
+            linear-gradient(to right, var(--v2-color1), var(--v2-color3)) border-box;
           border: 3px solid transparent;
         }
       }
@@ -126,9 +125,7 @@
           }
           &:hover {
             .img-container {
-              img {
-                scale: 1.1;
-              }
+              transform: scale(1.1) translateY(-1.5vh);
             }
           }
           h3 {
@@ -161,12 +158,12 @@
           }
           .img-container {
             position: relative;
-            height: 80%;
+            height: 77.5%;
             width: 75%;
             z-index: 1;
-
+            transition: all 0.3s ease;
             img {
-              transition: all 0.3s ease;
+              object-fit: contain;
             }
           }
           .icon-container {
@@ -193,28 +190,10 @@
         }
 
         .card::after {
-          @include suedo(
-            80%,
-            80%,
-            2%,
-            4%,
-            auto,
-            auto,
-            var(--v2-color1),
-            var(--v2-color3)
-          );
+          @include suedo(80%, 80%, 2%, 4%, auto, auto, var(--v2-color1), var(--v2-color3));
         }
         .card::before {
-          @include suedo(
-            20%,
-            60%,
-            auto,
-            auto,
-            5%,
-            7%,
-            var(--v2-color1),
-            var(--v2-color3)
-          );
+          @include suedo(20%, 60%, auto, auto, 5%, 7%, var(--v2-color1), var(--v2-color3));
         }
       }
 
@@ -234,8 +213,7 @@
             z-index: 2;
             width: 98%;
             background: linear-gradient(black, black) padding-box,
-              linear-gradient(to right, var(--v2-color2), var(--v2-color4))
-                border-box;
+              linear-gradient(to right, var(--v2-color2), var(--v2-color4)) border-box;
             border: 3px solid transparent;
           }
         }
@@ -255,28 +233,10 @@
               @include textStyle(1.3rem);
             }
             &::after {
-              @include suedo(
-                80%,
-                80%,
-                2%,
-                4%,
-                auto,
-                auto,
-                var(--v2-color2),
-                var(--v2-color4)
-              );
+              @include suedo(80%, 80%, 2%, 4%, auto, auto, var(--v2-color2), var(--v2-color4));
             }
             &::before {
-              @include suedo(
-                20%,
-                60%,
-                auto,
-                auto,
-                5%,
-                7%,
-                var(--v2-color2),
-                var(--v2-color4)
-              );
+              @include suedo(20%, 60%, auto, auto, 5%, 7%, var(--v2-color2), var(--v2-color4));
             }
             .icon-container {
               a {
@@ -284,6 +244,28 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1515px) {
+  #member {
+    .member-container {
+      .member-type {
+        .cards-container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #member {
+    .member-container {
+      .member-type {
+        .cards-container {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     }

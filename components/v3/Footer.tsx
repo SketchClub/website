@@ -22,7 +22,7 @@ export default function Footer() {
           <Link href="/v3">Home</Link>
           <Link href="/v3/about">About</Link>
           <Link href="/v3/events">Events</Link>
-          <Link href="/v3/members">Members</Link>
+          <Link href="/v3/team">Team</Link>
         </div>
       </div>
       <div className="socials">

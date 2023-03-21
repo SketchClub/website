@@ -15,13 +15,7 @@ export default function Header() {
     <header>
       <Link className="logo" href={"/v3"}>
         <div className="img-container">
-          <Image
-            priority
-            src="/assets/images/logo-grad-2.png"
-            className="logo-img"
-            alt="logo"
-            fill
-          ></Image>
+          <Image priority src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill></Image>
         </div>
       </Link>
       <nav className={`${menuOpen ? "active" : ""}`}>
@@ -37,9 +31,9 @@ export default function Header() {
           <span aria-hidden="true">Events</span>
           Events
         </Link>
-        <Link href="/v3/members" onClick={close}>
-          <span aria-hidden="true">Members</span>
-          Members
+        <Link href="/v3/team" onClick={close}>
+          <span aria-hidden="true">Team</span>
+          Team
         </Link>
         <div className="socials-link" onClick={close}>
           <Link href={`https://www.instagram.com/` + instagram}>
@@ -53,10 +47,7 @@ export default function Header() {
           </Link>
         </div>
       </nav>
-      <div
-        className={`${menuOpen ? "close" : ""} hamburger`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
+      <div className={`${menuOpen ? "close" : ""} hamburger`} onClick={() => setMenuOpen(!menuOpen)}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
