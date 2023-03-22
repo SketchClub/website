@@ -14,7 +14,7 @@ export default function About() {
   const textsAndAnis: any[] = [
     ["Design", design, designAni],
     ["Develop", develop, developAni],
-    ["Deliver", deliver, deliverAni]
+    ["Deliver", deliver, deliverAni],
   ];
   return (
     <section id="about">
@@ -35,11 +35,15 @@ export default function About() {
             </p>
           );
         })}
-        <Link href="/v1/join" style={{ width: "fit-content" }} aria-label="Join us">
-          <button id="btn_join_about" type="button">
+        <Link
+          href="/v1/join"
+          style={{ width: "fit-content" }}
+          aria-label="Join us"
+        >
+          {/* <button id="btn_join_about" type="button">
             Join us
             <BsPersonPlusFill style={{ marginLeft: "7px" }} />
-          </button>
+          </button> */}
         </Link>
       </div>
       <div className="text-and-anis">
@@ -50,7 +54,12 @@ export default function About() {
                 <h2>{data[0]}</h2>
                 <p>{data[1]}</p>
               </div>
-              <Lottie animationData={data[2]} autoPlay loop className={"lottie " + "ani" + (index + 1)} />
+              <Lottie
+                animationData={data[2]}
+                autoPlay
+                loop
+                className={"lottie " + "ani" + (index + 1)}
+              />
             </div>
           );
         })}
