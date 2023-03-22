@@ -17,7 +17,7 @@ function Card({
   domain,
   mail,
   insta,
-  tag
+  tag,
 }: {
   name: string;
   picurl: string;
@@ -35,10 +35,20 @@ function Card({
         <Image src={picurl} alt="profile-photo" fill sizes="100%" />
       </div>
       <div className="icon-container">
-        <a href={"https://instagram.com/" + insta} className="insta" target="_blank" rel="noopener noreferrer">
+        <a
+          href={"https://instagram.com/" + insta}
+          className="insta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <AiFillInstagram />
         </a>
-        <a href={"mailto:" + mail} className="mail" target="_blank" rel="noopener noreferrer">
+        <a
+          href={"mailto:" + mail}
+          className="mail"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <AiFillMail />
         </a>
       </div>
@@ -134,34 +144,34 @@ export default function Members({ qup }: { qup: QueryProps }) {
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head"
+      memType: "head",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads
+    queryFn: getHeads,
   });
   async function getAlumini() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini"
+      memType: "alumini",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumini
+    queryFn: getAlumini,
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member"
+      memType: "member",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails
+    queryFn: getMemberDetails,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };

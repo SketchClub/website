@@ -13,7 +13,7 @@ function Card({
   imgURL,
   imgAlt,
   text,
-  version
+  version,
 }: {
   link: string;
   imgURL: string;
@@ -78,7 +78,7 @@ export default function Home() {
             version="v3"
           />
         </div>
-        <p>Made with help and support from the whole Sketch team.</p>
+        <p>Made with help and support from the whole Sketch team</p>
       </main>
     </>
   );

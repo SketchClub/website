@@ -2,6 +2,9 @@
   display: flex;
   width: 100%;
   height: var(--footer-height);
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
   justify-content: space-between;
   background-color: rgba(215, 215, 255, 0.85);
   align-items: center;
@@ -84,18 +87,32 @@
     height: 25px;
     margin-bottom: 10px;
   }
-
-  @media screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 900px) {
+  #footer {
+    height: 40vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 0%;
     width: 100%;
-
-    .icons {
-      width: 40%;
+    .getInTouch,
+    .sitemap,
+    .footrule {
+      display: none;
     }
-    .getInTouch {
-      width: 40%;
+    .icons {
+      height: 40%;
+    }
+    .intro {
+      height: 50%;
+      width: 100% !important;
       align-items: center;
+      p {
+        width: 90%;
+        text-align: center;
+      }
     }
   }
 }

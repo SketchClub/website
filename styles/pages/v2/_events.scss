@@ -95,8 +95,7 @@
           z-index: 2;
           width: 100%;
           background: linear-gradient(black, black) padding-box,
-            linear-gradient(to right, var(--color1), var(--color3))
-              border-box;
+            linear-gradient(to right, var(--color1), var(--color3)) border-box;
           border: 3px solid transparent;
         }
       }
@@ -112,8 +111,7 @@
           height: 250px;
           margin: 30px 10px;
           background: linear-gradient(black, black) padding-box,
-            linear-gradient(to right, var(--color1), var(--color3))
-              border-box;
+            linear-gradient(to right, var(--color1), var(--color3)) border-box;
           border-radius: 30px;
           border: 3px solid transparent;
           display: flex;
@@ -125,8 +123,7 @@
             width: 350px;
             height: 200px;
             background: linear-gradient(black, black) padding-box,
-              linear-gradient(to right, var(--color1), var(--color3))
-                border-box;
+              linear-gradient(to right, var(--color1), var(--color3)) border-box;
             border-radius: 30px;
             border: 3px solid transparent;
             box-shadow: 0px 0px 2px 2px var(--color1),
@@ -141,20 +138,14 @@
             & > h3 {
               font-size: 2rem;
               padding: 10px 10px;
-              background: -webkit-linear-gradient(
-                var(--color1),
-                var(--color3)
-              );
+              background: -webkit-linear-gradient(var(--color1), var(--color3));
               background-clip: text;
               -webkit-text-fill-color: transparent;
               text-decoration: none;
               text-transform: uppercase;
             }
             & > span {
-              background: -webkit-linear-gradient(
-                var(--color1),
-                var(--color3)
-              );
+              background: -webkit-linear-gradient(var(--color1), var(--color3));
               background-clip: text;
               -webkit-text-fill-color: transparent;
               text-decoration: none;
@@ -197,8 +188,7 @@
           z-index: 2;
           width: 100%;
           background: linear-gradient(black, black) padding-box,
-            linear-gradient(to right, var(--color2), var(--color4))
-              border-box;
+            linear-gradient(to right, var(--color2), var(--color4)) border-box;
           border: 3px solid transparent;
         }
       }
@@ -216,16 +206,14 @@
           width: 70%;
           padding: 20px;
           background: linear-gradient(black, black) padding-box,
-            linear-gradient(to right, var(--color2), var(--color4))
-              border-box;
+            linear-gradient(to right, var(--color2), var(--color4)) border-box;
           border-radius: 30px;
           border: 3px solid transparent;
           .img-container {
             width: 100%;
             height: 50%;
             background: linear-gradient(black, black) padding-box,
-              linear-gradient(to right, var(--color2), var(--color4))
-                border-box;
+              linear-gradient(to right, var(--color2), var(--color4)) border-box;
             border-radius: 30px;
             border: 3px solid transparent;
           }
@@ -238,10 +226,7 @@
             justify-content: center;
             > h3 {
               font-size: 0.8rem;
-              background: -webkit-linear-gradient(
-                var(--color2),
-                var(--color4)
-              );
+              background: -webkit-linear-gradient(var(--color2), var(--color4));
               background-clip: text;
               -webkit-text-fill-color: transparent;
               text-transform: uppercase;
@@ -250,8 +235,7 @@
         }
         .cardp:hover {
           box-shadow: 0px 0px 20px 5px var(--color2),
-            0px 0px 30px 5px var(--color4),
-            inset 0px 0px 5px 5px var(--color2),
+            0px 0px 30px 5px var(--color4), inset 0px 0px 5px 5px var(--color2),
             inset 0px 0px 10px 5px var(--color4);
         }
       }
@@ -260,13 +244,15 @@
 }
 @media only screen and (max-width: 900px) {
   #events {
-    padding: 2% 5%;
+    padding: 2% 3%;
     overflow: hidden;
     width: 100%;
-    h2 {
-      font-size: 2rem;
-      align-self: center;
-      background-position: 87% 45%;
+    .heading {
+      h2 {
+        font-size: 2rem;
+        align-self: center;
+        background-position: 87% 45%;
+      }
     }
     .events-container {
       display: flex;
@@ -292,8 +278,7 @@
             z-index: 2;
             width: 95%;
             background: linear-gradient(black, black) padding-box,
-              linear-gradient(to right, var(--color1), var(--color3))
-                border-box;
+              linear-gradient(to right, var(--color1), var(--color3)) border-box;
             border: 3px solid transparent;
           }
         }
@@ -337,8 +322,7 @@
             z-index: 2;
             width: 95%;
             background: linear-gradient(black, black) padding-box,
-              linear-gradient(to right, var(--color2), var(--color4))
-                border-box;
+              linear-gradient(to right, var(--color2), var(--color4)) border-box;
             border: 3px solid transparent;
           }
         }

@@ -1,16 +1,31 @@
+@font-face {
+  font-family: billy hunter;
+  src: url("./fonts/billyhunter.otf");
+}
 #v {
   background-color: black;
   color: white;
   height: 100vh;
   width: 100%;
   @include flex($center: true, $column: true);
-  h1 {
+  & > h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  & > h1,
+  & > p,
+  & > span {
+    font-family: "billy hunter", cursive;
+  }
+  & > p,
+  & > span {
     font-size: 2rem;
   }
   .cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 50%;
+    width: 60%;
     margin: 50px 0;
     gap: 30px;
     a {
@@ -30,7 +45,7 @@
       }
       span {
         font-family: monospace;
-        font-size: 1rem;
+        font-size: 0.9rem;
         width: 100%;
         margin-bottom: 5%;
         text-align: center;
@@ -43,12 +58,36 @@
         }
         filter: grayscale(0%);
         span {
-          font-size: 1.1rem;
+          font-size: 1rem;
         }
       }
     }
     &:hover a:not(:hover) {
       filter: grayscale(100%);
+    }
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #v {
+    h1 {
+      font-size: 2rem;
+    }
+    & > p,
+    & > span {
+      font-size: 0.8rem;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 95%;
+      margin: 5vh 0;
+      padding: 0 2vw;
+      gap: 5vw;
+      a {
+        span {
+          font-size: 0.8rem;
+        }
+      }
     }
   }
 }

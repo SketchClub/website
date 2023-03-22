@@ -60,3 +60,35 @@
     }
   }
 }
+@media only screen and (max-width: 1200px) {
+  #Home {
+    .intro {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        width: 90%;
+        font-size: 1rem;
+      }
+      button {
+      }
+    }
+    .anims {
+      margin-top: 4vh;
+      span {
+        font-size: 1.3rem;
+        width: 100%;
+        display: flex;
+        text-align: center;
+      }
+      .anims-container {
+        & > div.anim {
+          h2 {
+            font-size: 1rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
