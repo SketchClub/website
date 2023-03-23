@@ -39,10 +39,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export default function Event({ qup }: { qup: QueryProps }) {
   const router = useRouter();
   const eventDetails = getDataFromQueryKey(
-    ["event", router.query?.event ?? ""],
+    ["event", ((router.query?.event as string) ?? "").replaceAll("-", " ")],
     qup.queries
   ).items;
-  if (eventDetails.length === 0 || eventDetails === undefined) {
+  if (eventDetails?.length === 0 || eventDetails === undefined) {
     return <Error />;
   }
   const event = eventDetails[0];

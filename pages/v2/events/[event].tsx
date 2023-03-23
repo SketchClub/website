@@ -21,10 +21,10 @@ import Error from "../../../components/Error";
 export default function Event({ qup }: { qup: QueryProps }) {
   const router = useRouter();
   const eventDetailsTemp = getDataFromQueryKey(
-    ["event", router.query?.event ?? ""],
+    ["event", ((router.query?.event as string) ?? "").replaceAll("-", " ")],
     qup.queries
   )?.items;
-  if (eventDetailsTemp.length === 0 || eventDetailsTemp === undefined) {
+  if (eventDetailsTemp?.length === 0 || eventDetailsTemp === undefined) {
     return <Error statusCode={"event-not-found"} />;
   }
   const event = eventDetailsTemp[0];

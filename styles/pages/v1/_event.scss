@@ -18,6 +18,27 @@
       transition: all 0.3s ease-in-out;
     }
   }
+  .imgContainer:hover span {
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+  }
+  .col {
+    height: 21vw;
+    width: 20vw;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 2%;
+  }
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  .title {
+    width: fit-content !important;
+    margin-left: 05%;
+  }
 }
 // #event {
 //   //   background-color: brown;
