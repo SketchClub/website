@@ -1,42 +1,63 @@
-#all-events {
-  //   background-color: brown;
-  padding: 0 5vw;
-  h2 {
-    font-weight: 400;
-    font-size: 3rem;
-    letter-spacing: 1px;
-    margin-bottom: 4vh;
+#events {
+  padding-left: 5%;
+  padding-right: 5%;
+  a {
+    cursor: none;
   }
-  .all-event-container {
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .imgContainer {
+    height: calc(100% - 2rem);
     width: 100%;
-    // background-color: yellow;
-    min-height: 50%;
-    .event-cards {
-      //   background-color: red;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3.5vw;
-      .event-card-container {
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        justify-self: center;
-        width: 100%;
-        .img-container {
-          height: auto;
-          width: 100%;
-          aspect-ratio: 1;
-          border-radius: 25px;
-          margin-bottom: 10px;
-        }
-        &:hover {
-          .img-container {
-            img {
-              transform: scale(1.1);
-            }
-          }
-        }
-      }
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    span {
+      transition: all 0.3s ease-in-out;
     }
   }
 }
+// #event {
+//   //   background-color: brown;
+//   padding: 0 5vw;
+//   h2 {
+//     font-weight: 400;
+//     font-size: 3rem;
+//     letter-spacing: 1px;
+//     margin-bottom: 4vh;
+//   }
+//   .all-event-container {
+//     width: 100%;
+//     // background-color: yellow;
+//     min-height: 50%;
+//     .event-cards {
+//       //   background-color: red;
+//       display: grid;
+//       grid-template-columns: repeat(4, 1fr);
+//       gap: 3.5vw;
+//       .event-card-container {
+//         display: flex;
+//         flex-direction: column;
+//         align-self: center;
+//         justify-self: center;
+//         width: 100%;
+//         .img-container {
+//           height: auto;
+//           width: 100%;
+//           aspect-ratio: 1;
+//           border-radius: 25px;
+//           margin-bottom: 10px;
+//         }
+//         &:hover {
+//           .img-container {
+//             img {
+//               transform: scale(1.1);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

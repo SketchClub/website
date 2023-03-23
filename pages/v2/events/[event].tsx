@@ -7,7 +7,11 @@ import reactQueryClient from "../../../clients/react-query-client";
 import { getSingleEvent } from "../../../gql/queries";
 import { QueryProps } from "../../../types/global";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
-import { documentToReactComponents, NodeRenderer, Options } from "@contentful/rich-text-react-renderer";
+import {
+  documentToReactComponents,
+  NodeRenderer,
+  Options,
+} from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -16,9 +20,12 @@ import Error from "../../../components/Error";
 
 export default function Event({ qup }: { qup: QueryProps }) {
   const router = useRouter();
-  const eventDetailsTemp = getDataFromQueryKey(["event", router.query?.event ?? ""], qup.queries)?.items;
+  const eventDetailsTemp = getDataFromQueryKey(
+    ["event", router.query?.event ?? ""],
+    qup.queries
+  )?.items;
   if (eventDetailsTemp.length === 0 || eventDetailsTemp === undefined) {
-    return <Error statusCode={"event-not-found"}/>;
+    return <Error statusCode={"event-not-found"} />;
   }
   const event = eventDetailsTemp[0];
   const opt: Options = {
@@ -26,17 +33,19 @@ export default function Event({ qup }: { qup: QueryProps }) {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const { url, description, height, width } = node.data.target.fields;
         // data[0].description.links.assets;
-        return <Image src={url} alt={description} height={height} width={width} />;
-      }
-    }
+        return (
+          <Image src={url} alt={description} height={height} width={width} />
+        );
+      },
+    },
   };
   const renderOptions = (links: any): Options => {
     const assetMap = links.assets.block;
 
     return {
       renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: renderAsset(assetMap)
-      }
+        [BLOCKS.EMBEDDED_ASSET]: renderAsset(assetMap),
+      },
     };
   };
   function getAsset(arr: any, id: any) {
@@ -53,7 +62,15 @@ export default function Event({ qup }: { qup: QueryProps }) {
       if (!asset) {
         return <></>;
       }
-      return <Image src={asset.url} width={asset.width} height={asset.height} alt={asset.description} quality={75} />;
+      return (
+        <Image
+          src={asset.url}
+          width={asset.width}
+          height={asset.height}
+          alt={asset.description}
+          quality={75}
+        />
+      );
     };
     return temp;
   };
@@ -75,13 +92,23 @@ export default function Event({ qup }: { qup: QueryProps }) {
       </div>
       <div className="body-container">
         <div className="description">
-          {documentToReactComponents(event.description.json, renderOptions(event.description.links))}
+          {documentToReactComponents(
+            event.description.json,
+            renderOptions(event.description.links)
+          )}
         </div>
-        {event.registrationLink != null && event.registrationLink != "" && event.registrationLink != " " && (
-          <a className="regis-button" href={event.registrationLink} target="_blank" rel="noopener noreferrer">
-            Register Now
-          </a>
-        )}
+        {event.registrationLink != null &&
+          event.registrationLink != "" &&
+          event.registrationLink != " " && (
+            <a
+              className="regis-button"
+              href={event.registrationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register Now
+            </a>
+          )}
       </div>
     </div>
   );
@@ -89,19 +116,19 @@ export default function Event({ qup }: { qup: QueryProps }) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const name = context.query.event ?? "undefined";
+  const eveTitle = String(name).replaceAll("-", " ");
   async function getEventName() {
     return await gqlclient.request(getSingleEvent, {
-      eventTitle: String(name).replace("-", " ")
+      eventTitle: eveTitle,
     });
   }
   await reactQueryClient.prefetchQuery({
-    queryKey: ["event", name],
-    queryFn: getEventName
+    queryKey: ["event", eveTitle],
+    queryFn: getEventName,
   });
-
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };

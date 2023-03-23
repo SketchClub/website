@@ -2,7 +2,11 @@ import { dehydrate } from "@tanstack/react-query";
 import { GetServerSideProps } from "next";
 import gqlclient from "../../../clients/gql-client";
 import reactQueryClient from "../../../clients/react-query-client";
-import { documentToReactComponents, NodeRenderer, Options } from "@contentful/rich-text-react-renderer";
+import {
+  documentToReactComponents,
+  NodeRenderer,
+  Options,
+} from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 import { getSingleEvent } from "../../../gql/queries";
@@ -15,27 +19,31 @@ import Error from "../../../components/Error";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const name = context.query.event ?? "undefined";
+  const eveTitle = String(name).replaceAll("-", " ");
   async function getEventName() {
     return await gqlclient.request(getSingleEvent, {
-      eventTitle: String(name).replaceAll("-", " ")
+      eventTitle: eveTitle,
     });
   }
   await reactQueryClient.prefetchQuery({
-    queryKey: ["event", name],
-    queryFn: getEventName
+    queryKey: ["event", eveTitle],
+    queryFn: getEventName,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
 
 export default function Event({ qup }: { qup: QueryProps }) {
   const router = useRouter();
-  const eventDetails = getDataFromQueryKey(["event", router.query?.event ?? ""], qup.queries).items;
+  const eventDetails = getDataFromQueryKey(
+    ["event", router.query?.event ?? ""],
+    qup.queries
+  ).items;
   if (eventDetails.length === 0 || eventDetails === undefined) {
-    return <Error/>;
+    return <Error />;
   }
   const event = eventDetails[0];
   const opt: Options = {
@@ -43,17 +51,19 @@ export default function Event({ qup }: { qup: QueryProps }) {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const { url, description, height, width } = node.data.target.fields;
         // data[0].description.links.assets;
-        return <Image src={url} alt={description} height={height} width={width} />;
-      }
-    }
+        return (
+          <Image src={url} alt={description} height={height} width={width} />
+        );
+      },
+    },
   };
   const renderOptions = (links: any): Options => {
     const assetMap = links.assets.block;
 
     return {
       renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: renderAsset(assetMap)
-      }
+        [BLOCKS.EMBEDDED_ASSET]: renderAsset(assetMap),
+      },
     };
   };
   function getAsset(arr: any, id: any) {
@@ -70,7 +80,15 @@ export default function Event({ qup }: { qup: QueryProps }) {
       if (!asset) {
         return <></>;
       }
-      return <Image src={asset.url} width={asset.width} height={asset.height} alt={asset.description} quality={75} />;
+      return (
+        <Image
+          src={asset.url}
+          width={asset.width}
+          height={asset.height}
+          alt={asset.description}
+          quality={75}
+        />
+      );
     };
     return temp;
   };
@@ -102,7 +120,10 @@ export default function Event({ qup }: { qup: QueryProps }) {
         </div>
       </div>
       <div className="desc">
-        {documentToReactComponents(event.description.json, renderOptions(event.description.links))}
+        {documentToReactComponents(
+          event.description.json,
+          renderOptions(event.description.links)
+        )}
       </div>
     </section>
   );

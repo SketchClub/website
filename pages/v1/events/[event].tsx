@@ -19,13 +19,14 @@ import Error from "../../../components/Error";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const name = context.query.event ?? "undefined";
+  const eveTitle = String(name).replaceAll("-", " ");
   async function getEventName() {
     return await gqlclient.request(getSingleEvent, {
-      eventTitle: String(name).replaceAll("-", " "),
+      eventTitle: eveTitle,
     });
   }
   await reactQueryClient.prefetchQuery({
-    queryKey: ["event", name],
+    queryKey: ["event", eveTitle],
     queryFn: getEventName,
   });
   return {
@@ -37,12 +38,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 export default function Event({ qup }: { qup: QueryProps }) {
   const router = useRouter();
+  const eveTitle = String(router.query?.event ?? "").replaceAll("-", " ");
   const eventDetails = getDataFromQueryKey(
-    ["event", router.query?.event ?? ""],
+    ["event", eveTitle],
     qup.queries
   ).items;
   if (eventDetails.length === 0 || eventDetails === undefined) {
-    return <Error/>;
+    return <Error />;
   }
   const event = eventDetails[0];
   const opt: Options = {
