@@ -54,6 +54,11 @@ export default function Header() {
         <Image src="/assets/images/logo.png" alt="Sketch logo" fill sizes="100%" style={{ objectFit: "cover" }} />
       </Link>
       <div className="btns">
+        <Link href="/v1/" aria-label="Home">
+          <Button variant="outline-light" id="btn_team_head">
+            Home
+          </Button>
+        </Link>
         <Link href="/v1/events" aria-label="Events">
           <Button variant="outline-light" id="btn_eve_head">
             Our Events
@@ -84,7 +89,7 @@ export default function Header() {
                 About us
               </Link>
             </li>
-           
+
             <li
               onClick={() => {
                 navi();
@@ -94,7 +99,7 @@ export default function Header() {
                 Events
               </Link>
             </li>
-         
+
             <li
               onClick={() => {
                 navi();

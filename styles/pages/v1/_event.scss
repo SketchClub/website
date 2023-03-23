@@ -11,6 +11,9 @@
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 25px;
+    img {
+      object-fit: cover;
+    }
   }
   a {
     display: unset;

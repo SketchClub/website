@@ -2,20 +2,15 @@ import Head from "next/head";
 import Link from "next/link";
 import { useCommonData } from "../../hooks";
 import { BsPersonPlusFill } from "react-icons/bs";
-import designAni from "../../public/assets/lottie/design_old.json";
-import developAni from "../../public/assets/lottie/develop_old.json";
-import deliverAni from "../../public/assets/lottie/deliver_old.json";
 import dynamic from "next/dynamic";
-const Lottie = dynamic(() => import("lottie-react"));
+
+const DesignLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DesignLottie));
+const DevelopLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DevelopLottie));
+const DeliverLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DeliverLottie));
 
 export default function About() {
-  const { aboutIntro, design, develop, deliver, clubName } = useCommonData();
+  const { aboutIntro, design, develop, deliver, clubName, instagram } = useCommonData();
 
-  const textsAndAnis: any[] = [
-    ["Design", design, designAni],
-    ["Develop", develop, developAni],
-    ["Deliver", deliver, deliverAni],
-  ];
   return (
     <section id="about">
       <Head>
@@ -35,34 +30,35 @@ export default function About() {
             </p>
           );
         })}
-        <Link
-          href="/v1/join"
-          style={{ width: "fit-content" }}
-          aria-label="Join us"
-        >
-          {/* <button id="btn_join_about" type="button">
+        <a href={`https://instagram.com/${instagram}`} aria-label="Join us" target="_blank" rel="noopener noreferrer">
+          <button id="btn_join_about" type="button">
             Join us
             <BsPersonPlusFill style={{ marginLeft: "7px" }} />
-          </button> */}
-        </Link>
+          </button>
+        </a>
       </div>
       <div className="text-and-anis">
-        {textsAndAnis.map((data, index) => {
-          return (
-            <div className="card black-text-outline" key={index}>
-              <div className={"text " + "text" + (index + 1)}>
-                <h2>{data[0]}</h2>
-                <p>{data[1]}</p>
-              </div>
-              <Lottie
-                animationData={data[2]}
-                autoPlay
-                loop
-                className={"lottie " + "ani" + (index + 1)}
-              />
-            </div>
-          );
-        })}
+        <div className="card black-text-outline">
+          <div className={"text " + "text" + 1}>
+            <h2>Design</h2>
+            <p>{design}</p>
+          </div>
+          <DesignLottie className={"lottie " + "ani" + 1} />
+        </div>
+        <div className="card black-text-outline">
+          <div className={"text " + "text" + 2}>
+            <h2>Develop</h2>
+            <p>{develop}</p>
+          </div>
+          <DevelopLottie className={"lottie " + "ani" + 2} />
+        </div>
+        <div className="card black-text-outline">
+          <div className={"text " + "text" + 3}>
+            <h2>Deliver</h2>
+            <p>{deliver}</p>
+          </div>
+          <DeliverLottie className={"lottie " + "ani" + 3} />
+        </div>
       </div>
     </section>
   );

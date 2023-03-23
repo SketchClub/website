@@ -1,30 +1,16 @@
 import { useCommonData } from "../../hooks";
 
-import Lottie from "lottie-react";
-import designJson from "../../public/assets/lottie/design_old.json";
-import deliverJson from "../../public/assets/lottie/deliver_old.json";
-import developJson from "../../public/assets/lottie/develop_old.json";
 import Head from "next/head";
 import { BsArrowBarRight } from "react-icons/bs";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
-function AnimCard({ title, animData }: any) {
-  return (
-    <div className="anim">
-      <h2>{title}</h2>
-      <Lottie animationData={animData} />
-    </div>
-  );
-}
+const DesignLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DesignLottie));
+const DevelopLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DevelopLottie));
+const DeliverLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DeliverLottie));
 
 export default function Home() {
-  const { clubName, mission } = useCommonData();
-
-  const anims = [
-    { title: "Design", animData: designJson },
-    { title: "Develop", animData: developJson },
-    { title: "Deliver", animData: deliverJson }
-  ];
+  const { clubName, mission, footerText } = useCommonData();
   return (
     <section aria-label="Home" id="Home">
       <Head>
@@ -34,6 +20,7 @@ export default function Home() {
       <div className="intro">
         <h1>{`Welcome to ${clubName}`}</h1>
         <p>{mission}</p>
+        <p>{footerText}</p>
         <Link href={"/v1/about"}>
           <button>
             <span>Explore us</span>
@@ -44,9 +31,18 @@ export default function Home() {
       <div className="anims">
         <span>Our workshops & events empower you to:</span>
         <div className="anims-container">
-          {anims.map((anim, i) => (
-            <AnimCard key={i} title={anim.title} animData={anim.animData} />
-          ))}
+          <div className="anim">
+            <h2>Design</h2>
+            <DesignLottie />
+          </div>
+          <div className="anim">
+            <h2>Develop</h2>
+            <DevelopLottie />
+          </div>
+          <div className="anim">
+            <h2>Deliver</h2>
+            <DeliverLottie />
+          </div>
         </div>
       </div>
     </section>

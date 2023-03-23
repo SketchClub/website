@@ -6,13 +6,14 @@
   align-items: center;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
   margin-bottom: 25px;
 
   & > a {
-    width: 6vw;
-    height: 6vw;
+    height: 70%;
+    aspect-ratio: 1;
+    img {
+      object-fit: contain !important;
+    }
     position: relative;
   }
   a,
@@ -168,17 +169,14 @@
 @media screen and (max-width: 900px) {
   #header {
     display: flex;
-    padding-top: 6%;
     padding-left: 7%;
     padding-right: 5%;
     /* justify-content: unset; */
     justify-content: space-around;
+    align-items: center;
 
     .burger {
       display: block;
-    }
-    & > a {
-      display: none;
     }
     .btns {
       margin-left: auto;
