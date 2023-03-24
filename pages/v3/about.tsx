@@ -2,18 +2,37 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useCommonData } from "../../hooks";
-const DesignLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DesignLottie));
-const DevelopLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DevelopLottie));
-const DeliverLottie = dynamic(() => import("../../components/common/lottie").then((mod) => mod.DeliverLottie));
+const DesignLottie = dynamic(() =>
+  import("../../components/common/lottie").then((mod) => mod.DesignLottie)
+);
+const DevelopLottie = dynamic(() =>
+  import("../../components/common/lottie").then((mod) => mod.DevelopLottie)
+);
+const DeliverLottie = dynamic(() =>
+  import("../../components/common/lottie").then((mod) => mod.DeliverLottie)
+);
 
 export default function About() {
-  const { design, deliver, develop, mission, instagram, numOfAlumni, numOfMembers } = useCommonData();
+  const {
+    design,
+    deliver,
+    develop,
+    mission,
+    instagram,
+    numOfAlumni,
+    numOfMembers,
+  } = useCommonData();
   return (
     <section id="about">
       <h1 data-text="About">About</h1>
       <div className="about-container">
         <div className="img-container">
-          <Image src="/assets/images/sketch_fam.jpg" className="nature-img" alt="nature" fill></Image>
+          <Image
+            src="/assets/images/sketch_fam.jpg"
+            className="nature-img"
+            alt="nature"
+            fill
+          ></Image>
         </div>
         <div className="text-container">
           <h2>Vision</h2>

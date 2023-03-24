@@ -88,6 +88,7 @@
         margin-bottom: 10px;
         position: relative;
         width: 100%;
+        z-index: 1;
         &::after {
           content: "-";
           inset: 3px;
@@ -191,10 +192,28 @@
         }
 
         .card::after {
-          @include suedo(80%, 80%, 2%, 4%, auto, auto, var(--color1), var(--color3));
+          @include suedo(
+            80%,
+            80%,
+            2%,
+            4%,
+            auto,
+            auto,
+            var(--color1),
+            var(--color3)
+          );
         }
         .card::before {
-          @include suedo(20%, 60%, auto, auto, 5%, 7%, var(--color1), var(--color3));
+          @include suedo(
+            20%,
+            60%,
+            auto,
+            auto,
+            5%,
+            7%,
+            var(--color1),
+            var(--color3)
+          );
         }
       }
 
@@ -234,10 +253,28 @@
               @include textStyle(1.3rem);
             }
             &::after {
-              @include suedo(80%, 80%, 2%, 4%, auto, auto, var(--color2), var(--color4));
+              @include suedo(
+                80%,
+                80%,
+                2%,
+                4%,
+                auto,
+                auto,
+                var(--color2),
+                var(--color4)
+              );
             }
             &::before {
-              @include suedo(20%, 60%, auto, auto, 5%, 7%, var(--color2), var(--color4));
+              @include suedo(
+                20%,
+                60%,
+                auto,
+                auto,
+                5%,
+                7%,
+                var(--color2),
+                var(--color4)
+              );
             }
             .icon-container {
               a {
