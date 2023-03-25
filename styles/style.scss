@@ -65,6 +65,7 @@
   @import "./pages/v1/about";
   @import "./pages/v1/events";
   @import "./pages/v1/event";
+  @import "./pages/v1/team";
 
   @import "./components/v1/header";
   @import "./components/v1/footer";
@@ -74,14 +75,14 @@
 
 //v2
 .v2 {
-  @import "./pages/v2/home";//home page
+  @import "./pages/v2/home"; //home page
   @import "./pages/v2/events";
   @import "./pages/v2/members";
   @import "./components/v2/footer";
   @import "./components/v2/header";
   @import "./pages/v2/event";
 
-   background-color:var(--main-bg,black);
+  background-color: var(--main-bg, black);
 }
 // @import "./components/"
 //v3
