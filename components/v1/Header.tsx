@@ -22,7 +22,9 @@ export default function Header() {
         if (linkk.style.animation) {
           linkk.style.animation = "";
         } else {
-          linkk.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+          linkk.style.animation = `navLinkFade 0.5s ease forwards ${
+            index / 7 + 0.3
+          }s`;
         }
       });
       //burger animation
@@ -37,7 +39,9 @@ export default function Header() {
           if (linkk.style.animation) {
             linkk.style.animation = "";
           } else {
-            linkk.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            linkk.style.animation = `navLinkFade 0.5s ease forwards ${
+              index / 7 + 0.3
+            }s`;
           }
         });
         //burger animation
@@ -51,7 +55,13 @@ export default function Header() {
   return (
     <div id="header">
       <Link href="/" className="img-container" aria-label="Home">
-        <Image src="/assets/images/logo.png" alt="Sketch logo" fill sizes="100%" style={{ objectFit: "cover" }} />
+        <Image
+          src="/assets/images/logo.png"
+          alt="Sketch logo"
+          fill
+          sizes="100%"
+          style={{ objectFit: "cover" }}
+        />
       </Link>
       <div className="btns">
         <Link href="/v1/" aria-label="Home">
@@ -105,7 +115,7 @@ export default function Header() {
                 navi();
               }}
             >
-              <Link href="/team" aria-label="Sketch Team">
+              <Link href="/v1/team" aria-label="Sketch Team">
                 Team
               </Link>
             </li>
@@ -131,7 +141,12 @@ export default function Header() {
               >
                 <FaDiscord color="black" />
               </a>
-              <a href={`mailto:${email}`} target="_blank" rel="noreferrer noopener" aria-label="Sketch Email">
+              <a
+                href={`mailto:${email}`}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Sketch Email"
+              >
                 <MdEmail color="black" />
               </a>
             </li>
