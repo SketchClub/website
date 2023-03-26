@@ -10,6 +10,7 @@ import React from "react";
 import { AiFillInstagram, AiFillMail } from "react-icons/ai";
 import Head from "next/head";
 import { useEffect } from "react";
+import { useCommonData } from "../../hooks";
 
 function Card({
   name,
@@ -17,7 +18,7 @@ function Card({
   domain,
   mail,
   insta,
-  tag
+  tag,
 }: {
   name: string;
   picurl: string;
@@ -44,7 +45,13 @@ function Card({
         >
           <AiFillInstagram />
         </a>
-        <a href={"mailto:" + mail} className="mail" target="_blank" rel="noopener noreferrer" title="Sketch Mail">
+        <a
+          href={"mailto:" + mail}
+          className="mail"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Sketch Mail"
+        >
           <AiFillMail />
         </a>
       </div>
@@ -53,6 +60,7 @@ function Card({
 }
 
 export default function Members({ qup }: { qup: QueryProps }) {
+  const { mission } = useCommonData();
   const heads = getDataFromQueryKey(["head"], qup.queries).items;
   const alumini = getDataFromQueryKey(["alumini"], qup.queries).items;
   const members = getDataFromQueryKey(["member"], qup.queries).items;
@@ -74,7 +82,8 @@ export default function Members({ qup }: { qup: QueryProps }) {
   return (
     <section id="member">
       <Head>
-        <title>Members of Sketch</title>
+        <title>Sketch | Team</title>
+        <meta name="description" content={" Sketch | " + mission} />
       </Head>
       <h1>The Shinobi</h1>
       <div className="member-container">
@@ -140,34 +149,34 @@ export default function Members({ qup }: { qup: QueryProps }) {
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head"
+      memType: "head",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads
+    queryFn: getHeads,
   });
   async function getAlumini() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini"
+      memType: "alumini",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumini
+    queryFn: getAlumini,
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member"
+      memType: "member",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails
+    queryFn: getMemberDetails,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };

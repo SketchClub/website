@@ -111,7 +111,8 @@
         gap: 1.5vw;
         justify-items: center;
         padding: 0 1.5vw;
-
+        font-family: var(--font-nuku);
+        letter-spacing: 0.15em;
         .card {
           height: 45vh;
           width: 100%;
@@ -136,6 +137,7 @@
             top: 5%;
             right: 17.5%;
             width: 75%;
+            letter-spacing: 0.15em;
             text-align: right;
             z-index: 1;
           }
@@ -149,6 +151,9 @@
             z-index: 1;
           }
           span.domain {
+            @media only screen and (max-height: 700px) {
+              bottom: 70%;
+            }
             background: linear-gradient(var(--color1), var(--color3));
             @include textStyle(1.3rem);
             bottom: 52.5%;
@@ -187,6 +192,7 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              z-index: 1;
             }
           }
         }
@@ -298,17 +304,17 @@
     }
   }
 }
-@media only screen and (max-width: 1000px) {
-  #member {
-    .member-container {
-      .member-type {
-        .cards-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-    }
-  }
-}
+// @media only screen and (max-width: 1000px) {
+//   #member {
+//     .member-container {
+//       .member-type {
+//         .cards-container {
+//           grid-template-columns: repeat(2, 1fr);
+//         }
+//       }
+//     }
+//   }
+// }
 @media only screen and (max-width: 900px) {
   #member {
     overflow: hidden;
@@ -383,7 +389,11 @@
             * {
               position: absolute;
             }
-
+            &:hover {
+              .img-container {
+                transform: none;
+              }
+            }
             h3 {
               background: linear-gradient(var(--color1), var(--color3));
               @include textStyle(0.6rem);
@@ -395,7 +405,7 @@
             }
             span.tag {
               background: linear-gradient(var(--color1), var(--color3));
-              @include textStyle(0.4rem);
+              @include textStyle(0.2rem);
               bottom: 7.5%;
               right: 9%;
               width: 40%;
@@ -427,7 +437,8 @@
               }
               a {
                 color: var(--color1);
-                font-size: 0.5rem;
+                font-size: 0.8rem;
+                margin: 0 0.15rem;
                 height: 100%;
                 display: flex;
                 justify-content: center;

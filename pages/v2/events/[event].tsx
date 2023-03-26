@@ -100,7 +100,11 @@ export default function Event({ qup }: { qup: QueryProps }) {
   return (
     <div id="event-container">
       <Head>
-        <title>{event.title}</title>
+        <title>Sketch | {event.title}</title>
+        <meta
+          name="description"
+          content={" Sketch | " + event.smallDescription}
+        />
       </Head>
       <div className="head-container">
         <div className="title-container">
