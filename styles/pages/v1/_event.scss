@@ -123,6 +123,33 @@
     img[alt~="x-small-width"] {
       width: 25%;
     }
+    img {
+      &[data-size*="x-small"] {
+        width: 30%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="small"] {
+        width: 47.5%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="medium"] {
+        width: 65%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="large"] {
+        width: 82.5%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="x-large"] {
+        width: 100%;
+        height: fit-content;
+        object-fit: contain;
+      }
+    }
   }
 }
 @media screen and (max-width: 900px) {

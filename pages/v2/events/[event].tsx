@@ -62,13 +62,36 @@ export default function Event({ qup }: { qup: QueryProps }) {
       if (!asset) {
         return <></>;
       }
+      const { url, description, width, height } = asset;
+      let size = "medium";
+      let desc = `Sketch Event | ${event.title} | ${event.smallDescription}`;
+      try {
+        const temp = JSON.parse(description);
+        const sizeTemp = temp.size;
+        const possibleSizes = [
+          "x-small",
+          "small",
+          "medium",
+          "large",
+          "x-large",
+        ];
+        if (possibleSizes.includes(sizeTemp)) {
+          size = sizeTemp;
+        }
+      } catch {}
+      try {
+        const temp = JSON.parse(description);
+        let tempDesc = temp.description;
+        if (tempDesc) desc = `Sketch Event | ${event.title} | ${tempDesc}`;
+      } catch {}
+      // data[0].description.links.assets;
       return (
         <Image
-          src={asset.url}
-          width={asset.width}
-          height={asset.height}
-          alt={asset.description}
-          quality={75}
+          src={url}
+          alt={desc}
+          width={width}
+          height={height}
+          data-size={size}
         />
       );
     };
