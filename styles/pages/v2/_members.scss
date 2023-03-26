@@ -406,6 +406,7 @@
             span.tag {
               background: linear-gradient(var(--color1), var(--color3));
               @include textStyle(0.2rem);
+              letter-spacing: 0.05rem;
               bottom: 7.5%;
               right: 9%;
               width: 40%;
