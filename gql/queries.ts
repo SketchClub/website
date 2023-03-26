@@ -35,7 +35,7 @@ export const getDomainNames = gql`
 
 export const getMembers = gql`
   query ($memType: String!) {
-    memberCollection(where: { memberType: { title_contains: $memType } }) {
+    memberCollection(where: { memberType: { title_contains: $memType } }, order: name_ASC) {
       items {
         name
         profilePicture {
@@ -54,7 +54,7 @@ export const getMembers = gql`
 
 export const getEvents = gql`
   query ($eventType: String!, $wantDesc: Boolean!) {
-    eventCollection(where: { eventType: { type_contains: $eventType } }) {
+    eventCollection(where: { eventType: { type_contains: $eventType } }, order: date_DESC) {
       items {
         title
         description @include(if: $wantDesc) {
