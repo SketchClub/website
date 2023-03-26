@@ -13,49 +13,39 @@ import { QueryProps } from "../../types/global";
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head",
+      memType: "head"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads,
+    queryFn: getHeads
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member",
+      memType: "member"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails,
+    queryFn: getMemberDetails
   });
   async function getAlumni() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini",
+      memType: "alumini"
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumni,
+    queryFn: getAlumni
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient),
-    },
+      qup: dehydrate(reactQueryClient)
+    }
   };
 };
 
-function AllMemCard({
-  name,
-  mail,
-  insta,
-  url,
-}: {
-  name: string;
-  mail: string;
-  insta: string;
-  url: string;
-}) {
+function AllMemCard({ name, mail, insta, url }: { name: string; mail: string; insta: string; url: string }) {
   return (
     <div className="card">
       <div className="img-container">
@@ -67,6 +57,7 @@ function AllMemCard({
           className="socials insta circle"
           target="_blank"
           rel="noopener noreferrer"
+          title="Sketch Instagram"
         >
           <AiFillInstagram />
         </a>
@@ -76,6 +67,7 @@ function AllMemCard({
           className="socials mail circle"
           target="_blank"
           rel="noopener noreferrer"
+          title="Sketch E-mail"
         >
           <BsFillEnvelopeFill />
         </a>

@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
       <Link className="logo img-container" href="/">
-        <Image priority src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill></Image>
+        <Image priority src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill sizes="100vw"></Image>
       </Link>
       <nav className={`${menuOpen ? "active" : ""}`}>
         <Link href="/v3/" onClick={close}>

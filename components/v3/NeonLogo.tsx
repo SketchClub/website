@@ -116,7 +116,7 @@ export default function NeonLogo() {
   return (
     <div className="effect-container">
       <div className="img-container">
-        <Image src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill sizes="100%" />
+        <Image src="/assets/images/logo-grad-2.png" className="logo-img" alt="logo" fill sizes="100vw" />
       </div>
       <Outline className="outline _1" />
       <Outline className="outline _2" />

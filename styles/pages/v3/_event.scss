@@ -33,8 +33,7 @@
         width: 100%;
         z-index: 1;
         border: 3px solid var(--primary-color);
-        filter: drop-shadow(0 0 3px var(--primary-color))
-          drop-shadow(0 0 3px var(--primary-color));
+        filter: drop-shadow(0 0 3px var(--primary-color)) drop-shadow(0 0 3px var(--primary-color));
       }
       &::after {
         content: "";
@@ -44,8 +43,7 @@
         width: 104%;
         z-index: -1;
         border: 3px solid var(--primary-color);
-        filter: drop-shadow(0 0 3px var(--primary-color))
-          drop-shadow(0 0 3px var(--primary-color));
+        filter: drop-shadow(0 0 3px var(--primary-color)) drop-shadow(0 0 3px var(--primary-color));
         z-index: 1;
       }
       a {
@@ -57,11 +55,7 @@
       span {
         width: fit-content;
         font-size: 2rem;
-        background: linear-gradient(
-          -270deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
+        background: linear-gradient(-270deg, var(--primary-color), var(--secondary-color));
         -webkit-text-fill-color: transparent;
         background-clip: text;
         font-weight: 700;
@@ -85,8 +79,7 @@
         width: 100%;
         z-index: -1;
         border: 3px solid var(--primary-color);
-        filter: drop-shadow(0 0 3px var(--primary-color))
-          drop-shadow(0 0 3px var(--primary-color));
+        filter: drop-shadow(0 0 3px var(--primary-color)) drop-shadow(0 0 3px var(--primary-color));
       }
       &::after {
         content: "";
@@ -96,8 +89,7 @@
         width: 106%;
         z-index: -1;
         border: 3px solid var(--primary-color);
-        filter: drop-shadow(0 0 3px var(--primary-color))
-          drop-shadow(0 0 3px var(--primary-color));
+        filter: drop-shadow(0 0 3px var(--primary-color)) drop-shadow(0 0 3px var(--primary-color));
       }
       .img-container {
         height: 100%;
@@ -126,8 +118,7 @@
       height: calc(100% + 50px);
       width: 100%;
       border: 3px solid var(--secondary-color);
-      filter: drop-shadow(0 0 3px var(--secondary-color))
-        drop-shadow(0 0 3px var(--secondary-color));
+      filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 3px var(--secondary-color));
       z-index: -1;
     }
     &::after {
@@ -138,28 +129,23 @@
       height: 100%;
       width: 102%;
       border: 3px solid var(--secondary-color);
-      filter: drop-shadow(0 0 3px var(--secondary-color))
-        drop-shadow(0 0 3px var(--secondary-color));
+      filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 3px var(--secondary-color));
     }
     h2 {
       font-size: 2.5rem;
-      text-shadow: (0 0 5px var(--primary-color)),
-        (0 0 5px var(--primary-color));
+      text-shadow: (0 0 5px var(--primary-color)), (0 0 5px var(--primary-color));
     }
     h3 {
       font-size: 2rem;
-      text-shadow: (0 0 5px var(--primary-color)),
-        (0 0 5px var(--primary-color));
+      text-shadow: (0 0 5px var(--primary-color)), (0 0 5px var(--primary-color));
     }
     h4 {
       font-size: 1.6rem;
-      text-shadow: (0 0 1px var(--primary-color)),
-        (0 0 5px var(--primary-color));
+      text-shadow: (0 0 1px var(--primary-color)), (0 0 5px var(--primary-color));
     }
     h5 {
       font-size: 1.2rem;
-      text-shadow: (0 0 1px var(--primary-color)),
-        (0 0 5px var(--primary-color));
+      text-shadow: (0 0 1px var(--primary-color)), (0 0 5px var(--primary-color));
     }
     ul,
     ol {
@@ -202,12 +188,30 @@
     p {
       text-shadow: (0 0 1px rgb(225, 225, 225)), (0 0 5px rgb(225, 225, 225));
     }
-    .img-container {
-      height: 200px;
-      width: 200px;
-      img {
-        height: 100%;
+    img {
+      &[data-size*="x-small"] {
+        width: 30%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="small"] {
+        width: 47.5%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="medium"] {
+        width: 65%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="large"] {
+        width: 82.5%;
+        height: fit-content;
+        object-fit: contain;
+      }
+      &[data-size*="x-large"] {
         width: 100%;
+        height: fit-content;
         object-fit: contain;
       }
     }
@@ -252,8 +256,7 @@
           height: 105%;
           width: 105%;
           border: 3px solid var(--secondary-color);
-          filter: drop-shadow(0 0 3px var(--secondary-color))
-            drop-shadow(0 0 3px var(--secondary-color));
+          filter: drop-shadow(0 0 3px var(--secondary-color)) drop-shadow(0 0 3px var(--secondary-color));
         }
         &::after {
           display: none;
@@ -266,8 +269,7 @@
         height: 101%;
         width: 100%;
         border: 3px solid var(--primary-color);
-        filter: drop-shadow(0 0 3px var(--primary-color))
-          drop-shadow(0 0 3px var(--primary-color));
+        filter: drop-shadow(0 0 3px var(--primary-color)) drop-shadow(0 0 3px var(--primary-color));
       }
       &::after {
         display: none;

@@ -47,8 +47,7 @@
             width: 25px;
             aspect-ratio: 1;
             &:hover {
-              filter: drop-shadow(0 0 2px rgb(102, 102, 102))
-                drop-shadow(0 0 2px rgb(212, 212, 212));
+              filter: drop-shadow(0 0 2px rgb(102, 102, 102)) drop-shadow(0 0 2px rgb(212, 212, 212));
             }
           }
         }
@@ -62,7 +61,7 @@
       }
     }
   }
-  @media only screen and (min-width: 650px) and (max-width: 1200px) {
+  @media only screen and (min-width: 900px) and (max-width: 1200px) {
     .all-memb-container {
       .cards-container {
         grid-template-columns: repeat(3, 1fr);
@@ -79,7 +78,7 @@
       }
     }
   }
-  @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 900px) {
     .all-memb-container {
       height: auto;
       .cards-container {
