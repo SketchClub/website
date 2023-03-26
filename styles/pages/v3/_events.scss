@@ -148,6 +148,10 @@
     }
   }
   @media only screen and (max-width: 900px) {
+    h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
     .all-event-container {
       display: block;
       .event-card-container {
@@ -160,7 +164,7 @@
         }
         p {
           display: flex;
-          bottom: 10%;
+          bottom: 15%;
           padding: 10px;
           height: fit-content;
           word-wrap: break-word;
