@@ -81,22 +81,24 @@ export default function Events({ qup }: { qup: QueryProps }) {
         ></meta>
       </Head>
       {upcomingEvents.length !== 0 && (
-        <React.Fragment>
+        <>
           <div className="all-event-container upcoming">
             <h2>Upcoming Events</h2>
-            {upcomingEvents.map((type: any, index: number) => {
-              return (
-                <EventsComponent
-                  title={type.title}
-                  picUrl={type.picture.url}
-                  date={type.date}
-                  smallDescription={type.smallDescription}
-                  key={index}
-                />
-              );
-            })}
+            <div className="event-cards">
+              {upcomingEvents.map((type: any, index: number) => {
+                return (
+                  <EventsComponent
+                    title={type.title}
+                    picUrl={type.picture.url}
+                    date={type.date}
+                    smallDescription={type.smallDescription}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </React.Fragment>
+        </>
       )}
       {pastEvents.length !== 0 && (
         <>

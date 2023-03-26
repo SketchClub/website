@@ -59,10 +59,6 @@ function AllMemCard({
 }) {
   return (
     <div className="card">
-      <Head>
-        <title>Sketch Team</title>
-        <meta name="description" content="Members of Sketch" />
-      </Head>
       <div className="img-container">
         <Image src={url} alt="alt" fill sizes="100%" />
       </div>
@@ -98,6 +94,10 @@ export default function Team({ qup }: { qup: QueryProps }) {
 
   return (
     <section id="members">
+      <Head>
+        <title>Sketch Team</title>
+        <meta name="description" content="Members of Sketch" />
+      </Head>
       <h1>Meet the fam</h1>
       <div className="all-memb-container heads">
         <h1>Kage</h1>
