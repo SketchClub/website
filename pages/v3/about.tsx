@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useCommonData } from "../../hooks";
@@ -21,9 +22,18 @@ export default function About() {
     instagram,
     numOfAlumni,
     numOfMembers,
+    clubName,
   } = useCommonData();
   return (
     <section id="about">
+      <Head>
+        <title>{`${clubName} | About`}</title>
+        <meta name="description" content="About SKETCH CLUB | SRM RAMAPURAM" />
+        <meta
+          name="keywords"
+          content="sketch, sketch club, club, srm, ramapuram, srm ramapuram, sketch club srm, sketch srm, club srm, about sketch club, about"
+        />
+      </Head>
       <h1 data-text="About">About</h1>
       <div className="about-container">
         <div className="img-container">

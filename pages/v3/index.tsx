@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { useCommonData } from "../../hooks";
@@ -8,6 +9,10 @@ export default function Home() {
   const { clubName, mission } = useCommonData();
   return (
     <section id="home">
+      <Head>
+        <title>{`${clubName} | Home`}</title>
+        <meta name="description" content="Welcome to sketch" />
+      </Head>
       <NeonLogo />
       <main className="text-container">
         <h1 className="main-text" data-text={clubName}>

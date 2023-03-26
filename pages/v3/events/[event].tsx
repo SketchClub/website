@@ -2,9 +2,12 @@ import { dehydrate } from "@tanstack/react-query";
 import { GetServerSideProps } from "next";
 import gqlclient from "../../../clients/gql-client";
 import reactQueryClient from "../../../clients/react-query-client";
-import { documentToReactComponents, NodeRenderer, Options } from "@contentful/rich-text-react-renderer";
+import {
+  documentToReactComponents,
+  NodeRenderer,
+  Options,
+} from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-
 import { getSingleEvent } from "../../../gql/queries";
 import { QueryProps } from "../../../types/global";
 import { getDataFromQueryKey } from "../../../utils/common-functions";
@@ -12,24 +15,24 @@ import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { useRouter } from "next/router";
 import Error from "../../../components/Error";
-import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const name = context.query.event ?? "undefined";
   const eveTitle = String(name).replaceAll("-", " ");
   async function getEventName() {
     return await gqlclient.request(getSingleEvent, {
-      eventTitle: eveTitle
+      eventTitle: eveTitle,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["event", eveTitle],
-    queryFn: getEventName
+    queryFn: getEventName,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
 
@@ -49,8 +52,8 @@ export default function Event({ qup }: { qup: QueryProps }) {
 
     return {
       renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: renderAsset(assetMap)
-      }
+        [BLOCKS.EMBEDDED_ASSET]: renderAsset(assetMap),
+      },
     };
   };
   function getAsset(arr: any, id: any) {
@@ -72,7 +75,13 @@ export default function Event({ qup }: { qup: QueryProps }) {
       try {
         const temp = JSON.parse(description);
         const sizeTemp = temp.size;
-        const possibleSizes = ["x-small", "small", "medium", "large", "x-large"];
+        const possibleSizes = [
+          "x-small",
+          "small",
+          "medium",
+          "large",
+          "x-large",
+        ];
         if (possibleSizes.includes(sizeTemp)) {
           size = sizeTemp;
         }
@@ -83,12 +92,24 @@ export default function Event({ qup }: { qup: QueryProps }) {
         if (tempDesc) desc = `Sketch Event | ${event.title} | ${tempDesc}`;
       } catch {}
       // data[0].description.links.assets;
-      return <Image src={url} alt={desc} width={width} height={height} data-size={size} />;
+      return (
+        <Image
+          src={url}
+          alt={desc}
+          width={width}
+          height={height}
+          data-size={size}
+        />
+      );
     };
     return temp;
   };
   return (
     <section id="event-page">
+      <Head>
+        <title>Sketch | {event.title}</title>
+        <meta name="description" content={event.smallDescription}></meta>
+      </Head>
       <div className="title-banner">
         <div className="title-info">
           <h1 data-text={event.title}>{event.title}</h1>
@@ -115,7 +136,10 @@ export default function Event({ qup }: { qup: QueryProps }) {
         </div>
       </div>
       <div className="desc">
-        {documentToReactComponents(event.description.json, renderOptions(event.description.links))}
+        {documentToReactComponents(
+          event.description.json,
+          renderOptions(event.description.links)
+        )}
       </div>
     </section>
   );

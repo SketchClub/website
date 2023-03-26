@@ -7,55 +7,75 @@ import { QueryProps } from "../../types/global";
 import { getDataFromQueryKey } from "../../utils/common-functions";
 import Image from "next/image";
 import React from "react";
-import { FaCameraRetro, FaDev, FaHandsHelping, FaPaintBrush, FaPencilAlt } from "react-icons/fa";
+import {
+  FaCameraRetro,
+  FaDev,
+  FaHandsHelping,
+  FaPaintBrush,
+  FaPencilAlt,
+} from "react-icons/fa";
 import { FiInstagram, FiMail } from "react-icons/fi";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head"
+      memType: "head",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads
+    queryFn: getHeads,
   });
   async function getAlumini() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini"
+      memType: "alumini",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumini
+    queryFn: getAlumini,
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member"
+      memType: "member",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails
+    queryFn: getMemberDetails,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
 
 function Outline({ className }: { className: string }) {
   return (
-    <svg className={className} viewBox="0 0 850 850" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      className={className}
+      viewBox="0 0 850 850"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M607.5 25H193L98 178.5V725.5L193 826H295.5L349 778H495.5L547 826H752V178.5L710 122H677V96.5L645 72V52.5L607.5 25Z"
         stroke="white"
         strokeWidth="10"
       />
-      <path d="M102.5 664V465.5L151.5 512V617.5L102.5 664Z" stroke="white" strokeWidth="10" />
+      <path
+        d="M102.5 664V465.5L151.5 512V617.5L102.5 664Z"
+        stroke="white"
+        strokeWidth="10"
+      />
 
-      <path d="M749.5 404.5V210.5L702.5 255.946V359.054L749.5 404.5Z" stroke="white" strokeWidth="10" />
+      <path
+        d="M749.5 404.5V210.5L702.5 255.946V359.054L749.5 404.5Z"
+        stroke="white"
+        strokeWidth="10"
+      />
     </svg>
   );
 }
@@ -66,7 +86,7 @@ function Card({
   insta,
   tag,
   url,
-  domain
+  domain,
 }: {
   name: string;
   mail: string;
@@ -80,13 +100,13 @@ function Card({
     case "content":
       newDomain = <FaPencilAlt />;
       break;
-    case "design":
+    case "designing":
       newDomain = <FaPaintBrush />;
       break;
     case "r&d":
       newDomain = <FaDev />;
       break;
-    case "pr_&_organization":
+    case "organization":
       newDomain = <FaHandsHelping />;
       break;
     case "media":
@@ -131,8 +151,13 @@ export default function Members({ qup }: { qup: QueryProps }) {
   const heads = getDataFromQueryKey(["head"], qup.queries).items;
   const alumni = getDataFromQueryKey(["alumini"], qup.queries).items;
   const members = getDataFromQueryKey(["member"], qup.queries).items;
+
   return (
-    <section id="members">
+    <section aria-label="Sketch Team" id="members">
+      <Head>
+        <title>Sketch Team</title>
+        <meta name="description" content="Members of Sketch" />
+      </Head>
       <h1 data-text="Meet the fam">Meet the fam</h1>
       <div className="all-memb-container heads">
         <h2>heads</h2>

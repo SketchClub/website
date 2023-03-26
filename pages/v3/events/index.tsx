@@ -16,27 +16,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
   async function getPastEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "past",
-      wantDesc: true
+      wantDesc: true,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "past"],
-    queryFn: getPastEvents
+    queryFn: getPastEvents,
   });
   async function getUpcomingEvents() {
     return await gqlclient.request(getEvents, {
       eventType: "upcoming",
-      wantDesc: true
+      wantDesc: true,
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["events", "upcoming"],
-    queryFn: getUpcomingEvents
+    queryFn: getUpcomingEvents,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
 
@@ -44,7 +44,7 @@ function EventsComponent({
   title,
   date,
   smallDescription,
-  picUrl
+  picUrl,
 }: {
   title: string;
   date: string;
@@ -52,7 +52,10 @@ function EventsComponent({
   picUrl: string;
 }) {
   return (
-    <Link className="event-card-container" href={`/v3/events/${title.replaceAll(" ", "-").toLowerCase()}`}>
+    <Link
+      className="event-card-container"
+      href={`/v3/events/${title.replaceAll(" ", "-").toLowerCase()}`}
+    >
       <div className="img-container">
         <Image src={picUrl} alt="event" fill />
       </div>
@@ -64,12 +67,22 @@ function EventsComponent({
 }
 
 export default function Events({ qup }: { qup: QueryProps }) {
-  const pastEvents: EventType[] = getDataFromQueryKey(["events", "past"], qup.queries).items;
-  const upcomingEvents: EventType[] = getDataFromQueryKey(["events", "upcoming"], qup.queries).items;
+  const pastEvents: EventType[] = getDataFromQueryKey(
+    ["events", "past"],
+    qup.queries
+  ).items;
+  const upcomingEvents: EventType[] = getDataFromQueryKey(
+    ["events", "upcoming"],
+    qup.queries
+  ).items;
   return (
     <section id="events">
       <Head>
-        <title>Sketch Events</title>
+        <title>Sketch | Events</title>
+        <meta
+          name="description"
+          content="Our past and present events, all at one place"
+        ></meta>
       </Head>
       <h1 data-text="Events">Events</h1>
       {upcomingEvents.length !== 0 && (

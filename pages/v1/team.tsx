@@ -9,45 +9,60 @@ import { BsFillEnvelopeFill } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 import { getDataFromQueryKey } from "../../utils/common-functions";
 import { QueryProps } from "../../types/global";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   async function getHeads() {
     return await gqlclient.request(getMembers, {
-      memType: "head"
+      memType: "head",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["head"],
-    queryFn: getHeads
+    queryFn: getHeads,
   });
   async function getMemberDetails() {
     return await gqlclient.request(getMembers, {
-      memType: "member"
+      memType: "member",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["member"],
-    queryFn: getMemberDetails
+    queryFn: getMemberDetails,
   });
   async function getAlumni() {
     return await gqlclient.request(getMembers, {
-      memType: "alumini"
+      memType: "alumini",
     });
   }
   await reactQueryClient.prefetchQuery({
     queryKey: ["alumini"],
-    queryFn: getAlumni
+    queryFn: getAlumni,
   });
   return {
     props: {
-      qup: dehydrate(reactQueryClient)
-    }
+      qup: dehydrate(reactQueryClient),
+    },
   };
 };
 
-function AllMemCard({ name, mail, insta, url }: { name: string; mail: string; insta: string; url: string }) {
+function AllMemCard({
+  name,
+  mail,
+  insta,
+  url,
+}: {
+  name: string;
+  mail: string;
+  insta: string;
+  url: string;
+}) {
   return (
     <div className="card">
+      <Head>
+        <title>Sketch Team</title>
+        <meta name="description" content="Members of Sketch" />
+      </Head>
       <div className="img-container">
         <Image src={url} alt="alt" fill sizes="100%" />
       </div>

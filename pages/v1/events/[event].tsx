@@ -16,6 +16,7 @@ import Image from "next/image";
 import { formatDateAndTime } from "@contentful/f36-datetime";
 import { useRouter } from "next/router";
 import Error from "../../../components/Error";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const name = context.query.event ?? "undefined";
@@ -118,6 +119,10 @@ export default function Event({ qup }: { qup: QueryProps }) {
   };
   return (
     <div id="event">
+      <Head>
+        <title>Sketch | {event.title}</title>
+        <meta name="description" content={event.smallDescription}></meta>
+      </Head>
       <h1 className="black-text-outline">{event.title}</h1>
       <div className="imgContainer">
         <Image src={event.picture.url} alt="event pic" fill />
