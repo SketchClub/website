@@ -106,6 +106,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        letter-spacing: 0.2em;
+        font-family: var(--font-nuku);
         .cardu {
           width: 90%;
           height: 250px;
@@ -136,7 +138,7 @@
             align-items: center;
             justify-content: center;
             & > h3 {
-              font-size: 2rem;
+              font-size: 2.5rem;
               padding: 10px 10px;
               background: -webkit-linear-gradient(var(--color1), var(--color3));
               background-clip: text;
@@ -149,6 +151,13 @@
               background-clip: text;
               -webkit-text-fill-color: transparent;
               text-decoration: none;
+              text-align: justify;
+              width: 70%;
+              text-overflow: ellipsis;
+              height: auto;
+              &:nth-of-type(2) {
+                text-align: center;
+              }
             }
           }
         }
@@ -200,7 +209,8 @@
         gap: 20px;
         justify-items: center;
         margin-top: 20px;
-
+        font-family: var(--font-nuku);
+        letter-spacing: 0.15em;
         .cardp {
           height: 32.5vh;
           width: 70%;
@@ -225,7 +235,7 @@
             align-items: center;
             justify-content: center;
             > h3 {
-              font-size: 0.8rem;
+              font-size: 1.5rem;
               background: -webkit-linear-gradient(var(--color2), var(--color4));
               background-clip: text;
               -webkit-text-fill-color: transparent;
@@ -299,7 +309,9 @@
                 font-size: 1rem;
               }
               & > span {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
+                max-width: 95%;
+                letter-spacing: 0.05em;
               }
             }
           }

@@ -8,10 +8,13 @@ export default function Home() {
   const { clubName, mission, aboutIntro, domains } = useCommonData();
 
   useEffect(() => {
-    const elem = (document.querySelector(".main-banner") as HTMLElement) || null;
+    const elem =
+      (document.querySelector(".main-banner") as HTMLElement) || null;
     var h1 = (document.querySelector(".main-banner h1") as HTMLElement) || null;
     var h2 = (document.querySelector(".main-banner h2") as HTMLElement) || null;
-    var i = (document.querySelector(".main-banner .img-container") as HTMLElement) || null;
+    var i =
+      (document.querySelector(".main-banner .img-container") as HTMLElement) ||
+      null;
 
     // const cssFilter = useCssFilter();
     elem.onmousemove = (e) => {
@@ -27,7 +30,9 @@ export default function Home() {
         h2.style.textShadow = `0 0 8px hsl(${percent},100%,50%)`;
       }
       if (i != null) {
-        i.style.filter = `hue-rotate(${parseInt(String(percent))}deg) grayscale(0%)`;
+        i.style.filter = `hue-rotate(${parseInt(
+          String(percent)
+        )}deg) grayscale(0%)`;
       }
     };
     elem.onmouseleave = (e) => {
@@ -42,6 +47,7 @@ export default function Home() {
     <section id="Home">
       <Head>
         <title>Sketch | Home & About</title>
+        <meta name="description" content={clubName + " | " + aboutIntro} />
       </Head>
       <div className="main-banner">
         <h1>{clubName}</h1>

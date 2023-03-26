@@ -11,6 +11,10 @@
   font-family: kato;
   src: url("./fonts/kato.ttf");
 }
+@font-face {
+  font-family: nuku-nuku;
+  src: url("./fonts/nuku1.ttf");
+}
 
 .v1 {
   //v1 needs variables
@@ -32,6 +36,7 @@
   --color4: rgb(114, 113, 240);
   --font-color-main: white;
   --font-hirosh: "hirosh";
+  --font-nuku: "nuku-nuku";
   --font-kato: "kato";
   --header-height: 8.5vh;
   --footer-height: 20vh;
