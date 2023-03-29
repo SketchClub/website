@@ -59,6 +59,7 @@
           background-color: var(--primary-color);
         }
         .img-container {
+          filter: blur(6.5px);
           &::after {
             background-color: var(--secondary-color);
           }
@@ -74,6 +75,7 @@
           background-color: var(--secondary-color);
         }
         .img-container {
+          filter: blur(6.5px);
           &::after {
             background-color: var(--primary-color);
           }
